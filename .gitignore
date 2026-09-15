@@ -1,6 +1,31 @@
-# 內部／私密文件一律不進版本庫（婚前協議、企劃書、共識總表、family 內部頁等）
+# ── 內部／私密：一律不進版本庫 ──────────────────────────────
+# 這是公開版本庫（github.com/sqsqsqlll/hswedding），任何人都看得到。
+# 下面這些留在本機，Claude Code 照樣讀得到、改得到，只是不會被推上去。
+#
+#   docs/      規劃文件與原始填寫檔
+#   site/      家庭內部頁面
+#   CLAUDE.md  內部脈絡說明
+#
+# 註：.gitignore 不支援行尾註解，註解只能自己佔一行。
+docs/
+site/
+CLAUDE.md
 private/
 *.zip
 __MACOSX/
+
+# macOS
 .DS_Store
+.AppleDouble
+.LSOverride
 ._*
+
+# 編輯器
+.vscode/
+.idea/
+*.swp
+
+# 暫存
+*.tmp
+*.log
+node_modules/
