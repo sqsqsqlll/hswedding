@@ -1,0 +1,728 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>婚前共識總表 · 企劃書 ＋ 婚前協議書</title><style>
+:root{--red:#9c2b1f;--gold:#d8a13a;--ink:#2b1f1a;--sub:#7a6555;--line:#e0cdb8;--bg:#fdfaf5}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Serif TC","Songti TC","PingFang TC","Microsoft JhengHei",serif;line-height:1.62}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px 70px}
+header{text-align:center;padding:36px 0 18px;border-bottom:3px solid var(--red);margin-bottom:18px}
+header h1{font-size:28px;letter-spacing:.18em;color:var(--red);margin:0 0 6px}
+header .sub{color:#8a6a45;font-size:13px;letter-spacing:.1em}
+.stat{display:flex;gap:10px;justify-content:center;margin:16px 0 20px;flex-wrap:wrap}
+.chip{padding:6px 16px;border-radius:20px;font-size:13px;border:1px solid}
+.chip.ok{border-color:#4a8c5c;color:#2f6b40;background:#eff7f1}
+.chip.warn{border-color:#c58b23;color:#96660d;background:#fdf6e8}
+.chip.hot{border-color:#b3382a;color:#9c2b1f;background:#fdeeec}
+.top{background:#fff;border:2px solid #f0c9c3;border-radius:12px;padding:18px 22px;margin-bottom:18px}
+.top.gold{border-color:#e5cfa6;background:#fffdf7}
+.top h3{margin:0 0 10px;color:var(--red);font-size:17px}
+.top.gold h3{color:#96660d}
+.top ol{margin:0;padding-left:22px}.top li{margin-bottom:9px;font-size:14px}
+.hn{color:var(--sub);font-size:13px}
+.src{display:inline-block;background:#f2e9db;color:#7a6555;font-size:11px;padding:1px 7px;border-radius:9px;margin-right:7px}
+.bar{position:sticky;top:0;z-index:9;background:rgba(253,250,245,.96);backdrop-filter:blur(6px);padding:9px 0;margin-bottom:16px;border-bottom:1px solid var(--line);display:flex;gap:8px;flex-wrap:wrap}
+.bar button{font:inherit;font-size:13px;padding:6px 14px;border-radius:18px;border:1px solid var(--red);background:#fff;color:var(--red);cursor:pointer}
+.bar button.on,.bar button:hover{background:var(--red);color:#fff}
+.part{margin-top:30px}
+.ph{border-left:5px solid var(--red);padding:4px 0 4px 14px;margin-bottom:18px}
+.ph h2{margin:0;color:var(--red);font-size:22px;letter-spacing:.08em}
+.ph p{margin:3px 0 0;color:var(--sub);font-size:13px}
+section.item{margin-bottom:24px}
+section.item h3{font-size:17px;color:#6b3b18;margin:0 0 11px;padding-bottom:5px;border-bottom:1.5px solid var(--line)}
+.q{background:#fff;border:1px solid var(--line);border-left:4px solid #cfc0ad;border-radius:10px;padding:13px 16px;margin-bottom:12px}
+.q.warn{border-left-color:var(--gold)}.q.hot{border-left-color:#b3382a;background:#fffbfa}
+.qh{display:flex;gap:9px;align-items:flex-start;margin-bottom:9px}
+.badge{font-size:11px;padding:2px 9px;border-radius:11px;white-space:nowrap;flex:none;margin-top:2px}
+.badge.ok{background:#eff7f1;color:#2f6b40;border:1px solid #b6d8c1}
+.badge.warn{background:#fdf6e8;color:#96660d;border:1px solid #ecd39a}
+.badge.hot{background:#fdeeec;color:#9c2b1f;border:1px solid #f0b8b0}
+.qt{font-size:14px;color:#4a3a2e;font-weight:700}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.a{border:1px solid var(--line);border-radius:8px;padding:20px 11px 9px;font-size:13.5px;position:relative;white-space:pre-wrap;background:#fffdfa}
+.a .tag{position:absolute;top:5px;left:10px;font-size:10px;letter-spacing:.08em}
+.a.m{border-color:#c3d6e2}.a.m .tag{color:#3d6f8e}
+.a.f{border-color:#eccfc9}.a.f .tag{color:#a8564a}
+.note{margin-top:8px;font-size:12.5px;color:#7a5a2e;background:#fdf6e8;border-radius:6px;padding:7px 10px}
+.q.hot .note{color:#8c2b20;background:#fdeeec}
+.cons{margin-top:9px;display:flex;gap:8px;align-items:flex-start}
+.cons .cl{font-size:11px;color:var(--red);font-weight:700;white-space:nowrap;padding-top:8px}
+.ed{flex:1;min-height:34px;border:1px dashed #c9b8a6;border-radius:7px;padding:7px 10px;font-size:13.5px;outline:none;background:#fff;white-space:pre-wrap}
+.ed:focus{border-style:solid;border-color:var(--gold);box-shadow:0 0 0 3px rgba(216,161,58,.15)}
+.ed:empty:before{content:attr(data-ph);color:#c3b3a1}
+.sign{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;margin-top:30px}
+.sign h3{color:var(--red);font-size:17px;margin:0 0 16px}
+.sgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.sgrid .cap{font-size:12px;color:var(--sub);margin-bottom:26px}
+.sgrid .ln{border-bottom:1px solid #7a6555}
+.foot{font-size:12px;color:var(--sub);margin-top:18px;border-top:1px solid var(--line);padding-top:12px}
+@media(max-width:700px){.pair,.sgrid{grid-template-columns:1fr}}
+@media print{.bar{display:none}body{background:#fff;font-size:11px}.q,.top{break-inside:avoid}@page{size:A4;margin:12mm}}
+
+#langbar{position:fixed;top:14px;right:16px;z-index:50;display:flex;gap:0;border:1px solid var(--red);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+#langbar button{font:inherit;font-size:13px;padding:6px 15px;border:0;background:#fff;color:var(--red);cursor:pointer}
+#langbar button.on{background:var(--red);color:#fff}
+#sc{display:none}
+body.sc #sc{display:block}body.sc #tc{display:none}
+body.sc{font-family:"Noto Serif SC","Songti SC","PingFang SC","Microsoft YaHei",serif}
+@media print{#langbar{display:none}}
+@media(max-width:700px){#langbar{top:8px;right:8px}}
+</style></head><body>
+<div id="langbar"><button data-l="tc" class="on" onclick="lang('tc')">繁體</button><button data-l="sc" onclick="lang('sc')">简体</button></div>
+<div class="wrap"><div id="tc"><header><h1>婚前共識總表</h1><div class="sub">企劃書 ＋ 婚前協議書　鄭守翔 × 毛千條　共 93 題　2026 / 08 / 31</div></header>
+<div class="stat"><span class="chip ok">一致 42</span><span class="chip warn">待對齊 32</span><span class="chip hot">須談定 19</span></div>
+<div class="top gold"><h3>跨檔案交叉發現</h3><ol><li><b>彩禮去向自相矛盾</b><br><span class="hn">聘金 88,888＋三金已經寫上家人網站對外定案，但企劃書裡你希望「彩禮回到我們自己身上」、她寫「彩禮交予父母」。提親前先私下講定這筆錢的歸屬。</span></li><li><b>定居地是所有題目的總開關</b><br><span class="hn">兩份檔案裡她的答案都繞著廣州／孃家；而 3/18 臺灣戶政登記、依親居留、東京民宿是你的既定行程。先定「前三年實際住哪、一年各待幾個月」。</span></li><li><b>生育時程差一年以上</b><br><span class="hn">你 2027 生、越早越好；她 2028，且要先完成野騎、朝聖之路、南美探險三趟。這三趟的時間與預算要先攤開。</span></li><li><b>孝親費你自己有兩個版本</b><br><span class="hn">企劃書寫每月 1 萬臺幣（年 12 萬），婚前協議同一題卻填 0。統一成一個數字並寫清幣別——換算後其實與她的每節日 2000 人民幣接近。</span></li><li><b>財產議題你偏被動、她很明確</b><br><span class="hn">她兩份都主張婚前財產獨立、按出資比例；你多是「看情況」「按照法律囉」「女方所有」。先想清楚底線，再找律師擬正式協議。</span></li></ol></div>
+<div class="top"><h3>優先處理：這 19 題必須談出結論</h3><ol><li><span class="src">婚姻企劃書</span><b>Q10　婚後定居在哪？未來是否會換城市或置換房產？若一方需隨另一方遷居，能接受嗎？</b><br><span class="hn">你「看毛想住哪」，她「孃家或第三城，每季一個月陪爸媽」。三份檔案都指向廣州，但臺灣依親居留、3/18 戶政登記、東京民宿完全沒進到她的想像裡</span></li><li><span class="src">婚姻企劃書</span><b>Q11　家庭的中期與長期目標？</b><br><span class="hn">你「每年存 12 萬臺幣」，她「50 萬啟動、5 年變 100 萬、年化 15%」。目標量級與報酬期待差距大，且她能接受 20% 回撤、你偏 ETF</span></li><li><span class="src">婚姻企劃書</span><b>Q13　生育計劃：想要孩子嗎？想要幾個？打算何時生？</b><br><span class="hn">你「2027 生、1-2 個」，她「大概 28 年，而且要先完成野騎、朝聖之路、南美探險」。差一年以上</span></li><li><span class="src">婚姻企劃書</span><b>Q19　兩家相處之道：過年回誰家？兩家互動模式與來往頻率？哪些事不希望各自父母干涉？</b><br><span class="hn">過年：這裡你說「兩家一起過」，婚前協議你說「第一年回臺灣」，她說「各自回家」。三個版本</span></li><li><span class="src">婚姻企劃書</span><b>Q26　彩禮 / 嫁妝 / 三金的約定？</b><br><span class="hn">你「希望彩禮都回到我們自己身上」，她「彩禮交予父母」。而聘金 88,888＋三金已對外定案——提親前必須先私下講定</span></li><li><span class="src">婚姻企劃書</span><b>Q29　兩家見面與生育時間線：雙方家庭見面/提親的時間？婚後打算何時要孩子，與事業/買房如何排序？</b><br><span class="hn">你「七月提親、登記後家長再去廣州」，她「財務規劃、身體調養、職業小目標達成後再生育；生育＞事業＞買房」</span></li><li><span class="src">婚姻企劃書</span><b>Q37　財產約定與傳承？</b><br><span class="hn">你「按照法律囉」，她「婚前財產獨立、各自繼承」。財產議題上你偏被動、她立場明確</span></li><li><span class="src">婚前協議書</span><b>生活狀態｜定居城市是否有共識？</b><br><span class="hn">男方：孩子生在廣州；女方：半年廣州、其他隨意。但依親居留、3/18 戶政登記、東京民宿全綁在這題上</span></li><li><span class="src">婚前協議書</span><b>購房首付誰出｜一方全額出資、雙方共同出資，還是雙方父母部分資助？</b><br><span class="hn">男方「臺灣我出、廣州妳出」；女方「共同買一人一半、不牽扯父母」。兩套邏輯完全不同</span></li><li><span class="src">婚前協議書</span><b>購房首付誰出｜出資部分是贈與還是借款？</b><br><span class="hn">一個說贈與、一個說「不算贈與也不算借款」——法律上必須二選一寫死</span></li><li><span class="src">婚前協議書</span><b>房產登記在誰的名下｜單獨所有、共同所有，還是按出資比例按份共有？</b><br><span class="hn">男方要登記女方所有、女方要按出資比例共有。男方讓步幅度比女方要求的還大，先確認是不是真心話</span></li><li><span class="src">婚前協議書</span><b>婚後房貸由誰償還｜還貸部分對應的房產增值該如何認定？</b><br><span class="hn">男方提出「若女方過錯則增值全歸我」——過錯條款在大陸法下難執行，必須律師擬定</span></li><li><span class="src">婚前協議書</span><b>經濟安全網｜如果一方失業或收入驟降，另一方願意無條件支援多久？</b><br><span class="hn">男方 6 個月無條件；女方第一季無條件、第二季減半。差一倍</span></li><li><span class="src">婚前協議書</span><b>經濟支援上限｜每月或每年給父母多少經濟支援？</b><br><span class="hn">男方這題填 0，但第三大項孝親費卻填每年 120,000——自己前後矛盾</span></li><li><span class="src">婚前協議書</span><b>生育意願｜是否要孩子？什麼時候生？生幾個？</b><br><span class="hn">男方「越早越好、2 個以內」；女方「隨緣，準備好再生」。最容易拖成長期矛盾</span></li><li><span class="src">婚前協議書</span><b>生育規劃｜責任與育兒觀念如何協調？對職業發展的影響如何評估？</b><br><span class="hn">男方未作答</span></li><li><span class="src">婚前協議書</span><b>情感底線｜什麼是絕對不能容忍的行為？</b><br><span class="hn">男方只寫「拋家棄子」；女方列了六項。紅線範圍差距極大</span></li><li><span class="src">婚前協議書</span><b>情感底線｜如何處理觸及底線的情況？</b><br><span class="hn">男方「包容原諒但不貳過」，女方「離婚打官司」。全表最大分歧</span></li><li><span class="src">婚前協議書</span><b>暴力底線｜出現暴力行為如何處理？</b><br><span class="hn">男方冷靜溝通、女方報警分居離婚。與上一題連動</span></li></ol></div>
+<div class="bar">
+<button class="f on" onclick="flt('all',this)">全部</button>
+<button class="f" onclick="flt('hot',this)">只看須談定</button>
+<button class="f" onclick="flt('warn',this)">只看待對齊</button>
+<button onclick="window.print()">列印 / 存成 PDF</button>
+<button onclick="exp()">匯出共同結論</button></div>
+<div class="part" id="partA"><div class="ph"><h2>壹　婚姻企劃書</h2><p>三觀、事業、家庭、財務、養老——37 題，重在彼此瞭解</p></div><section class="item"><h3>1.1　三觀 · 性格 · 生活方式</h3><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">Q1　你眼中的彼此：雙方性格與三觀的優缺點，以及對方最打動你的地方？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>優點：獨立、善解決問題、體貼個性
+缺點：猶豫不決、執行力弱</div><div class="a f"><span class="tag">毛千條</span>健康積極陽光向上 講義氣
+唯能量學論-太容易掉入正能量陷阱</div></div>
+<div class="note">互評題，本來就不必一致</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s1a_0_c" data-ph="談完寫這裡…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待對齊</span><span class="qt">Q2　對方有哪些生活習慣是你較難接受的？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>無，都可以接受
+如可以更好：請早睡、毛太多</div><div class="a f"><span class="tag">毛千條</span>隨地挖鼻屎
+襪子內褲一起洗
+生熟不分刀切</div></div>
+<div class="note">她列了三項具體的（挖鼻屎、襪子內褲同洗、生熟不分刀）；你寫「都可以接受」。她在兩份檔案都寫挖鼻屎，是認真的</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s1a_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">Q3　你的金錢觀與消費觀？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>需要的就要花是投資，對於理財頗為重視，需要好好安排分配，記帳清晰。</div><div class="a f"><span class="tag">毛千條</span>旅行就是奢侈品
+拓展自我的消費都算是合理的
+70%實用主義，20%追求品質，10%情緒消費
+買對不買貴 減少消費頻率 增加物品使用頻率</div></div>
+<div class="note">都偏理性記帳、實用主義</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s1a_2_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">Q4　你理想的生活方式與節奏？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>需要工作自我實現，影響更多人，也需要生活旅遊運動平衡</div><div class="a f"><span class="tag">毛千條</span>工作既可以賺錢又可以給到自己正反饋；卷該卷的，該佛系的時候佛系；有條件有機會嘗試不同的生活方式</div></div>
+<div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s1a_3_c" data-ph="談完寫這裡…"></div></div></div></section><section class="item"><h3>1.2　壓力與心態</h3><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">Q5　面對壓力與挫折，你怎樣調節和恢復？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>走出戶外曬太陽、找人訴說請求、能量學</div><div class="a f"><span class="tag">毛千條</span>發呆放空聽音樂，看書寫字吃零食；覆盤覆盤再覆盤，重複到自己脫敏為止</div></div>
+<div class="note">你外向紓壓、她內向復盤，不衝突</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s1b_0_c" data-ph="談完寫這裡…"></div></div></div></section><section class="item"><h3>1.3　成長與事業</h3><div class="q warn">
+<div class="qh"><span class="badge warn">待對齊</span><span class="qt">Q6　你的事業心與規劃？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>有野心，想要創造影響力的公司。</div><div class="a f"><span class="tag">毛千條</span>適應性強，耐心，語言和經驗；
+考證、探索更多的職業可能：轉職、副業etc</div></div>
+<div class="note">你要「創造影響力的公司」，她是「轉職、副業、考證」。企圖心量級不同，直接影響時間分配與居住地</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s1c_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待對齊</span><span class="qt">Q7　你的個人夢想與創業想法？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>找尋更有趣的事物投入以及發揚光大</div><div class="a f"><span class="tag">毛千條</span>有切實可以看見的工作產出實體，得到社會、市場認可；積累1-2年，研究更多；沒有試錯完成之前不要動存款</div></div>
+<div class="note">她寫「沒有試錯完成之前不要動存款」——這是對你創業的財務界線，要正面回應</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s1c_2_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">Q8　你怎麼看持續學習？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>持續學習，有好的課程，就敞開心胸去學習</div><div class="a f"><span class="tag">毛千條</span>活到老學到老
+持續吸入心理學、語言學、金融經濟、歷史地緣知識
+考PMP、導遊證、咖啡師、調酒師etc</div></div>
+<div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s1c_3_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">Q9　你們如何彼此支援、化解差距焦慮？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>每月反省討論，正視面對不逃避、不焦慮</div><div class="a f"><span class="tag">毛千條</span>處理生活雜事；最好超過自己，這樣才有追趕動力；打點家務事宜，節流</div></div>
+<div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s1c_4_c" data-ph="談完寫這裡…"></div></div></div></section><section class="item"><h3>2.1　家庭發展與未來</h3><div class="q hot">
+<div class="qh"><span class="badge hot">須談定</span><span class="qt">Q10　婚後定居在哪？未來是否會換城市或置換房產？若一方需隨另一方遷居，能接受嗎？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>看毛想住哪，到時討論，等她更明確才會知道</div><div class="a f"><span class="tag">毛千條</span>孃家或者第三城，最好每季度有一個月陪爸媽</div></div>
+<div class="note">你「看毛想住哪」，她「孃家或第三城，每季一個月陪爸媽」。三份檔案都指向廣州，但臺灣依親居留、3/18 戶政登記、東京民宿完全沒進到她的想像裡</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s2a_0_c" data-ph="談完寫這裡…"></div></div></div><div class="q hot">
+<div class="qh"><span class="badge hot">須談定</span><span class="qt">Q11　家庭的中期與長期目標？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>目前淨資產五百萬，還有不動產，所以希望每年都能持續投入股票，每年存款12萬臺幣。</div><div class="a f"><span class="tag">毛千條</span>50萬啟動資金，5年後變成100萬，年化收益15%</div></div>
+<div class="note">你「每年存 12 萬臺幣」，她「50 萬啟動、5 年變 100 萬、年化 15%」。目標量級與報酬期待差距大，且她能接受 20% 回撤、你偏 ETF</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s2a_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">Q12　抗風險與取捨：若一方失業，或為支援對方事業需要犧牲，如何安排收入與分工、願做哪些犧牲？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>以機會成本來考量。</div><div class="a f"><span class="tag">毛千條</span>有工作的就多承擔一點賺錢任務，失業方努力研究炒股投資開拓副業、打點生活、管理共有賬戶餘額</div></div>
+<div class="note">都是有工作的多扛、失業方顧生活與副業</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s2a_2_c" data-ph="談完寫這裡…"></div></div></div></section><section class="item"><h3>2.2　生育與子女教育</h3><div class="q hot">
+<div class="qh"><span class="badge hot">須談定</span><span class="qt">Q13　生育計劃：想要孩子嗎？想要幾個？打算何時生？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>想，1-2個，2027生，因為好年。</div><div class="a f"><span class="tag">毛千條</span>要先完成野騎、朝聖之路、南美洲探險之後再；大概是28年，1-2個，要看身體情況</div></div>
+<div class="note">你「2027 生、1-2 個」，她「大概 28 年，而且要先完成野騎、朝聖之路、南美探險」。差一年以上</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s2b_0_c" data-ph="談完寫這裡…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待對齊</span><span class="qt">Q14　育兒分工與責任：孩子誰來帶、兩人及雙方父母如何分工？能接受一方因事業打拼而缺位育兒嗎？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>打拼事業也是要一起育兒，到時需要託嬰、以及雙方父母偶爾打下手，但要看在哪裡養育</div><div class="a f"><span class="tag">毛千條</span>不接受配偶缺位，儘量自己努力帶，要學習育兒知識；雙方父母偶爾幫忙看管即可，教育由夫妻雙方決定；不出力就多少出點奶粉錢；</div></div>
+<div class="note">她明確「不接受配偶缺位」；你留了「要看在哪裡養育」的伏筆，與定居題連動</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s2b_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">Q15　教育觀：教育孩子最重要的是什麼？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>快樂學習就好，主要是個性要教好重要，課業其次</div><div class="a f"><span class="tag">毛千條</span>正直善良誠信開放踏實勤奮健康向上</div></div>
+<div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s2b_2_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">Q16　養育費用如何分擔與提前準備？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>雙方每月提撥比例出來，或者分帳戶一筆費用是為小孩存的</div><div class="a f"><span class="tag">毛千條</span>提前存育兒基金，決定生育前存好教育保險</div></div>
+<div class="note">都主張開專戶預存</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s2b_3_c" data-ph="談完寫這裡…"></div></div></div></section><section class="item"><h3>2.3　父母贍養與兩個家庭</h3><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">Q17　與父母同住安排：是否同住、各階段傾向、長住還是短住？父母來小家時怎麼住、有矛盾怎麼處理？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>可以同住，主要還是以我們自己舒服為主，要有點距離才是美，所以來小家就是短住。</div><div class="a f"><span class="tag">毛千條</span>儘量不長期同住，如要帶小孩則兩至三個月max；有矛盾儘量冷靜講道理，商量著來，但配偶要和自己站在一個戰線上；無論誰更有理，在誰家誰就更應在面子上護著對方</div></div>
+<div class="note">都是不長住、短住可</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s2c_0_c" data-ph="談完寫這裡…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待對齊</span><span class="qt">Q18　雙方父母的經濟與養老：父母收入與養老儲備如何？每月是否給贍養費、多少合適？怎樣為父母未來養老/失能做準備？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>父母都不需要我們提供養老金，但需要提供每月孝親費1萬，一年12萬。如失能，需要三兄弟一起來分擔。</div><div class="a f"><span class="tag">毛千條</span>爸媽目前可以養活自己，每個節日給贍養費一人兩千；存錢，督促體檢看病</div></div>
+<div class="note">你每月 1 萬臺幣（年 12 萬）、她每節日一人 2000 人民幣，換算後接近。但你在婚前協議把同一題填 0，前後不一</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s2c_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q hot">
+<div class="qh"><span class="badge hot">須談定</span><span class="qt">Q19　兩家相處之道：過年回誰家？兩家互動模式與來往頻率？哪些事不希望各自父母干涉？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>過年會希望兩家一起來過。</div><div class="a f"><span class="tag">毛千條</span>帶身邊，或者各自回家，一年有機會就見一次一起玩；工作投資生活方式，育兒方式教育方式</div></div>
+<div class="note">過年：這裡你說「兩家一起過」，婚前協議你說「第一年回臺灣」，她說「各自回家」。三個版本</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s2c_2_c" data-ph="談完寫這裡…"></div></div></div></section><section class="item"><h3>2.4　夫妻約定 / 家規</h3><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">Q20　溝通與衝突機制？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>有事直說，理性溝通，對事不對人</div><div class="a f"><span class="tag">毛千條</span>有事直說，冷戰罰錢，一小時罰一千；當日覆盤，誰意識到了就覆盤；舒壓小物！</div></div>
+<div class="note">都主張有事直說；她加碼「冷戰罰錢，一小時一千」，可直接寫進家規</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s2d_0_c" data-ph="談完寫這裡…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待對齊</span><span class="qt">Q21　家務如何分工？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>公同分擔</div><div class="a f"><span class="tag">毛千條</span>誰先回家誰煮飯，垃圾滿了就要倒，需要對方做的要及時說</div></div>
+<div class="note">你「共同分擔」太模糊，她已給可執行規則。照她版本落地</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s2d_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待對齊</span><span class="qt">Q22　個人空間與邊界？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>需要空間幹活發呆、要跟朋友出去耍廢，你能跟最好，不能也不會勉強</div><div class="a f"><span class="tag">毛千條</span>沒有強制獨處時間，但可以申請
+獨處報備
+社交有對方
+不主動查手機但要查可以隨時給對方查</div></div>
+<div class="note">她提「獨處報備」「不主動查手機但要查隨時可查」，你沒有對應回答</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s2d_2_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">Q23　儀式感與共同維護？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>必須得過</div><div class="a f"><span class="tag">毛千條</span>每年要結婚紀念！每月保持一次約會！
+保持身材健康管理</div></div>
+<div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s2d_3_c" data-ph="談完寫這裡…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待對齊</span><span class="qt">Q24　各自最在意、希望對方務必尊重的一兩件事？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>在外男人的尊嚴，不潑冷水</div><div class="a f"><span class="tag">毛千條</span>商量事情事不要顧左右而言他；
+不要用道德綁架或者拖字訣辦法來做事；</div></div>
+<div class="note">你要「在外的尊嚴、不潑冷水」，她要「不顧左右而言他、不用道德綁架或拖字訣」。兩條都寫進家規</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s2d_4_c" data-ph="談完寫這裡…"></div></div></div></section><section class="item"><h3>3.1　婚禮籌備</h3><div class="q warn">
+<div class="qh"><span class="badge warn">待對齊</span><span class="qt">Q25　婚禮形式與預算？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>辦廣州，找餐廳朋友大家一起聚，總預算不超過臺幣100萬，到時可以看桌數，扣掉紅包來分配</div><div class="a f"><span class="tag">毛千條</span>儀式從簡，儘量私密，簡單宴客即可，不想肉麻俗套
+能減即減，攝影要好</div></div>
+<div class="note">你「找餐廳朋友大家一起聚、預算 100 萬臺幣」，她「儀式從簡、盡量私密」。你在看 Sofitel 與植物園，先確認她要的規模再下訂</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s3a_0_c" data-ph="談完寫這裡…"></div></div></div><div class="q hot">
+<div class="qh"><span class="badge hot">須談定</span><span class="qt">Q26　彩禮 / 嫁妝 / 三金的約定？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>看你們家怎麼打算，希望都能回到我們自己身上，用來結婚、蜜月、旅行等</div><div class="a f"><span class="tag">毛千條</span>婚禮收入各家分攤；彩禮交予父母，用以宴客或者小家備用金</div></div>
+<div class="note">你「希望彩禮都回到我們自己身上」，她「彩禮交予父母」。而聘金 88,888＋三金已對外定案——提親前必須先私下講定</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s3a_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待對齊</span><span class="qt">Q27　婚紗照與蜜月計劃？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>旅行婚紗、蜜月你決定，只要我們倆都沒去過的地方就行。
+20萬臺幣</div><div class="a f"><span class="tag">毛千條</span>坦尚尼亞，哈薩克/烏茲別克，南意，朝聖之路</div></div>
+<div class="note">你婚紗蜜月抓 20 萬臺幣，她列了坦尚尼亞、哈薩克／烏茲別克、南義、朝聖之路，遠超預算，且與張家界行程重疊</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s3a_2_c" data-ph="談完寫這裡…"></div></div></div></section><section class="item"><h3>3.2　流程與落地</h3><div class="q warn">
+<div class="qh"><span class="badge warn">待對齊</span><span class="qt">Q28　時間線與流程：領證、辦酒、改口的時間與安排？宴請名單與籌備分工？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>八月去廣州就可以安排找酒店安排場地
+名單各字安排親戚與自己的朋友分工</div><div class="a f"><span class="tag">毛千條</span>沒有</div></div>
+<div class="note">她這題填「沒有」＝未答。婚禮時間線目前只有你的版本</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s3b_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q hot">
+<div class="qh"><span class="badge hot">須談定</span><span class="qt">Q29　兩家見面與生育時間線：雙方家庭見面/提親的時間？婚後打算何時要孩子，與事業/買房如何排序？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>提親七月提親，登記後，可以找時間雙方家長再去廣州完成後續事宜。</div><div class="a f"><span class="tag">毛千條</span>實現財務規劃、身體健康調養、職業小目標後再生育；生育&gt;事業&gt;買房</div></div>
+<div class="note">你「七月提親、登記後家長再去廣州」，她「財務規劃、身體調養、職業小目標達成後再生育；生育＞事業＞買房」</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s3b_2_c" data-ph="談完寫這裡…"></div></div></div></section><section class="item"><h3>4.1　收支與債務</h3><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">Q30　收支現狀與規劃？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>按比例提撥到家務事用帳戶，共同支出從該帳戶支出，個人支出不管，每月再另存一萬投資用。</div><div class="a f"><span class="tag">毛千條</span>工資+副業；包括旅行費用每月約花費10000-15000人民幣，主要都是吃喝拉撒衣食住行，擊劍、跳舞；存5000-10000</div></div>
+<div class="note">都是按比例提撥＋共同帳戶支出</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s4a_0_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">Q31　債務情況：你和你的家庭有哪些債務？打算怎麼處理？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>只有房貸、信貸按時還款即可，不受任何影響</div><div class="a f"><span class="tag">毛千條</span>沒有債務；婚前債務自己擔，婚後共同債務要商量過才可以確認擔新債</div></div>
+<div class="note">她加的「婚前債務各自擔、婚後共同債務須商量過」可直接寫進協議</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s4a_1_c" data-ph="談完寫這裡…"></div></div></div></section><section class="item"><h3>4.2　管理與理財</h3><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">Q32　賬戶與管理模式？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>三帳戶法</div><div class="a f"><span class="tag">毛千條</span>傾向於三賬戶法，共同賬戶每月存入5000人民幣；共同賬戶一個人出納、一個人記賬，每月統計</div></div>
+<div class="note">都選三帳戶法；她已給出每月 5000 人民幣與「一人出納一人記帳」，直接採用</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s4b_0_c" data-ph="談完寫這裡…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待對齊</span><span class="qt">Q33　理財與風險偏好？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>ETF、股票、副業投資</div><div class="a f"><span class="tag">毛千條</span>全都要；可接受20%的回撤，股債比例沒關係</div></div>
+<div class="note">風險偏好不同——共同帳戶與個人帳戶建議用不同策略，別混在一起</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s4b_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待對齊</span><span class="qt">Q34　大額消費決策？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>共同決定</div><div class="a f"><span class="tag">毛千條</span>看花費內容，自用超過家庭每月收入的30%要商量</div></div>
+<div class="note">你「共同決定」，她「自用超過月收入 30% 才商量」。定一個具體金額</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s4b_2_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">Q35　應急備用金目標？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>6個月</div><div class="a f"><span class="tag">毛千條</span>放共同賬戶定期/某個理財產品/ETF</div></div>
+<div class="note">你講月數、她講存放方式，正好互補</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s4b_3_c" data-ph="談完寫這裡…"></div></div></div></section><section class="item"><h3>4.3　保障與養老</h3><div class="q warn">
+<div class="qh"><span class="badge warn">待對齊</span><span class="qt">Q36　自己的養老規劃？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>每月五萬臺幣養老</div><div class="a f"><span class="tag">毛千條</span>社保+自己商業養老，活到老勞動到老，讀書、炒股、種菜、養動物；每月存4000元社保+商業保險養老</div></div>
+<div class="note">你「每月五萬臺幣養老」沒講怎麼存到；她已列社保＋商業保險＋每月 4000。把目標拆成每月提撥數字</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s4c_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q hot">
+<div class="qh"><span class="badge hot">須談定</span><span class="qt">Q37　財產約定與傳承？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>按照法律囉</div><div class="a f"><span class="tag">毛千條</span>約定，婚前財產獨立，各自繼承；</div></div>
+<div class="note">你「按照法律囉」，她「婚前財產獨立、各自繼承」。財產議題上你偏被動、她立場明確</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="s4c_2_c" data-ph="談完寫這裡…"></div></div></div></section></div><div class="part" id="partB"><div class="ph"><h2>貳　婚前協議書</h2><p>七大核心議題——56 題，重在把共識寫死</p></div><section class="item"><h3>一　未來規劃與人生方向</h3><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">職業規劃｜未來 5 年的職業規劃是什麼？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>把公司弄的更穩健，有穩定的現金流</div><div class="a f"><span class="tag">毛千條</span>換工作，提升收入</div></div>
+<div class="note">各自方向不同但不衝突</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q1_1_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">職業規劃｜是否支援對方的異地發展或事業追求？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>支援</div><div class="a f"><span class="tag">毛千條</span>支援</div></div>
+<div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q1_1_2_c" data-ph="談完寫這裡…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待對齊</span><span class="qt">生活狀態｜未來理想中的生活是奮鬥拼搏，還是安穩平淡？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>奮鬥拼搏，突破圈層</div><div class="a f"><span class="tag">毛千條</span>平淡地奮鬥</div></div>
+<div class="note">「突破圈層」vs「平淡地奮鬥」——步調期待不同，講清楚各自要付出多少時間</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q1_2_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q hot">
+<div class="qh"><span class="badge hot">須談定</span><span class="qt">生活狀態｜定居城市是否有共識？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>生孩子在廣州</div><div class="a f"><span class="tag">毛千條</span>半年廣州，其他時間跑哪裡都行</div></div>
+<div class="note">男方：孩子生在廣州；女方：半年廣州、其他隨意。但依親居留、3/18 戶政登記、東京民宿全綁在這題上</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q1_2_2_c" data-ph="談完寫這裡…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待對齊</span><span class="qt">生活狀態｜自購房還是租房居住？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>看在哪兒囉
+新北就是自購房/臺中住家裡
+廣州看毛千條
+東京就是租房</div><div class="a f"><span class="tag">毛千條</span>租房，輕資產</div></div>
+<div class="note">男方看地點決定、女方要輕資產租房；與第二大項的房產題連動</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q1_2_3_c" data-ph="談完寫這裡…"></div></div></div></section><section class="item"><h3>二　房產安排</h3><div class="q hot">
+<div class="qh"><span class="badge hot">須談定</span><span class="qt">購房首付誰出｜一方全額出資、雙方共同出資，還是雙方父母部分資助？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>婚後如買在臺灣我出資，買在廣州毛千條出資</div><div class="a f"><span class="tag">毛千條</span>共同買的話一人一半，最好不要牽扯父母</div></div>
+<div class="note">男方「臺灣我出、廣州妳出」；女方「共同買一人一半、不牽扯父母」。兩套邏輯完全不同</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q2_1_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q hot">
+<div class="qh"><span class="badge hot">須談定</span><span class="qt">購房首付誰出｜出資部分是贈與還是借款？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>頭期款算贈與</div><div class="a f"><span class="tag">毛千條</span>不算贈與不算借款</div></div>
+<div class="note">一個說贈與、一個說「不算贈與也不算借款」——法律上必須二選一寫死</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q2_1_2_c" data-ph="談完寫這裡…"></div></div></div><div class="q hot">
+<div class="qh"><span class="badge hot">須談定</span><span class="qt">房產登記在誰的名下｜單獨所有、共同所有，還是按出資比例按份共有？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>女方所有</div><div class="a f"><span class="tag">毛千條</span>按出資比例共同</div></div>
+<div class="note">男方要登記女方所有、女方要按出資比例共有。男方讓步幅度比女方要求的還大，先確認是不是真心話</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q2_2_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待對齊</span><span class="qt">婚後房貸由誰償還｜用一方薪資還，還是用共同收入還？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>共同收入還貸</div><div class="a f"><span class="tag">毛千條</span>看房屋歸屬情況，按比例</div></div>
+<div class="note">接在 2-2 定案後即可解</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q2_3_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q hot">
+<div class="qh"><span class="badge hot">須談定</span><span class="qt">婚後房貸由誰償還｜還貸部分對應的房產增值該如何認定？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>還我付的貸款支出部分數值，如是女方過錯我就要增值全部</div><div class="a f"><span class="tag">毛千條</span>無過錯情況下按出資比例認定，有過錯的話打官司。</div></div>
+<div class="note">男方提出「若女方過錯則增值全歸我」——過錯條款在大陸法下難執行，必須律師擬定</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q2_3_2_c" data-ph="談完寫這裡…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待對齊</span><span class="qt">婚前房產之處理｜若一方有婚前房產，婚後是否會置換為共同房產？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>婚前房產各自處理</div><div class="a f"><span class="tag">毛千條</span>看需求，婚後有置換需求的話就再考慮。</div></div>
+<div class="note">建議寫死「婚前房產各自所有，置換須另立書面」</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q2_4_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">婚前房產之處理｜房產的租金、增值收益是否算作夫妻共同財產？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>否</div><div class="a f"><span class="tag">毛千條</span>不算</div></div>
+<div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q2_4_2_c" data-ph="談完寫這裡…"></div></div></div></section><section class="item"><h3>三　財務管理與金錢觀</h3><div class="q warn">
+<div class="qh"><span class="badge warn">待對齊</span><span class="qt">收入管理｜婚後採用共同帳戶、AA 制，還是部分共享部分自主的模式？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>共同帳戶按收入比例打款進去</div><div class="a f"><span class="tag">毛千條</span>共同賬戶部分共享部分自主</div></div>
+<div class="note">方向一致（共同帳戶＋部分自主），差在比例——把百分比填進共同結論</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q3_1_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">大額支出的決策｜多少金額以上的消費需要雙方共同商量？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>買車買房都會商量，超過一個月工資就會商量</div><div class="a f"><span class="tag">毛千條</span>超平均一月工資</div></div>
+<div class="note">門檻幾乎相同，只差換算成具體金額</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q3_2_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">家庭應急儲備金｜額度多少？由誰保管？動用規則為何？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>六個月，毛千條，重大事故</div><div class="a f"><span class="tag">毛千條</span>六個月共同收入，女方，共同認定之影響巨大事件</div></div>
+<div class="note">額度、保管人、動用條件三項全對上</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q3_3_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">債務與資產｜雙方是否有房貸、車貸、信用卡欠款等債務？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>房貸</div><div class="a f"><span class="tag">毛千條</span>無</div></div>
+<div class="note">男方有房貸、女方無——揭露完成</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q3_4_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">債務與資產｜婚前是否需要做財產公證？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>都可以</div><div class="a f"><span class="tag">毛千條</span>做</div></div>
+<div class="note">女方要做、男方沒意見 → 可直接定案：做財產公證</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q3_4_2_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">消費觀差異｜一方節儉一方大手大腳，如何平衡？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>討論溝通</div><div class="a f"><span class="tag">毛千條</span>該省省該花花</div></div>
+<div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q3_5_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待對齊</span><span class="qt">消費觀差異｜對「必要開支」的定義是否一致？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>生活還算一致，但投資的部分不太一致需要討論</div><div class="a f"><span class="tag">毛千條</span>70%</div></div>
+<div class="note">男方點名「投資的部分不一致」，這條要單獨談</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q3_5_2_c" data-ph="談完寫這裡…"></div></div></div><div class="q hot">
+<div class="qh"><span class="badge hot">須談定</span><span class="qt">經濟安全網｜如果一方失業或收入驟降，另一方願意無條件支援多久？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>6個月，看共同帳戶有多少囉</div><div class="a f"><span class="tag">毛千條</span>三個月有起色，三個月到半年恢復；無條件支援一個季度，第二季度支援力度減半</div></div>
+<div class="note">男方 6 個月無條件；女方第一季無條件、第二季減半。差一倍</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q3_6_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待對齊</span><span class="qt">贍養親友的金錢邊界｜各自給父母贍養費的標準為何？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>每年120,000元</div><div class="a f"><span class="tag">毛千條</span>一季度6000</div></div>
+<div class="note">若男方是臺幣、女方是人民幣，換算後其實接近（約 27,000 vs 24,000 RMB／年）。務必寫清幣別</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q3_7_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">贍養親友的金錢邊界｜親戚朋友借錢，哪些可以同意、哪些必須拒絕？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>超過自己能力就是要拒絕</div><div class="a f"><span class="tag">毛千條</span>緊急的重大疾病，其餘能拒絕就拒絕</div></div>
+<div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q3_7_2_c" data-ph="談完寫這裡…"></div></div></div></section><section class="item"><h3>四　家務分配與生活習慣</h3><div class="q warn">
+<div class="qh"><span class="badge warn">待對齊</span><span class="qt">家務分工｜如何分配家務？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>毛千條不洗碗</div><div class="a f"><span class="tag">毛千條</span>煮飯共同，掃地收納洗衣；其餘男方幹</div></div>
+<div class="note">男方只講「毛千條不洗碗」，女方已列明細——照女方版本逐項確認</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q4_1_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">家務分工｜是否根據各自擅長或意願來劃分？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>是的</div><div class="a f"><span class="tag">毛千條</span>根據實際情況分。</div></div>
+<div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q4_1_2_c" data-ph="談完寫這裡…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待對齊</span><span class="qt">家務分工｜日常家務如何分工：做飯、洗碗、掃地、洗衣、收納、倒垃圾等。</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>看情況分工，相互協助</div><div class="a f"><span class="tag">毛千條</span>煮飯共同，掃地收納洗衣；其餘男方幹</div></div>
+<div class="note">把每項家務落到人</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q4_1_3_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">家務分工｜有否固定的輪換規則？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>沒有</div><div class="a f"><span class="tag">毛千條</span>無</div></div>
+<div class="note">兩人都不要固定輪換</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q4_1_4_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">「家務價值」的共識｜對家務勞動的價值是否認可？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>認可</div><div class="a f"><span class="tag">毛千條</span>認可</div></div>
+<div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q4_2_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">「家務價值」的共識｜一方因工作繁忙無法顧家時，兜底的方案是什麼？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>互相囉</div><div class="a f"><span class="tag">毛千條</span>暫時多承擔，必要時請鐘點</div></div>
+<div class="note">女方版本更具體，可直接採用</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q4_2_2_c" data-ph="談完寫這裡…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待對齊</span><span class="qt">生活習慣磨合｜對衛生的標準、最不能接受的生活習慣，是否瞭解並接受？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>瞭解</div><div class="a f"><span class="tag">毛千條</span>公眾場合挖鼻屎</div></div>
+<div class="note">女方點名「公眾場合挖鼻屎」——她認真在講，別當笑話帶過</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q4_3_1_c" data-ph="談完寫這裡…"></div></div></div></section><section class="item"><h3>五　原生家庭相處的邊界</h3><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">居住安排｜婚後是否和父母一起住？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>否</div><div class="a f"><span class="tag">毛千條</span>超過一個月的否，短期的可以；自己回自己家不算</div></div>
+<div class="note">實質一致：不長住、短期可</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q5_1_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">居住安排｜如果一起住，是長期還是偶爾短期暫住？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>短住</div><div class="a f"><span class="tag">毛千條</span>短住</div></div>
+<div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q5_1_2_c" data-ph="談完寫這裡…"></div></div></div><div class="q hot">
+<div class="qh"><span class="badge hot">須談定</span><span class="qt">經濟支援上限｜每月或每年給父母多少經濟支援？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>0</div><div class="a f"><span class="tag">毛千條</span>看情況</div></div>
+<div class="note">男方這題填 0，但第三大項孝親費卻填每年 120,000——自己前後矛盾</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q5_2_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待對齊</span><span class="qt">經濟支援上限｜如果父母生病或需要大額資金，優先順序如何排序？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>父母都有保險</div><div class="a f"><span class="tag">毛千條</span>治療</div></div>
+<div class="note">要定「保險不夠時，上限多少、誰先出」</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q5_2_2_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">關係界限｜如何避免原生家庭過度介入小家庭的事務？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>距離就是美</div><div class="a f"><span class="tag">毛千條</span>保持距離頻率，保持情況更新，及時提點</div></div>
+<div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q5_3_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">關係界限｜長輩的居家出入許可權：是否需要提前打招呼？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>需要提前招呼</div><div class="a f"><span class="tag">毛千條</span>提前說明</div></div>
+<div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q5_3_2_c" data-ph="談完寫這裡…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待對齊</span><span class="qt">父母插手時的立場｜面對父母插手小家庭事務，兩人是否保持統一立場？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>是</div><div class="a f"><span class="tag">毛千條</span>具體情況具體分析</div></div>
+<div class="note">先約定「對外一致、有異議私下說」</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q5_4_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">父母插手時的立場｜由誰出面溝通協調？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>各自協調自己父母</div><div class="a f"><span class="tag">毛千條</span>自己爸媽自己管</div></div>
+<div class="note">各自管各自父母，完全一致</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q5_4_2_c" data-ph="談完寫這裡…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待對齊</span><span class="qt">節假日探親安排｜過年去向與探親頻率如何平衡？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>都會去探親</div><div class="a f"><span class="tag">毛千條</span>一邊一年，或者接一起過</div></div>
+<div class="note">女方提「一邊一年或接一起過」更具體，可直接採用</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q5_5_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待對齊</span><span class="qt">節假日探親安排｜春節、中秋等節日去誰家過？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>第一年要回臺灣過，後面都可以討論一起過</div><div class="a f"><span class="tag">毛千條</span>輪流，或者再討論</div></div>
+<div class="note">男方要第一年回臺灣過年，女方說輪流或再議——第一年現在就定</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q5_5_2_c" data-ph="談完寫這裡…"></div></div></div></section><section class="item"><h3>六　生育與育兒規劃</h3><div class="q hot">
+<div class="qh"><span class="badge hot">須談定</span><span class="qt">生育意願｜是否要孩子？什麼時候生？生幾個？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>是，越早越好，2個內</div><div class="a f"><span class="tag">毛千條</span>隨緣，經濟心態準備好了生</div></div>
+<div class="note">男方「越早越好、2 個以內」；女方「隨緣，準備好再生」。最容易拖成長期矛盾</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q6_1_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">育兒分工｜孩子出生後誰主要來帶？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>自己帶</div><div class="a f"><span class="tag">毛千條</span>自己帶</div></div>
+<div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q6_2_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">育兒分工｜父母是否能幫忙？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>可以幫但不是長期</div><div class="a f"><span class="tag">毛千條</span>偶爾幫忙照看可以，長期體力就算了</div></div>
+<div class="note">都是偶爾可、長期不行</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q6_2_2_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">育兒分工｜教育理念是否一致？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>快樂長大品德為重點</div><div class="a f"><span class="tag">毛千條</span>德智體美勞</div></div>
+<div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q6_2_3_c" data-ph="談完寫這裡…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待對齊</span><span class="qt">撫養費用與責任｜生育、養娃的費用如何分擔？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>共同負擔</div><div class="a f"><span class="tag">毛千條</span>體力付出少的多出錢，不出錢就出力；錢力不出直接離婚</div></div>
+<div class="note">女方講得很重（「錢力不出直接離婚」）——男方只寫共同負擔，要具體回應</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q6_3_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">撫養費用與責任｜女方因孕期、產期、哺乳期導致的工作調整，家庭是否支援？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>支援</div><div class="a f"><span class="tag">毛千條</span>不支援就不生。沒工作生個屁。</div></div>
+<div class="note">女方立場強硬但與男方同向</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q6_3_2_c" data-ph="談完寫這裡…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待對齊</span><span class="qt">撫養費用與責任｜若一方辭職全職帶娃，收入如何分配？是否繳社保醫保、預留可支配資金？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>那就是上班的一方出</div><div class="a f"><span class="tag">毛千條</span>必須</div></div>
+<div class="note">要明確：全職方的社保醫保誰繳、每月個人可支配金多少</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q6_3_3_c" data-ph="談完寫這裡…"></div></div></div><div class="q hot">
+<div class="qh"><span class="badge hot">須談定</span><span class="qt">生育規劃｜責任與育兒觀念如何協調？對職業發展的影響如何評估？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>（未作答）</div><div class="a f"><span class="tag">毛千條</span>差不多就可以</div></div>
+<div class="note">男方未作答</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q6_4_1_c" data-ph="談完寫這裡…"></div></div></div></section><section class="item"><h3>七　婚姻底線紅線與衝突解決約定</h3><div class="q hot">
+<div class="qh"><span class="badge hot">須談定</span><span class="qt">情感底線｜什麼是絕對不能容忍的行為？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>拋家棄子</div><div class="a f"><span class="tag">毛千條</span>出軌熱暴力冷暴力轉移財產不敬父母不教小孩</div></div>
+<div class="note">男方只寫「拋家棄子」；女方列了六項。紅線範圍差距極大</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q7_1_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">情感底線｜出軌的定義：曖昧聊天、越界交往算不算？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>算</div><div class="a f"><span class="tag">毛千條</span>算</div></div>
+<div class="note">都認為曖昧聊天算</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q7_1_2_c" data-ph="談完寫這裡…"></div></div></div><div class="q hot">
+<div class="qh"><span class="badge hot">須談定</span><span class="qt">情感底線｜如何處理觸及底線的情況？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>陪伴對方找回愛情、包容原諒但不貳過</div><div class="a f"><span class="tag">毛千條</span>離婚打官司</div></div>
+<div class="note">男方「包容原諒但不貳過」，女方「離婚打官司」。全表最大分歧</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q7_1_3_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">暴力底線｜家暴的定義：冷暴力、砸東西、言語侮辱算不算？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>冷暴力也算</div><div class="a f"><span class="tag">毛千條</span>算</div></div>
+<div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q7_2_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q hot">
+<div class="qh"><span class="badge hot">須談定</span><span class="qt">暴力底線｜出現暴力行為如何處理？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>冷靜溝通</div><div class="a f"><span class="tag">毛千條</span>報警分居離婚</div></div>
+<div class="note">男方冷靜溝通、女方報警分居離婚。與上一題連動</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q7_2_2_c" data-ph="談完寫這裡…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待對齊</span><span class="qt">財務底線｜隱瞞負債、賭博、大額投機投資如何看待？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>陪同解決</div><div class="a f"><span class="tag">毛千條</span>大額投機賭博0容忍，隱瞞負債需要解決的話只負擔一次，下不為例</div></div>
+<div class="note">女方分層處理更明確，可採用</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q7_3_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">財務底線｜若一方私自欠下鉅款債務，另一方是否共同承擔？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>共同承擔一次</div><div class="a f"><span class="tag">毛千條</span>僅一次。下不為例。</div></div>
+<div class="note">都是「共同承擔一次、下不為例」</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q7_3_2_c" data-ph="談完寫這裡…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">矛盾衝突解決方式｜吵架時希望對方怎麼做？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>冷靜</div><div class="a f"><span class="tag">毛千條</span>閉嘴</div></div>
+<div class="note">「冷靜」與「閉嘴」意思接近</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q7_4_1_c" data-ph="談完寫這裡…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待對齊</span><span class="qt">矛盾衝突解決方式｜是否能接受冷戰？最長能接受多久？</span></div>
+<div class="pair"><div class="a m"><span class="tag">鄭守翔</span>無法，冷靜一天必須和解</div><div class="a f"><span class="tag">毛千條</span>不過夜。超過兩天別回家了</div></div>
+<div class="note">男方一天內和解、女方不過夜；取嚴的「不過夜」即可定案</div><div class="cons"><span class="cl">共同結論</span><div class="ed" contenteditable data-k="q7_4_2_c" data-ph="談完寫這裡…"></div></div></div></section></div>
+<div class="sign"><h3>共識確認</h3><div class="sgrid">
+<div><div class="cap">男方　鄭守翔</div><div class="ln"></div></div>
+<div><div class="cap">女方　毛千條</div><div class="ln"></div></div>
+<div><div class="cap">男方主婚人</div><div class="ln"></div></div>
+<div><div class="cap">女方主婚人</div><div class="ln"></div></div></div>
+<div class="foot">※ 本表由雙方各自填寫的企劃書與婚前協議草稿自動合併比對產生，判讀為整理參考，非法律或投資意見。房產出資與登記、過錯條款、債務承擔、財產繼承等實際約定，請以執業律師擬定之正式協議並辦理公證為準。</div>
+</div></div><div id="sc"><header><h1>婚前共识总表</h1><div class="sub">企划书 ＋ 婚前协议书　郑守翔 × 毛千条　共 93 题　2026 / 08 / 31</div></header>
+<div class="stat"><span class="chip ok">一致 42</span><span class="chip warn">待对齐 32</span><span class="chip hot">须谈定 19</span></div>
+<div class="top gold"><h3>跨文档交叉发现</h3><ol><li><b>彩礼去向自相矛盾</b><br><span class="hn">聘金 88,888＋三金已经写上家人网站对外定案，但企划书里你希望「彩礼回到我们自己身上」、她写「彩礼交予父母」。提亲前先私下讲定这笔钱的归属。</span></li><li><b>定居地是所有题目的总开关</b><br><span class="hn">两份文档里她的答案都绕着广州／娘家；而 3/18 台湾户政登记、依亲居留、东京民宿是你的既定行程。先定「前三年实际住哪、一年各待几个月」。</span></li><li><b>生育时程差一年以上</b><br><span class="hn">你 2027 生、越早越好；她 2028，且要先完成野骑、朝圣之路、南美探险三趟。这三趟的时间与预算要先摊开。</span></li><li><b>孝亲费你自己有两个版本</b><br><span class="hn">企划书写每月 1 万台币（年 12 万），婚前协议同一题却填 0。统一成一个数字并写清币别——换算后其实与她的每节日 2000 人民币接近。</span></li><li><b>财产议题你偏被动、她很明确</b><br><span class="hn">她两份都主张婚前财产独立、按出资比例；你多是「看情况」「按照法律啰」「女方所有」。先想清楚底线，再找律师拟正式协议。</span></li></ol></div>
+<div class="top"><h3>优先处理：这 19 题必须谈出结论</h3><ol><li><span class="src">婚姻企划书</span><b>Q10　婚后定居在哪？未来是否会换城市或置换房产？若一方需随另一方迁居，能接受吗？</b><br><span class="hn">你「看毛想住哪」，她「娘家或第三城，每季一个月陪爸妈」。三份文档都指向广州，但台湾依亲居留、3/18 户政登记、东京民宿完全没进到她的想像里</span></li><li><span class="src">婚姻企划书</span><b>Q11　家庭的中期与长期目标？</b><br><span class="hn">你「每年存 12 万台币」，她「50 万启动、5 年变 100 万、年化 15%」。目标量级与报酬期待差距大，且她能接受 20% 回撤、你偏 ETF</span></li><li><span class="src">婚姻企划书</span><b>Q13　生育计划：想要孩子吗？想要几个？打算何时生？</b><br><span class="hn">你「2027 生、1-2 个」，她「大概 28 年，而且要先完成野骑、朝圣之路、南美探险」。差一年以上</span></li><li><span class="src">婚姻企划书</span><b>Q19　两家相处之道：过年回谁家？两家互动模式与来往频率？哪些事不希望各自父母干涉？</b><br><span class="hn">过年：这里你说「两家一起过」，婚前协议你说「第一年回台湾」，她说「各自回家」。三个版本</span></li><li><span class="src">婚姻企划书</span><b>Q26　彩礼 / 嫁妆 / 三金的约定？</b><br><span class="hn">你「希望彩礼都回到我们自己身上」，她「彩礼交予父母」。而聘金 88,888＋三金已对外定案——提亲前必须先私下讲定</span></li><li><span class="src">婚姻企划书</span><b>Q29　两家见面与生育时间线：双方家庭见面/提亲的时间？婚后打算何时要孩子，与事业/买房如何排序？</b><br><span class="hn">你「七月提亲、登记后家长再去广州」，她「财务规划、身体调养、职业小目标达成后再生育；生育＞事业＞买房」</span></li><li><span class="src">婚姻企划书</span><b>Q37　财产约定与传承？</b><br><span class="hn">你「按照法律啰」，她「婚前财产独立、各自继承」。财产议题上你偏被动、她立场明确</span></li><li><span class="src">婚前协议书</span><b>生活状态｜定居城市是否有共识？</b><br><span class="hn">男方：孩子生在广州；女方：半年广州、其他随意。但依亲居留、3/18 户政登记、东京民宿全绑在这题上</span></li><li><span class="src">婚前协议书</span><b>购房首付谁出｜一方全额出资、双方共同出资，还是双方父母部分资助？</b><br><span class="hn">男方「台湾我出、广州妳出」；女方「共同买一人一半、不牵扯父母」。两套逻辑完全不同</span></li><li><span class="src">婚前协议书</span><b>购房首付谁出｜出资部分是赠与还是借款？</b><br><span class="hn">一个说赠与、一个说「不算赠与也不算借款」——法律上必须二选一写死</span></li><li><span class="src">婚前协议书</span><b>房产登记在谁的名下｜单独所有、共同所有，还是按出资比例按份共有？</b><br><span class="hn">男方要登记女方所有、女方要按出资比例共有。男方让步幅度比女方要求的还大，先确认是不是真心话</span></li><li><span class="src">婚前协议书</span><b>婚后房贷由谁偿还｜还贷部分对应的房产增值该如何认定？</b><br><span class="hn">男方提出「若女方过错则增值全归我」——过错条款在大陆法下难运行，必须律师拟定</span></li><li><span class="src">婚前协议书</span><b>经济安全网｜如果一方失业或收入骤降，另一方愿意无条件支持多久？</b><br><span class="hn">男方 6 个月无条件；女方第一季无条件、第二季减半。差一倍</span></li><li><span class="src">婚前协议书</span><b>经济支持上限｜每月或每年给父母多少经济支持？</b><br><span class="hn">男方这题填 0，但第三大项孝亲费却填每年 120,000——自己前后矛盾</span></li><li><span class="src">婚前协议书</span><b>生育意愿｜是否要孩子？什么时候生？生几个？</b><br><span class="hn">男方「越早越好、2 个以内」；女方「随缘，准备好再生」。最容易拖成长期矛盾</span></li><li><span class="src">婚前协议书</span><b>生育规划｜责任与育儿观念如何协调？对职业发展的影响如何评估？</b><br><span class="hn">男方未作答</span></li><li><span class="src">婚前协议书</span><b>情感底线｜什么是绝对不能容忍的行为？</b><br><span class="hn">男方只写「抛家弃子」；女方列了六项。红线范围差距极大</span></li><li><span class="src">婚前协议书</span><b>情感底线｜如何处理触及底线的情况？</b><br><span class="hn">男方「包容原谅但不贰过」，女方「离婚打官司」。全表最大分歧</span></li><li><span class="src">婚前协议书</span><b>暴力底线｜出现暴力行为如何处理？</b><br><span class="hn">男方冷静沟通、女方报警分居离婚。与上一题连动</span></li></ol></div>
+<div class="bar">
+<button class="f on" onclick="flt('all',this)">全部</button>
+<button class="f" onclick="flt('hot',this)">只看须谈定</button>
+<button class="f" onclick="flt('warn',this)">只看待对齐</button>
+<button onclick="window.print()">打印 / 存成 PDF</button>
+<button onclick="exp()">导出共同结论</button></div>
+<div class="part" id="partA"><div class="ph"><h2>壹　婚姻企划书</h2><p>三观、事业、家庭、财务、养老——37 题，重在彼此了解</p></div><section class="item"><h3>1.1　三观 · 性格 · 生活方式</h3><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">Q1　你眼中的彼此：双方性格与三观的优缺点，以及对方最打动你的地方？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>优点：独立、善解决问题、体贴个性
+缺点：犹豫不决、运行力弱</div><div class="a f"><span class="tag">毛千条</span>健康积极阳光向上 讲义气
+唯能量学论-太容易掉入正能量陷阱</div></div>
+<div class="note">互评题，本来就不必一致</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s1a_0_c" data-ph="谈完写这里…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待对齐</span><span class="qt">Q2　对方有哪些生活习惯是你较难接受的？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>无，都可以接受
+如可以更好：请早睡、毛太多</div><div class="a f"><span class="tag">毛千条</span>随地挖鼻屎
+袜子内裤一起洗
+生熟不分刀切</div></div>
+<div class="note">她列了三项具体的（挖鼻屎、袜子内裤同洗、生熟不分刀）；你写「都可以接受」。她在两份文档都写挖鼻屎，是认真的</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s1a_1_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">Q3　你的金钱观与消费观？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>需要的就要花是投资，对于理财颇为重视，需要好好安排分配，记帐清晰。</div><div class="a f"><span class="tag">毛千条</span>旅行就是奢侈品
+拓展自我的消费都算是合理的
+70%实用主义，20%追求品质，10%情绪消费
+买对不买贵 减少消费频率 增加物品使用频率</div></div>
+<div class="note">都偏理性记帐、实用主义</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s1a_2_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">Q4　你理想的生活方式与节奏？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>需要工作自我实现，影响更多人，也需要生活旅游运动平衡</div><div class="a f"><span class="tag">毛千条</span>工作既可以赚钱又可以给到自己正反馈；卷该卷的，该佛系的时候佛系；有条件有机会尝试不同的生活方式</div></div>
+<div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s1a_3_c" data-ph="谈完写这里…"></div></div></div></section><section class="item"><h3>1.2　压力与心态</h3><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">Q5　面对压力与挫折，你怎样调节和恢复？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>走出户外晒太阳、找人诉说请求、能量学</div><div class="a f"><span class="tag">毛千条</span>发呆放空听音乐，看书写字吃零食；复盘复盘再复盘，重复到自己脱敏为止</div></div>
+<div class="note">你外向纾压、她内向复盘，不冲突</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s1b_0_c" data-ph="谈完写这里…"></div></div></div></section><section class="item"><h3>1.3　成长与事业</h3><div class="q warn">
+<div class="qh"><span class="badge warn">待对齐</span><span class="qt">Q6　你的事业心与规划？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>有野心，想要创造影响力的公司。</div><div class="a f"><span class="tag">毛千条</span>适应性强，耐心，语言和经验；
+考证、探索更多的职业可能：转职、副业etc</div></div>
+<div class="note">你要「创造影响力的公司」，她是「转职、副业、考证」。企图心量级不同，直接影响时间分配与居住地</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s1c_1_c" data-ph="谈完写这里…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待对齐</span><span class="qt">Q7　你的个人梦想与创业想法？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>找寻更有趣的事物投入以及发扬光大</div><div class="a f"><span class="tag">毛千条</span>有切实可以看见的工作产出实体，得到社会、市场认可；积累1-2年，研究更多；没有试错完成之前不要动存款</div></div>
+<div class="note">她写「没有试错完成之前不要动存款」——这是对你创业的财务界线，要正面回应</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s1c_2_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">Q8　你怎幺看持续学习？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>持续学习，有好的课程，就敞开心胸去学习</div><div class="a f"><span class="tag">毛千条</span>活到老学到老
+持续吸入心理学、语言学、金融经济、历史地缘知识
+考PMP、导游证、咖啡师、调酒师etc</div></div>
+<div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s1c_3_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">Q9　你们如何彼此支持、化解差距焦虑？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>每月反省讨论，正视面对不逃避、不焦虑</div><div class="a f"><span class="tag">毛千条</span>处理生活杂事；最好超过自己，这样才有追赶动力；打点家务事宜，节流</div></div>
+<div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s1c_4_c" data-ph="谈完写这里…"></div></div></div></section><section class="item"><h3>2.1　家庭发展与未来</h3><div class="q hot">
+<div class="qh"><span class="badge hot">须谈定</span><span class="qt">Q10　婚后定居在哪？未来是否会换城市或置换房产？若一方需随另一方迁居，能接受吗？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>看毛想住哪，到时讨论，等她更明确才会知道</div><div class="a f"><span class="tag">毛千条</span>娘家或者第三城，最好每季度有一个月陪爸妈</div></div>
+<div class="note">你「看毛想住哪」，她「娘家或第三城，每季一个月陪爸妈」。三份文档都指向广州，但台湾依亲居留、3/18 户政登记、东京民宿完全没进到她的想像里</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s2a_0_c" data-ph="谈完写这里…"></div></div></div><div class="q hot">
+<div class="qh"><span class="badge hot">须谈定</span><span class="qt">Q11　家庭的中期与长期目标？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>目前净资产五百万，还有不动产，所以希望每年都能持续投入股票，每年存款12万台币。</div><div class="a f"><span class="tag">毛千条</span>50万启动资金，5年后变成100万，年化收益15%</div></div>
+<div class="note">你「每年存 12 万台币」，她「50 万启动、5 年变 100 万、年化 15%」。目标量级与报酬期待差距大，且她能接受 20% 回撤、你偏 ETF</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s2a_1_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">Q12　抗风险与取舍：若一方失业，或为支持对方事业需要牺牲，如何安排收入与分工、愿做哪些牺牲？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>以机会成本来考量。</div><div class="a f"><span class="tag">毛千条</span>有工作的就多承担一点赚钱任务，失业方努力研究炒股投资开拓副业、打点生活、管理共有账户余额</div></div>
+<div class="note">都是有工作的多扛、失业方顾生活与副业</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s2a_2_c" data-ph="谈完写这里…"></div></div></div></section><section class="item"><h3>2.2　生育与子女教育</h3><div class="q hot">
+<div class="qh"><span class="badge hot">须谈定</span><span class="qt">Q13　生育计划：想要孩子吗？想要几个？打算何时生？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>想，1-2个，2027生，因为好年。</div><div class="a f"><span class="tag">毛千条</span>要先完成野骑、朝圣之路、南美洲探险之后再；大概是28年，1-2个，要看身体情况</div></div>
+<div class="note">你「2027 生、1-2 个」，她「大概 28 年，而且要先完成野骑、朝圣之路、南美探险」。差一年以上</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s2b_0_c" data-ph="谈完写这里…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待对齐</span><span class="qt">Q14　育儿分工与责任：孩子谁来带、两人及双方父母如何分工？能接受一方因事业打拼而缺位育儿吗？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>打拼事业也是要一起育儿，到时需要托婴、以及双方父母偶尔打下手，但要看在哪里养育</div><div class="a f"><span class="tag">毛千条</span>不接受配偶缺位，尽量自己努力带，要学习育儿知识；双方父母偶尔帮忙看管即可，教育由夫妻双方决定；不出力就多少出点奶粉钱；</div></div>
+<div class="note">她明确「不接受配偶缺位」；你留了「要看在哪里养育」的伏笔，与定居题连动</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s2b_1_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">Q15　教育观：教育孩子最重要的是什幺？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>快乐学习就好，主要是个性要教好重要，课业其次</div><div class="a f"><span class="tag">毛千条</span>正直善良诚信开放踏实勤奋健康向上</div></div>
+<div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s2b_2_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">Q16　养育费用如何分担与提前准备？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>双方每月提拨比例出来，或者分帐户一笔费用是为小孩存的</div><div class="a f"><span class="tag">毛千条</span>提前存育儿基金，决定生育前存好教育保险</div></div>
+<div class="note">都主张开专户预存</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s2b_3_c" data-ph="谈完写这里…"></div></div></div></section><section class="item"><h3>2.3　父母赡养与两个家庭</h3><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">Q17　与父母同住安排：是否同住、各阶段倾向、长住还是短住？父母来小家时怎幺住、有矛盾怎幺处理？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>可以同住，主要还是以我们自己舒服为主，要有点距离才是美，所以来小家就是短住。</div><div class="a f"><span class="tag">毛千条</span>尽量不长期同住，如要带小孩则两至三个月max；有矛盾尽量冷静讲道理，商量着来，但配偶要和自己站在一个战线上；无论谁更有理，在谁家谁就更应在面子上护着对方</div></div>
+<div class="note">都是不长住、短住可</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s2c_0_c" data-ph="谈完写这里…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待对齐</span><span class="qt">Q18　双方父母的经济与养老：父母收入与养老储备如何？每月是否给赡养费、多少合适？怎样为父母未来养老/失能做准备？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>父母都不需要我们提供养老金，但需要提供每月孝亲费1万，一年12万。如失能，需要三兄弟一起来分担。</div><div class="a f"><span class="tag">毛千条</span>爸妈目前可以养活自己，每个节日给赡养费一人两千；存钱，督促体检看病</div></div>
+<div class="note">你每月 1 万台币（年 12 万）、她每节日一人 2000 人民币，换算后接近。但你在婚前协议把同一题填 0，前后不一</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s2c_1_c" data-ph="谈完写这里…"></div></div></div><div class="q hot">
+<div class="qh"><span class="badge hot">须谈定</span><span class="qt">Q19　两家相处之道：过年回谁家？两家互动模式与来往频率？哪些事不希望各自父母干涉？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>过年会希望两家一起来过。</div><div class="a f"><span class="tag">毛千条</span>带身边，或者各自回家，一年有机会就见一次一起玩；工作投资生活方式，育儿方式教育方式</div></div>
+<div class="note">过年：这里你说「两家一起过」，婚前协议你说「第一年回台湾」，她说「各自回家」。三个版本</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s2c_2_c" data-ph="谈完写这里…"></div></div></div></section><section class="item"><h3>2.4　夫妻约定 / 家规</h3><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">Q20　沟通与冲突机制？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>有事直说，理性沟通，对事不对人</div><div class="a f"><span class="tag">毛千条</span>有事直说，冷战罚钱，一小时罚一千；当日复盘，谁意识到了就复盘；舒压小物！</div></div>
+<div class="note">都主张有事直说；她加码「冷战罚钱，一小时一千」，可直接写进家规</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s2d_0_c" data-ph="谈完写这里…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待对齐</span><span class="qt">Q21　家务如何分工？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>公同分担</div><div class="a f"><span class="tag">毛千条</span>谁先回家谁煮饭，垃圾满了就要倒，需要对方做的要及时说</div></div>
+<div class="note">你「共同分担」太模糊，她已给可运行规则。照她版本落地</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s2d_1_c" data-ph="谈完写这里…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待对齐</span><span class="qt">Q22　个人空间与边界？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>需要空间干活发呆、要跟朋友出去耍废，你能跟最好，不能也不会勉强</div><div class="a f"><span class="tag">毛千条</span>没有强制独处时间，但可以申请
+独处报备
+社交有对方
+不主动查手机但要查可以随时给对方查</div></div>
+<div class="note">她提「独处报备」「不主动查手机但要查随时可查」，你没有对应回答</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s2d_2_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">Q23　仪式感与共同维护？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>必须得过</div><div class="a f"><span class="tag">毛千条</span>每年要结婚纪念！每月保持一次约会！
+保持身材健康管理</div></div>
+<div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s2d_3_c" data-ph="谈完写这里…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待对齐</span><span class="qt">Q24　各自最在意、希望对方务必尊重的一两件事？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>在外男人的尊严，不泼冷水</div><div class="a f"><span class="tag">毛千条</span>商量事情事不要顾左右而言他；
+不要用道德绑架或者拖字诀办法来做事；</div></div>
+<div class="note">你要「在外的尊严、不泼冷水」，她要「不顾左右而言他、不用道德绑架或拖字诀」。两条都写进家规</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s2d_4_c" data-ph="谈完写这里…"></div></div></div></section><section class="item"><h3>3.1　婚礼筹备</h3><div class="q warn">
+<div class="qh"><span class="badge warn">待对齐</span><span class="qt">Q25　婚礼形式与预算？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>办广州，找餐厅朋友大家一起聚，总预算不超过台币100万，到时可以看桌数，扣掉红包来分配</div><div class="a f"><span class="tag">毛千条</span>仪式从简，尽量私密，简单宴客即可，不想肉麻俗套
+能减即减，摄影要好</div></div>
+<div class="note">你「找餐厅朋友大家一起聚、预算 100 万台币」，她「仪式从简、尽量私密」。你在看 Sofitel 与植物园，先确认她要的规模再下订</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s3a_0_c" data-ph="谈完写这里…"></div></div></div><div class="q hot">
+<div class="qh"><span class="badge hot">须谈定</span><span class="qt">Q26　彩礼 / 嫁妆 / 三金的约定？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>看你们家怎么打算，希望都能回到我们自己身上，用来结婚、蜜月、旅行等</div><div class="a f"><span class="tag">毛千条</span>婚礼收入各家分摊；彩礼交予父母，用以宴客或者小家备用金</div></div>
+<div class="note">你「希望彩礼都回到我们自己身上」，她「彩礼交予父母」。而聘金 88,888＋三金已对外定案——提亲前必须先私下讲定</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s3a_1_c" data-ph="谈完写这里…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待对齐</span><span class="qt">Q27　婚纱照与蜜月计划？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>旅行婚纱、蜜月你决定，只要我们俩都没去过的地方就行。
+20万台币</div><div class="a f"><span class="tag">毛千条</span>坦桑尼亚，哈萨克/乌兹别克，南意，朝圣之路</div></div>
+<div class="note">你婚纱蜜月抓 20 万台币，她列了坦桑尼亚、哈萨克斯坦／乌兹别克斯坦、南义、朝圣之路，远超预算，且与张家界行程重叠</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s3a_2_c" data-ph="谈完写这里…"></div></div></div></section><section class="item"><h3>3.2　流程与落地</h3><div class="q warn">
+<div class="qh"><span class="badge warn">待对齐</span><span class="qt">Q28　时间线与流程：领证、办酒、改口的时间与安排？宴请名单与筹备分工？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>八月去广州就可以安排找酒店安排场地
+名单各字安排亲戚与自己的朋友分工</div><div class="a f"><span class="tag">毛千条</span>没有</div></div>
+<div class="note">她这题填「没有」＝未答。婚礼时间线目前只有你的版本</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s3b_1_c" data-ph="谈完写这里…"></div></div></div><div class="q hot">
+<div class="qh"><span class="badge hot">须谈定</span><span class="qt">Q29　两家见面与生育时间线：双方家庭见面/提亲的时间？婚后打算何时要孩子，与事业/买房如何排序？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>提亲七月提亲，登记后，可以找时间双方家长再去广州完成后续事宜。</div><div class="a f"><span class="tag">毛千条</span>实现财务规划、身体健康调养、职业小目标后再生育；生育&gt;事业&gt;买房</div></div>
+<div class="note">你「七月提亲、登记后家长再去广州」，她「财务规划、身体调养、职业小目标达成后再生育；生育＞事业＞买房」</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s3b_2_c" data-ph="谈完写这里…"></div></div></div></section><section class="item"><h3>4.1　收支与债务</h3><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">Q30　收支现状与规划？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>按比例提拨到家务事用帐户，共同支出从该帐户支出，个人支出不管，每月再另存一万投资用。</div><div class="a f"><span class="tag">毛千条</span>工资+副业；包括旅行费用每月约花费10000-15000人民币，主要都是吃喝拉撒衣食住行，击剑、跳舞；存5000-10000</div></div>
+<div class="note">都是按比例提拨＋共同帐户支出</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s4a_0_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">Q31　债务情况：你和你的家庭有哪些债务？打算怎幺处理？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>只有房贷、信贷按时还款即可，不受任何影响</div><div class="a f"><span class="tag">毛千条</span>没有债务；婚前债务自己担，婚后共同债务要商量过才可以确认担新债</div></div>
+<div class="note">她加的「婚前债务各自担、婚后共同债务须商量过」可直接写进协议</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s4a_1_c" data-ph="谈完写这里…"></div></div></div></section><section class="item"><h3>4.2　管理与理财</h3><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">Q32　账户与管理模式？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>三帐户法</div><div class="a f"><span class="tag">毛千条</span>倾向于三账户法，共同账户每月存入5000人民币；共同账户一个人出纳、一个人记账，每月统计</div></div>
+<div class="note">都选三帐户法；她已给出每月 5000 人民币与「一人出纳一人记帐」，直接采用</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s4b_0_c" data-ph="谈完写这里…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待对齐</span><span class="qt">Q33　理财与风险偏好？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>ETF、股票、副业投资</div><div class="a f"><span class="tag">毛千条</span>全都要；可接受20%的回撤，股债比例没关系</div></div>
+<div class="note">风险偏好不同——共同帐户与个人帐户建议用不同策略，别混在一起</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s4b_1_c" data-ph="谈完写这里…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待对齐</span><span class="qt">Q34　大额消费决策？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>共同决定</div><div class="a f"><span class="tag">毛千条</span>看花费内容，自用超过家庭每月收入的30%要商量</div></div>
+<div class="note">你「共同决定」，她「自用超过月收入 30% 才商量」。定一个具体金额</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s4b_2_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">Q35　应急备用金目标？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>6个月</div><div class="a f"><span class="tag">毛千条</span>放共同账户定期/某个理财产品/ETF</div></div>
+<div class="note">你讲月数、她讲存放方式，正好互补</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s4b_3_c" data-ph="谈完写这里…"></div></div></div></section><section class="item"><h3>4.3　保障与养老</h3><div class="q warn">
+<div class="qh"><span class="badge warn">待对齐</span><span class="qt">Q36　自己的养老规划？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>每月五万台币养老</div><div class="a f"><span class="tag">毛千条</span>社保+自己商业养老，活到老劳动到老，读书、炒股、种菜、养动物；每月存4000元社保+商业保险养老</div></div>
+<div class="note">你「每月五万台币养老」没讲怎么存到；她已列社保＋商业保险＋每月 4000。把目标拆成每月提拨数字</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s4c_1_c" data-ph="谈完写这里…"></div></div></div><div class="q hot">
+<div class="qh"><span class="badge hot">须谈定</span><span class="qt">Q37　财产约定与传承？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>按照法律啰</div><div class="a f"><span class="tag">毛千条</span>约定，婚前财产独立，各自继承；</div></div>
+<div class="note">你「按照法律啰」，她「婚前财产独立、各自继承」。财产议题上你偏被动、她立场明确</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="s4c_2_c" data-ph="谈完写这里…"></div></div></div></section></div><div class="part" id="partB"><div class="ph"><h2>贰　婚前协议书</h2><p>七大内核议题——56 题，重在把共识写死</p></div><section class="item"><h3>一　未来规划与人生方向</h3><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">职业规划｜未来 5 年的职业规划是什么？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>把公司弄的更稳健，有稳定的现金流</div><div class="a f"><span class="tag">毛千条</span>换工作，提升收入</div></div>
+<div class="note">各自方向不同但不冲突</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q1_1_1_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">职业规划｜是否支持对方的异地发展或事业追求？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>支持</div><div class="a f"><span class="tag">毛千条</span>支持</div></div>
+<div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q1_1_2_c" data-ph="谈完写这里…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待对齐</span><span class="qt">生活状态｜未来理想中的生活是奋斗拼搏，还是安稳平淡？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>奋斗拼搏，突破圈层</div><div class="a f"><span class="tag">毛千条</span>平淡地奋斗</div></div>
+<div class="note">「突破圈层」vs「平淡地奋斗」——步调期待不同，讲清楚各自要付出多少时间</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q1_2_1_c" data-ph="谈完写这里…"></div></div></div><div class="q hot">
+<div class="qh"><span class="badge hot">须谈定</span><span class="qt">生活状态｜定居城市是否有共识？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>生孩子在广州</div><div class="a f"><span class="tag">毛千条</span>半年广州，其他时间跑哪里都行</div></div>
+<div class="note">男方：孩子生在广州；女方：半年广州、其他随意。但依亲居留、3/18 户政登记、东京民宿全绑在这题上</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q1_2_2_c" data-ph="谈完写这里…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待对齐</span><span class="qt">生活状态｜自购房还是租房居住？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>看在哪儿啰
+新北就是自购房/台中住家里
+广州看毛千条
+东京就是租房</div><div class="a f"><span class="tag">毛千条</span>租房，轻资产</div></div>
+<div class="note">男方看地点决定、女方要轻资产租房；与第二大项的房产题连动</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q1_2_3_c" data-ph="谈完写这里…"></div></div></div></section><section class="item"><h3>二　房产安排</h3><div class="q hot">
+<div class="qh"><span class="badge hot">须谈定</span><span class="qt">购房首付谁出｜一方全额出资、双方共同出资，还是双方父母部分资助？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>婚后如买在台湾我出资，买在广州毛千条出资</div><div class="a f"><span class="tag">毛千条</span>共同买的话一人一半，最好不要牵扯父母</div></div>
+<div class="note">男方「台湾我出、广州妳出」；女方「共同买一人一半、不牵扯父母」。两套逻辑完全不同</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q2_1_1_c" data-ph="谈完写这里…"></div></div></div><div class="q hot">
+<div class="qh"><span class="badge hot">须谈定</span><span class="qt">购房首付谁出｜出资部分是赠与还是借款？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>头期款算赠与</div><div class="a f"><span class="tag">毛千条</span>不算赠与不算借款</div></div>
+<div class="note">一个说赠与、一个说「不算赠与也不算借款」——法律上必须二选一写死</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q2_1_2_c" data-ph="谈完写这里…"></div></div></div><div class="q hot">
+<div class="qh"><span class="badge hot">须谈定</span><span class="qt">房产登记在谁的名下｜单独所有、共同所有，还是按出资比例按份共有？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>女方所有</div><div class="a f"><span class="tag">毛千条</span>按出资比例共同</div></div>
+<div class="note">男方要登记女方所有、女方要按出资比例共有。男方让步幅度比女方要求的还大，先确认是不是真心话</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q2_2_1_c" data-ph="谈完写这里…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待对齐</span><span class="qt">婚后房贷由谁偿还｜用一方薪资还，还是用共同收入还？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>共同收入还贷</div><div class="a f"><span class="tag">毛千条</span>看房屋归属情况，按比例</div></div>
+<div class="note">接在 2-2 定案后即可解</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q2_3_1_c" data-ph="谈完写这里…"></div></div></div><div class="q hot">
+<div class="qh"><span class="badge hot">须谈定</span><span class="qt">婚后房贷由谁偿还｜还贷部分对应的房产增值该如何认定？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>还我付的贷款支出部分数值，如是女方过错我就要增值全部</div><div class="a f"><span class="tag">毛千条</span>无过错情况下按出资比例认定，有过错的话打官司。</div></div>
+<div class="note">男方提出「若女方过错则增值全归我」——过错条款在大陆法下难运行，必须律师拟定</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q2_3_2_c" data-ph="谈完写这里…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待对齐</span><span class="qt">婚前房产之处理｜若一方有婚前房产，婚后是否会置换为共同房产？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>婚前房产各自处理</div><div class="a f"><span class="tag">毛千条</span>看需求，婚后有置换需求的话就再考虑。</div></div>
+<div class="note">建议写死「婚前房产各自所有，置换须另立书面」</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q2_4_1_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">婚前房产之处理｜房产的租金、增值收益是否算作夫妻共同财产？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>否</div><div class="a f"><span class="tag">毛千条</span>不算</div></div>
+<div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q2_4_2_c" data-ph="谈完写这里…"></div></div></div></section><section class="item"><h3>三　财务管理与金钱观</h3><div class="q warn">
+<div class="qh"><span class="badge warn">待对齐</span><span class="qt">收入管理｜婚后采用共同帐户、AA 制，还是部分共享部分自主的模式？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>共同帐户按收入比例打款进去</div><div class="a f"><span class="tag">毛千条</span>共同账户部分共享部分自主</div></div>
+<div class="note">方向一致（共同帐户＋部分自主），差在比例——把百分比填进共同结论</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q3_1_1_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">大额支出的决策｜多少金额以上的消费需要双方共同商量？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>买车买房都会商量，超过一个月工资就会商量</div><div class="a f"><span class="tag">毛千条</span>超平均一月工资</div></div>
+<div class="note">门槛几乎相同，只差换算成具体金额</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q3_2_1_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">家庭应急储备金｜额度多少？由谁保管？动用规则为何？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>六个月，毛千条，重大事故</div><div class="a f"><span class="tag">毛千条</span>六个月共同收入，女方，共同认定之影响巨大事件</div></div>
+<div class="note">额度、保管人、动用条件三项全对上</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q3_3_1_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">债务与资产｜双方是否有房贷、车贷、信用卡欠款等债务？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>房贷</div><div class="a f"><span class="tag">毛千条</span>无</div></div>
+<div class="note">男方有房贷、女方无——揭露完成</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q3_4_1_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">债务与资产｜婚前是否需要做财产公证？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>都可以</div><div class="a f"><span class="tag">毛千条</span>做</div></div>
+<div class="note">女方要做、男方没意见 → 可直接定案：做财产公证</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q3_4_2_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">消费观差异｜一方节俭一方大手大脚，如何平衡？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>讨论沟通</div><div class="a f"><span class="tag">毛千条</span>该省省该花花</div></div>
+<div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q3_5_1_c" data-ph="谈完写这里…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待对齐</span><span class="qt">消费观差异｜对「必要开支」的定义是否一致？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>生活还算一致，但投资的部分不太一致需要讨论</div><div class="a f"><span class="tag">毛千条</span>70%</div></div>
+<div class="note">男方点名「投资的部分不一致」，这条要单独谈</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q3_5_2_c" data-ph="谈完写这里…"></div></div></div><div class="q hot">
+<div class="qh"><span class="badge hot">须谈定</span><span class="qt">经济安全网｜如果一方失业或收入骤降，另一方愿意无条件支持多久？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>6个月，看共同帐户有多少啰</div><div class="a f"><span class="tag">毛千条</span>三个月有起色，三个月到半年恢复；无条件支持一个季度，第二季度支持力度减半</div></div>
+<div class="note">男方 6 个月无条件；女方第一季无条件、第二季减半。差一倍</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q3_6_1_c" data-ph="谈完写这里…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待对齐</span><span class="qt">赡养亲友的金钱边界｜各自给父母赡养费的标准为何？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>每年120,000元</div><div class="a f"><span class="tag">毛千条</span>一季度6000</div></div>
+<div class="note">若男方是台币、女方是人民币，换算后其实接近（约 27,000 vs 24,000 RMB／年）。务必写清币别</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q3_7_1_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">赡养亲友的金钱边界｜亲戚朋友借钱，哪些可以同意、哪些必须拒绝？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>超过自己能力就是要拒绝</div><div class="a f"><span class="tag">毛千条</span>紧急的重大疾病，其余能拒绝就拒绝</div></div>
+<div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q3_7_2_c" data-ph="谈完写这里…"></div></div></div></section><section class="item"><h3>四　家务分配与生活习惯</h3><div class="q warn">
+<div class="qh"><span class="badge warn">待对齐</span><span class="qt">家务分工｜如何分配家务？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>毛千条不洗碗</div><div class="a f"><span class="tag">毛千条</span>煮饭共同，扫地收纳洗衣；其余男方干</div></div>
+<div class="note">男方只讲「毛千条不洗碗」，女方已列明细——照女方版本逐项确认</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q4_1_1_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">家务分工｜是否根据各自擅长或意愿来划分？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>是的</div><div class="a f"><span class="tag">毛千条</span>根据实际情况分。</div></div>
+<div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q4_1_2_c" data-ph="谈完写这里…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待对齐</span><span class="qt">家务分工｜日常家务如何分工：做饭、洗碗、扫地、洗衣、收纳、倒垃圾等。</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>看情况分工，相互协助</div><div class="a f"><span class="tag">毛千条</span>煮饭共同，扫地收纳洗衣；其余男方干</div></div>
+<div class="note">把每项家务落到人</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q4_1_3_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">家务分工｜有否固定的轮换规则？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>没有</div><div class="a f"><span class="tag">毛千条</span>无</div></div>
+<div class="note">两人都不要固定轮换</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q4_1_4_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">「家务价值」的共识｜对家务劳动的价值是否认可？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>认可</div><div class="a f"><span class="tag">毛千条</span>认可</div></div>
+<div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q4_2_1_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">「家务价值」的共识｜一方因工作繁忙无法顾家时，兜底的方案是什么？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>互相啰</div><div class="a f"><span class="tag">毛千条</span>暂时多承担，必要时请钟点</div></div>
+<div class="note">女方版本更具体，可直接采用</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q4_2_2_c" data-ph="谈完写这里…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待对齐</span><span class="qt">生活习惯磨合｜对卫生的标准、最不能接受的生活习惯，是否了解并接受？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>了解</div><div class="a f"><span class="tag">毛千条</span>公众场合挖鼻屎</div></div>
+<div class="note">女方点名「公众场合挖鼻屎」——她认真在讲，别当笑话带过</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q4_3_1_c" data-ph="谈完写这里…"></div></div></div></section><section class="item"><h3>五　原生家庭相处的边界</h3><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">居住安排｜婚后是否和父母一起住？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>否</div><div class="a f"><span class="tag">毛千条</span>超过一个月的否，短期的可以；自己回自己家不算</div></div>
+<div class="note">实质一致：不长住、短期可</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q5_1_1_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">居住安排｜如果一起住，是长期还是偶尔短期暂住？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>短住</div><div class="a f"><span class="tag">毛千条</span>短住</div></div>
+<div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q5_1_2_c" data-ph="谈完写这里…"></div></div></div><div class="q hot">
+<div class="qh"><span class="badge hot">须谈定</span><span class="qt">经济支持上限｜每月或每年给父母多少经济支持？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>0</div><div class="a f"><span class="tag">毛千条</span>看情况</div></div>
+<div class="note">男方这题填 0，但第三大项孝亲费却填每年 120,000——自己前后矛盾</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q5_2_1_c" data-ph="谈完写这里…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待对齐</span><span class="qt">经济支持上限｜如果父母生病或需要大额资金，优先级如何排序？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>父母都有保险</div><div class="a f"><span class="tag">毛千条</span>治疗</div></div>
+<div class="note">要定「保险不够时，上限多少、谁先出」</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q5_2_2_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">关系界限｜如何避免原生家庭过度介入小家庭的事务？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>距离就是美</div><div class="a f"><span class="tag">毛千条</span>保持距离频率，保持情况更新，及时提点</div></div>
+<div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q5_3_1_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">关系界限｜长辈的居家出入权限：是否需要提前打招呼？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>需要提前招呼</div><div class="a f"><span class="tag">毛千条</span>提前说明</div></div>
+<div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q5_3_2_c" data-ph="谈完写这里…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待对齐</span><span class="qt">父母插手时的立场｜面对父母插手小家庭事务，两人是否保持统一立场？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>是</div><div class="a f"><span class="tag">毛千条</span>具体情况具体分析</div></div>
+<div class="note">先约定「对外一致、有异议私下说」</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q5_4_1_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">父母插手时的立场｜由谁出面沟通协调？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>各自协调自己父母</div><div class="a f"><span class="tag">毛千条</span>自己爸妈自己管</div></div>
+<div class="note">各自管各自父母，完全一致</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q5_4_2_c" data-ph="谈完写这里…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待对齐</span><span class="qt">节假日探亲安排｜过年去向与探亲频率如何平衡？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>都会去探亲</div><div class="a f"><span class="tag">毛千条</span>一边一年，或者接一起过</div></div>
+<div class="note">女方提「一边一年或接一起过」更具体，可直接采用</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q5_5_1_c" data-ph="谈完写这里…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待对齐</span><span class="qt">节假日探亲安排｜春节、中秋等节日去谁家过？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>第一年要回台湾过，后面都可以讨论一起过</div><div class="a f"><span class="tag">毛千条</span>轮流，或者再讨论</div></div>
+<div class="note">男方要第一年回台湾过年，女方说轮流或再议——第一年现在就定</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q5_5_2_c" data-ph="谈完写这里…"></div></div></div></section><section class="item"><h3>六　生育与育儿规划</h3><div class="q hot">
+<div class="qh"><span class="badge hot">须谈定</span><span class="qt">生育意愿｜是否要孩子？什么时候生？生几个？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>是，越早越好，2个内</div><div class="a f"><span class="tag">毛千条</span>随缘，经济心态准备好了生</div></div>
+<div class="note">男方「越早越好、2 个以内」；女方「随缘，准备好再生」。最容易拖成长期矛盾</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q6_1_1_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">育儿分工｜孩子出生后谁主要来带？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>自己带</div><div class="a f"><span class="tag">毛千条</span>自己带</div></div>
+<div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q6_2_1_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">育儿分工｜父母是否能帮忙？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>可以帮但不是长期</div><div class="a f"><span class="tag">毛千条</span>偶尔帮忙照看可以，长期体力就算了</div></div>
+<div class="note">都是偶尔可、长期不行</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q6_2_2_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">育儿分工｜教育理念是否一致？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>快乐长大品德为重点</div><div class="a f"><span class="tag">毛千条</span>德智体美劳</div></div>
+<div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q6_2_3_c" data-ph="谈完写这里…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待对齐</span><span class="qt">抚养费用与责任｜生育、养娃的费用如何分担？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>共同负担</div><div class="a f"><span class="tag">毛千条</span>体力付出少的多出钱，不出钱就出力；钱力不出直接离婚</div></div>
+<div class="note">女方讲得很重（「钱力不出直接离婚」）——男方只写共同负担，要具体回应</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q6_3_1_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">抚养费用与责任｜女方因孕期、产期、哺乳期导致的工作调整，家庭是否支持？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>支持</div><div class="a f"><span class="tag">毛千条</span>不支持就不生。没工作生个屁。</div></div>
+<div class="note">女方立场强硬但与男方同向</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q6_3_2_c" data-ph="谈完写这里…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待对齐</span><span class="qt">抚养费用与责任｜若一方辞职全职带娃，收入如何分配？是否缴社保医保、预留可支配资金？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>那就是上班的一方出</div><div class="a f"><span class="tag">毛千条</span>必须</div></div>
+<div class="note">要明确：全职方的社保医保谁缴、每月个人可支配金多少</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q6_3_3_c" data-ph="谈完写这里…"></div></div></div><div class="q hot">
+<div class="qh"><span class="badge hot">须谈定</span><span class="qt">生育规划｜责任与育儿观念如何协调？对职业发展的影响如何评估？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>（未作答）</div><div class="a f"><span class="tag">毛千条</span>差不多就可以</div></div>
+<div class="note">男方未作答</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q6_4_1_c" data-ph="谈完写这里…"></div></div></div></section><section class="item"><h3>七　婚姻底线红线与冲突解决约定</h3><div class="q hot">
+<div class="qh"><span class="badge hot">须谈定</span><span class="qt">情感底线｜什么是绝对不能容忍的行为？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>抛家弃子</div><div class="a f"><span class="tag">毛千条</span>出轨热暴力冷暴力转移财产不敬父母不教小孩</div></div>
+<div class="note">男方只写「抛家弃子」；女方列了六项。红线范围差距极大</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q7_1_1_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">情感底线｜出轨的定义：暧昧聊天、越界交往算不算？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>算</div><div class="a f"><span class="tag">毛千条</span>算</div></div>
+<div class="note">都认为暧昧聊天算</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q7_1_2_c" data-ph="谈完写这里…"></div></div></div><div class="q hot">
+<div class="qh"><span class="badge hot">须谈定</span><span class="qt">情感底线｜如何处理触及底线的情况？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>陪伴对方找回爱情、包容原谅但不贰过</div><div class="a f"><span class="tag">毛千条</span>离婚打官司</div></div>
+<div class="note">男方「包容原谅但不贰过」，女方「离婚打官司」。全表最大分歧</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q7_1_3_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">暴力底线｜家暴的定义：冷暴力、砸东西、言语侮辱算不算？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>冷暴力也算</div><div class="a f"><span class="tag">毛千条</span>算</div></div>
+<div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q7_2_1_c" data-ph="谈完写这里…"></div></div></div><div class="q hot">
+<div class="qh"><span class="badge hot">须谈定</span><span class="qt">暴力底线｜出现暴力行为如何处理？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>冷静沟通</div><div class="a f"><span class="tag">毛千条</span>报警分居离婚</div></div>
+<div class="note">男方冷静沟通、女方报警分居离婚。与上一题连动</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q7_2_2_c" data-ph="谈完写这里…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待对齐</span><span class="qt">财务底线｜隐瞒负债、赌博、大额投机投资如何看待？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>陪同解决</div><div class="a f"><span class="tag">毛千条</span>大额投机赌博0容忍，隐瞒负债需要解决的话只负担一次，下不为例</div></div>
+<div class="note">女方分层处理更明确，可采用</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q7_3_1_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">财务底线｜若一方私自欠下巨款债务，另一方是否共同承担？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>共同承担一次</div><div class="a f"><span class="tag">毛千条</span>仅一次。下不为例。</div></div>
+<div class="note">都是「共同承担一次、下不为例」</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q7_3_2_c" data-ph="谈完写这里…"></div></div></div><div class="q ok">
+<div class="qh"><span class="badge ok">一致</span><span class="qt">矛盾冲突解决方式｜吵架时希望对方怎么做？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>冷静</div><div class="a f"><span class="tag">毛千条</span>闭嘴</div></div>
+<div class="note">「冷静」与「闭嘴」意思接近</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q7_4_1_c" data-ph="谈完写这里…"></div></div></div><div class="q warn">
+<div class="qh"><span class="badge warn">待对齐</span><span class="qt">矛盾冲突解决方式｜是否能接受冷战？最长能接受多久？</span></div>
+<div class="pair"><div class="a m"><span class="tag">郑守翔</span>无法，冷静一天必须和解</div><div class="a f"><span class="tag">毛千条</span>不过夜。超过两天别回家了</div></div>
+<div class="note">男方一天内和解、女方不过夜；取严的「不过夜」即可定案</div><div class="cons"><span class="cl">共同结论</span><div class="ed" contenteditable data-k="q7_4_2_c" data-ph="谈完写这里…"></div></div></div></section></div>
+<div class="sign"><h3>共识确认</h3><div class="sgrid">
+<div><div class="cap">男方　郑守翔</div><div class="ln"></div></div>
+<div><div class="cap">女方　毛千条</div><div class="ln"></div></div>
+<div><div class="cap">男方主婚人</div><div class="ln"></div></div>
+<div><div class="cap">女方主婚人</div><div class="ln"></div></div></div>
+<div class="foot">※ 本表由双方各自填写的企划书与婚前协议草稿自动合并比对产生，判读为整理参考，非法律或投资意见。房产出资与登记、过错条款、债务承担、财产继承等实际约定，请以执业律师拟定之正式协议并办理公证为准。</div>
+</div></div></div>
+<script>
+const K='hs-merged-v1';
+const els=()=>[...document.querySelectorAll('[data-k]')];
+function sync(e){const v=e.innerText;document.querySelectorAll('[data-k="'+e.dataset.k+'"]').forEach(x=>{if(x!==e&&x.innerText!==v)x.innerText=v;});}
+function save(){const o={};els().forEach(e=>{const v=e.innerText.trim();if(v)o[e.dataset.k]=v;});localStorage.setItem(K,JSON.stringify(o));}
+function load(){try{const o=JSON.parse(localStorage.getItem(K)||'{}');els().forEach(e=>{if(o[e.dataset.k])e.innerText=o[e.dataset.k];});}catch(e){}}
+document.addEventListener('input',e=>{if(e.target.dataset&&e.target.dataset.k)sync(e.target);save();});
+document.addEventListener('blur',e=>{if(e.target.dataset&&e.target.dataset.k)sync(e.target);save();},true);
+function flt(t,b){const root=b.closest('#tc,#sc')||document;
+ root.querySelectorAll('.bar button.f').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+ root.querySelectorAll('.q').forEach(q=>{q.style.display=(t==='all'||q.classList.contains(t))?'':'none';});
+ root.querySelectorAll('section.item').forEach(s=>{s.style.display=[...s.querySelectorAll('.q')].some(q=>q.style.display!=='none')?'':'none';});
+ root.querySelectorAll('.part').forEach(s=>{s.style.display=[...s.querySelectorAll('.q')].some(q=>q.style.display!=='none')?'':'none';});}
+function exp(){const o=JSON.parse(localStorage.getItem(K)||'{}');
+ const b=new Blob([JSON.stringify(o,null,1)],{type:'application/json'});
+ const a=document.createElement('a');a.href=URL.createObjectURL(b);
+ a.download='共同結論_'+new Date().toISOString().slice(0,10)+'.json';a.click();}
+function lang(l){document.body.classList.toggle('sc',l==='sc');
+ document.querySelectorAll('#langbar button').forEach(b=>b.classList.toggle('on',b.dataset.l===l));
+ try{localStorage.setItem(K+'_lang',l);}catch(e){}}
+load();
+try{lang(localStorage.getItem(K+'_lang')||'tc');}catch(e){lang('tc');}
+</script></body></html>
