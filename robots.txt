@@ -1,0 +1,4 @@
+# 婚禮網站僅供受邀賓客瀏覽，不希望被搜尋引擎收錄。
+# 若日後希望公開被搜尋到，刪除本檔並移除兩個 index.html 中的 noindex meta 即可。
+User-agent: *
+Disallow: /
