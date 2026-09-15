@@ -1,0 +1,6 @@
+# 內部／私密文件一律不進版本庫（婚前協議、企劃書、共識總表、family 內部頁等）
+private/
+*.zip
+__MACOSX/
+.DS_Store
+._*
