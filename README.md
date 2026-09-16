@@ -13,18 +13,47 @@
 ├── index.html          主頁：故事線、婚宴資訊、延伸旅遊、RSVP 表單
 ├── taiwan/
 │   └── index.html      台灣賓客須知：台胞證、航班、張家界 B 團、注意事項
+├── functions/          Cloudflare Pages Functions（必須在根目錄）
+│   └── api/rsvp.js     RSVP 中繼 → /api/rsvp
 ├── robots.txt          不希望被搜尋引擎收錄
 ├── .nojekyll           關閉 GitHub Pages 的 Jekyll 處理
 └── README.md
 ```
 
-**本版本庫只放「給賓客看」的公開頁面。** 婚前協議、企劃書、婚前共識總表、
-family 內部頁、場地比較表、總時間表等屬於家庭內部文件，**不要**放進來——
-這是公開版本庫，任何人都看得到，也會被搜尋引擎收錄。
+**本版本庫只放「給賓客看」的公開頁面，外加 RSVP 的後端中繼。**
+家庭內部文件與內部頁面**不要**放進來——這是公開版本庫，任何人都看得到。
+
+那些檔案留在本機工作目錄（`docs/`、`site/`、`CLAUDE.md`），已列入 `.gitignore`，
+不會被誤推上來。要看內部頁就本機起一個 server：
+
+```bash
+python3 -m http.server 8000   # → http://localhost:8000/site/family/
+```
 
 ## 部署
 
-GitHub Pages，來源為 `main` 分支根目錄。推上 `main` 後約 1 分鐘自動上線。
+推上 `main` 之後兩邊各自自動部署，約 1 分鐘上線。
+
+| 平台 | 來源 | 產出 |
+| --- | --- | --- |
+| GitHub Pages | `main` 分支根目錄 | <https://sqsqsqlll.github.io/hswedding/> |
+| Cloudflare Pages | 同一個 repo、同一個分支 | <https://hswedding.beyondtravelworld.com/>＋`/api/rsvp` |
+
+兩邊內容一樣。同時掛兩個不是多餘的：`github.io` 在大陸常常連不上，
+廣州親友走 Cloudflare 那個網域比較穩，而 RSVP 的端點本來就指著它。
+
+### Cloudflare Pages 建置設定
+
+| 欄位 | 值 |
+| --- | --- |
+| Production branch | `main` |
+| Framework preset | None |
+| Build command | 留空 |
+| Build output directory | `/` |
+| Root directory | 留空 |
+
+**`functions/` 必須留在 repo 根目錄。** Cloudflare 只在 root directory 底下找它；
+放進別的子目錄不會生效。
 
 兩個頁面之間一律使用**相對路徑**（主頁 → `taiwan/`；台灣頁 → `../`），
 所以無論網站掛在 `sqsqsqlll.github.io/hswedding/` 這種子路徑底下，
@@ -49,9 +78,27 @@ GitHub Pages，來源為 `main` 分支根目錄。推上 `main` 後約 1 分鐘�
 const RSVP_ENDPOINT = "https://hswedding.beyondtravelworld.com/api/rsvp";
 ```
 
-網站本身搬到 GitHub Pages 之後，這個 Worker 仍留在 Cloudflare 繼續當純 API
-使用，不需要跟著搬。Worker 已設定 `Access-Control-Allow-Origin: *`，
-跨網域呼叫沒有問題。
+### 現在有兩套實作，同時只有一套在跑
+
+| | Worker `hs-rsvp` | Pages Function `functions/api/rsvp.js` |
+| --- | --- | --- |
+| 位置 | Cloudflare 後台，不在版本庫 | 本版本庫 |
+| 端點設定 | 後台編輯器改 `GOOGLE_ENDPOINT` 後重新 Deploy | Pages 環境變數 |
+| 狀態 | **現行** | 待驗證後接手 |
+
+**Worker 路由的優先序高於 Pages Function**，兩者並存時實際跑的是 Worker。
+要驗證 Function 通不通，必須先停掉 Worker 路由；沒測到試算表真的多一列之前
+不要刪 Worker，否則 RSVP 會斷。
+
+### Function 的 Apps Script 網址走環境變數
+
+**不寫在程式碼裡**——這是公開版本庫，寫進來等於開放任何人往 RSVP 試算表灌資料。
+
+Pages 專案 → Settings → Environment variables → 新增 `GOOGLE_ENDPOINT`
+＝ Apps Script 網頁應用程式網址（`/exec` 結尾），型別選 **Secret**，
+Production 與 Preview 都要設。Apps Script 重新部署換網址時改這裡即可。
+
+Worker 已設定 `Access-Control-Allow-Origin: *`，跨網域呼叫沒有問題。
 
 **Worker 端的維護**（程式碼在 Cloudflare 後台，不在本版本庫）：
 
