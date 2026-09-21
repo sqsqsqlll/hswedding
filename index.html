@@ -59,6 +59,19 @@
   .tl-place{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin:5px 0 10px;}
   .tl-text{font-size:.96rem;color:var(--text-mid);max-width:520px;margin:0 auto;}
   .tl-sep{width:1px;height:34px;background:var(--gold);margin:18px auto;opacity:.4;}
+  /* 旅行足跡 */
+  .fp-head{text-align:center;margin:64px 0 26px;}
+  .fp-head .sec-eyebrow{margin-bottom:8px;}
+  .fp-title{font-family:'Cormorant Garamond','Noto Serif TC',serif;font-size:1.5rem;font-weight:500;color:var(--text-dark);}
+  body.sc .fp-title{font-family:'Cormorant Garamond','Noto Serif SC',serif;}
+  .fp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:860px;margin:0 auto;}
+  .fp{background:var(--white);border:1px solid var(--divider);border-radius:14px;padding:16px 14px 14px;text-align:center;box-shadow:0 6px 20px rgba(201,168,76,.06);}
+  .fp-ic{font-size:1.5rem;line-height:1.2;}
+  .fp-date{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold-dark);letter-spacing:.05em;margin-top:6px;}
+  .fp-place{font-size:.85rem;color:var(--text-mid);line-height:1.5;margin-top:2px;}
+  .fp.next{grid-column:1/-1;background:var(--gold-pale);border-color:var(--gold);}
+  .fp.next .fp-date{color:var(--ember);}
+  @media(max-width:760px){.fp-grid{grid-template-columns:repeat(2,1fr);}}
 
   .details{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:10px;}
   .dcard{background:var(--white);border:1px solid var(--divider);border-radius:14px;padding:26px 20px;text-align:center;box-shadow:0 8px 26px rgba(201,168,76,.07);}
@@ -117,6 +130,22 @@
   .trip-card ul{list-style:none;} .trip-card li{position:relative;padding:5px 0 5px 18px;font-size:.9rem;color:var(--text-mid);}
   .trip-card li::before{content:"◆";position:absolute;left:0;color:var(--gold);font-size:.6rem;top:9px;}
 
+  /* 頁首大綱連結 */
+  .nav-links{display:flex;align-items:center;gap:4px;}
+  .nav-links a{font-size:.78rem;letter-spacing:.04em;color:var(--text-mid);text-decoration:none;padding:5px 11px;border-radius:16px;white-space:nowrap;transition:all .2s;}
+  .nav-links a:hover{color:var(--gold-dark);}
+  .nav-links a.active{color:var(--gold-dark);background:var(--gold-pale);}
+  .nav-links a.nav-detail{border:1px solid var(--gold);color:var(--gold-dark);}
+  .nav-links a.nav-detail:hover{background:var(--gold);color:var(--white);}
+  section[id],header[id]{scroll-margin-top:70px;}
+  .trip-more{display:inline-block;margin-top:16px;font-size:.85rem;color:var(--gold-dark);text-decoration:none;border-bottom:1px solid var(--gold-light);padding-bottom:2px;}
+  .trip-more:hover{color:var(--ember);border-color:var(--ember);}
+  @media(max-width:860px){
+    #nav{flex-wrap:wrap;row-gap:6px;}
+    .nav-links{order:3;width:100%;overflow-x:auto;scrollbar-width:none;margin:0 -6px;}
+    .nav-links::-webkit-scrollbar{display:none;}
+    section[id],header[id]{scroll-margin-top:120px;}  /* 手機版頁首兩排約 104px */
+  }
   @media(max-width:680px){#nav{padding:14px 20px;} .details{grid-template-columns:1fr;} .checks{grid-template-columns:1fr;} .hero-info{gap:28px;} .photo-grid{grid-template-columns:1fr 1fr;} .trip-grid{grid-template-columns:1fr;}}
 </style>
 </head>
@@ -124,6 +153,13 @@
 
 <nav id="nav">
   <a href="#hero" class="nav-logo">H &amp; S</a>
+  <div class="nav-links">
+    <a href="#story"><span data-lang="tc" class="inline">我們的故事</span><span data-lang="sc" class="inline">我们的故事</span><span data-lang="en" class="inline">Our Story</span></a>
+    <a href="#details"><span data-lang="tc" class="inline">婚宴資訊</span><span data-lang="sc" class="inline">婚宴资讯</span><span data-lang="en" class="inline">Wedding</span></a>
+    <a href="#travel"><span data-lang="tc" class="inline">延伸旅遊</span><span data-lang="sc" class="inline">延伸旅游</span><span data-lang="en" class="inline">Tours</span></a>
+    <a href="#rsvp">RSVP</a>
+    <a href="travel/" class="nav-detail"><span data-lang="tc" class="inline">行程詳情 →</span><span data-lang="sc" class="inline">行程详情 →</span><span data-lang="en" class="inline">Tour details →</span></a>
+  </div>
   <div class="lang-switcher">
     <button class="lang-btn active" onclick="setLang('tc')">繁</button>
     <button class="lang-btn" onclick="setLang('sc')">简</button>
@@ -159,7 +195,7 @@
   <div class="gold-rule"></div>
   <div class="tl">
     <div class="tl-node">
-      <div class="tl-year">2015</div>
+      <div class="tl-year">2014</div>
       <div class="tl-place" data-lang="tc">埃及 · 相遇</div><div class="tl-place" data-lang="sc">埃及 · 相遇</div><div class="tl-place" data-lang="en">Egypt · Where it began</div>
       <p class="tl-text" data-lang="tc">我們在埃及擔任 AIESEC 國際交換志工時相遇。一場異國的相逢，成了這段故事的起點。</p>
       <p class="tl-text" data-lang="sc">我们在埃及担任 AIESEC 国际交换志工时相遇。一场异国的相逢，成了这段故事的起点。</p>
@@ -189,6 +225,24 @@
       <p class="tl-text" data-lang="sc">绕了地球大半圈，我们选择在 Sincer 的故乡广州举办婚宴。这不只是一场仪式，更是一次回家——想让所有爱我们的人，一起感受这座城市的温度。</p>
       <p class="tl-text" data-lang="en">Having circled half the globe, we chose Guangzhou — Sincer's hometown — for our celebration. More than a ceremony, it's a homecoming we want to share with everyone we love.</p>
     </div>
+  <div class="fp-head">
+    <p class="sec-eyebrow">Travel Footprints</p>
+    <h3 class="fp-title" data-lang="tc">一起走過的地方</h3><h3 class="fp-title" data-lang="sc">一起走过的地方</h3><h3 class="fp-title" data-lang="en">Places We've Been Together</h3>
+  </div>
+  <div class="fp-grid">
+    <div class="fp"><div class="fp-ic">🇪🇬</div><div class="fp-date">2014.07</div><div class="fp-place" data-lang="tc">埃及初識</div><div class="fp-place" data-lang="sc">埃及初识</div><div class="fp-place" data-lang="en">Egypt — where we met</div></div>
+    <div class="fp"><div class="fp-ic">🐪</div><div class="fp-date">2024.12</div><div class="fp-place" data-lang="tc">重返埃及</div><div class="fp-place" data-lang="sc">重返埃及</div><div class="fp-place" data-lang="en">Back to Egypt</div></div>
+    <div class="fp"><div class="fp-ic">🏎️</div><div class="fp-date">2025.03</div><div class="fp-place" data-lang="tc">日本 F1</div><div class="fp-place" data-lang="sc">日本 F1</div><div class="fp-place" data-lang="en">F1 in Japan</div></div>
+    <div class="fp"><div class="fp-ic">🌉</div><div class="fp-date">2025.06</div><div class="fp-place" data-lang="tc">香港廣州行</div><div class="fp-place" data-lang="sc">香港广州行</div><div class="fp-place" data-lang="en">Hong Kong & Guangzhou</div></div>
+    <div class="fp"><div class="fp-ic">🎆</div><div class="fp-date">2025.08</div><div class="fp-place" data-lang="tc">東京板橋煙火</div><div class="fp-place" data-lang="sc">东京板桥烟火</div><div class="fp-place" data-lang="en">Itabashi fireworks, Tokyo</div></div>
+    <div class="fp"><div class="fp-ic">⛩️</div><div class="fp-date">2025.09</div><div class="fp-place" data-lang="tc">大阪世博・熊野古道</div><div class="fp-place" data-lang="sc">大阪世博・熊野古道</div><div class="fp-place" data-lang="en">Osaka Expo & Kumano Kodo</div></div>
+    <div class="fp"><div class="fp-ic">👨‍👩‍👧</div><div class="fp-date">2025.10</div><div class="fp-place" data-lang="tc">陪 Sincer 爸媽遊香港</div><div class="fp-place" data-lang="sc">陪 Sincer 爸妈游香港</div><div class="fp-place" data-lang="en">Hong Kong with Sincer's parents</div></div>
+    <div class="fp"><div class="fp-ic">🎿</div><div class="fp-date">2026.01</div><div class="fp-place" data-lang="tc">滑雪・ANA 機棚</div><div class="fp-place" data-lang="sc">滑雪・ANA 机库</div><div class="fp-place" data-lang="en">Skiing & the ANA hangar</div></div>
+    <div class="fp"><div class="fp-ic">🏮</div><div class="fp-date">2026.02</div><div class="fp-place" data-lang="tc">廣州香港行</div><div class="fp-place" data-lang="sc">广州香港行</div><div class="fp-place" data-lang="en">Guangzhou & Hong Kong</div></div>
+    <div class="fp"><div class="fp-ic">🗼</div><div class="fp-date">2026.03</div><div class="fp-place" data-lang="tc">雙方父母東京見</div><div class="fp-place" data-lang="sc">双方父母东京见</div><div class="fp-place" data-lang="en">Both families meet in Tokyo</div></div>
+    <div class="fp"><div class="fp-ic">🦀</div><div class="fp-date">2026.06</div><div class="fp-place" data-lang="tc">釜山・北海道釧路、旭川</div><div class="fp-place" data-lang="sc">釜山・北海道钏路、旭川</div><div class="fp-place" data-lang="en">Busan, then Kushiro & Asahikawa</div></div>
+    <div class="fp"><div class="fp-ic">🏡</div><div class="fp-date">2026.08</div><div class="fp-place" data-lang="tc">廣州生活一個月</div><div class="fp-place" data-lang="sc">广州生活一个月</div><div class="fp-place" data-lang="en">A month living in Guangzhou</div></div>
+    <div class="fp next"><div class="fp-ic">💍</div><div class="fp-date">2027.05</div><div class="fp-place" data-lang="tc">下一站：廣州婚宴</div><div class="fp-place" data-lang="sc">下一站：广州婚宴</div><div class="fp-place" data-lang="en">Next stop: our wedding in Guangzhou</div></div>
   </div>
 </section>
 
@@ -205,7 +259,7 @@
 </section>
 
 <!-- DETAILS -->
-<section class="alt">
+<section id="details" class="alt">
   <div class="inner">
     <p class="sec-eyebrow">The Celebration</p>
     <h2 class="sec-title" data-lang="tc">婚宴資訊</h2><h2 class="sec-title" data-lang="sc">婚宴资讯</h2><h2 class="sec-title" data-lang="en">Wedding Details</h2>
@@ -246,6 +300,7 @@
       <ul data-lang="tc"><li>廣式早茶、老西關風情</li><li>太古倉、永慶坊</li><li>珠江夜遊、廣州塔夜景</li><li>在地美食巡禮</li></ul>
       <ul data-lang="sc"><li>广式早茶、老西关风情</li><li>太古仓、永庆坊</li><li>珠江夜游、广州塔夜景</li><li>在地美食巡礼</li></ul>
       <ul data-lang="en"><li>Cantonese yum cha & old Xiguan</li><li>Taikoo Warehouse, Yongqingfang</li><li>Pearl River night cruise, Canton Tower</li><li>Local food tour</li></ul>
+      <a class="trip-more" href="travel/#guangzhou"><span data-lang="tc" class="inline">看每日行程 →</span><span data-lang="sc" class="inline">看每日行程 →</span><span data-lang="en" class="inline">Day-by-day plan →</span></a>
     </div>
     <div class="trip-card">
       <div class="trip-ic">🏔️</div>
@@ -254,6 +309,7 @@
       <ul data-lang="tc"><li>天門山、玻璃棧道</li><li>百龍天梯</li><li>阿凡達懸浮山（哈利路亞山）</li><li>金鞭溪、寶峰湖</li></ul>
       <ul data-lang="sc"><li>天门山、玻璃栈道</li><li>百龙天梯</li><li>阿凡达悬浮山（哈利路亚山）</li><li>金鞭溪、宝峰湖</li></ul>
       <ul data-lang="en"><li>Tianmen Mountain & glass walkway</li><li>Bailong Elevator</li><li>Avatar floating mountains</li><li>Golden Whip Stream, Baofeng Lake</li></ul>
+      <a class="trip-more" href="travel/#zhangjiajie"><span data-lang="tc" class="inline">看每日行程 →</span><span data-lang="sc" class="inline">看每日行程 →</span><span data-lang="en" class="inline">Day-by-day plan →</span></a>
     </div>
   </div>
   <p class="hint" style="text-align:center;max-width:640px;margin:26px auto 0;color:var(--text-light)" data-lang="tc">兩段可擇一、全參加，或只請我們代訂住宿，請於下方表單勾選。台灣賓客的航班與台胞證資訊將於送出後另頁提供；中國與海外賓客可在表單備註洽詢或直接聯繫我們。</p>
@@ -394,9 +450,22 @@
     document.querySelectorAll('.lang-btn')[i].classList.add('active');
     document.documentElement.lang = l==='tc'?'zh-TW' : l==='sc'?'zh-CN' : 'en';
     applyI18n(l);
+    try{ localStorage.setItem('hs_lang',l); }catch(e){}
   }
   window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50);});
   applyI18n('tc'); // 初始化 placeholder 與選項文字
+  try{ var savedLang=localStorage.getItem('hs_lang'); if(savedLang&&savedLang!=='tc') setLang(savedLang); }catch(e){}
+  // 頁首大綱：標出目前讀到的區塊
+  (function(){
+    var links=[].slice.call(document.querySelectorAll('.nav-links a[href^="#"]'));
+    var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));});
+    function spy(){
+      var line=window.innerHeight*0.35, cur=-1;
+      secs.forEach(function(sec,i){ if(sec && sec.getBoundingClientRect().top<=line) cur=i; });
+      links.forEach(function(a,i){ a.classList.toggle('active',i===cur); });
+    }
+    window.addEventListener('scroll',spy,{passive:true}); spy();
+  })();
 
   // 曾送出過台灣賓客表單或造訪過 /taiwan/ 的訪客：主頁常駐顯示「台灣賓客須知」入口
   try{ if(localStorage.getItem('hs_tw_guest')==='1'){ document.getElementById('tw-notice').style.display='block'; } }catch(e){}

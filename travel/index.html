@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>延伸旅遊行程 ｜ Harry & Sincer · 2027.05 廣州</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600&family=Noto+Serif+TC:wght@300;400;500;600&family=Noto+Serif+SC:wght@300;400;500;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#FAF7F2;--cream-deep:#F3EDE3;--gold:#C9A84C;--gold-light:#E2CA88;--gold-dark:#9A7B2F;--gold-pale:#F5EDD6;--text-dark:#2C2416;--text-mid:#5C4A2A;--text-light:#8B7355;--text-pale:#B8A88A;--white:#FFF;--divider:rgba(201,168,76,.3);--ember:#C4622D;--sage:#6E7B54;--nav-h:60px;--toc-h:52px;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--cream);color:var(--text-dark);font-family:'Lato','Noto Serif TC',serif;line-height:1.8;overflow-x:hidden;}
+  body.sc{font-family:'Lato','Noto Serif SC',serif;}
+  [data-lang]{display:none;}
+  body.lang-tc [data-lang="tc"]{display:block;}body.lang-sc [data-lang="sc"]{display:block;}body.lang-en [data-lang="en"]{display:block;}
+  body.lang-tc [data-lang="tc"].inline{display:inline;}body.lang-sc [data-lang="sc"].inline{display:inline;}body.lang-en [data-lang="en"].inline{display:inline;}
+  /* 表格儲存格需維持 table-cell，否則語言切換後欄位會錯位 */
+  body.lang-tc td[data-lang="tc"],body.lang-sc td[data-lang="sc"],body.lang-en td[data-lang="en"]{display:table-cell;}
+
+  #nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 40px;background:rgba(250,247,242,.96);backdrop-filter:blur(8px);}
+  .nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.2rem;letter-spacing:.12em;color:var(--gold-dark);text-decoration:none;}
+  .nav-right{display:flex;align-items:center;gap:16px;}
+  .nav-home{font-size:.72rem;letter-spacing:.06em;color:var(--text-light);text-decoration:none;border:1px solid var(--divider);padding:5px 12px;border-radius:20px;}
+  .lang-switcher{display:flex;border:1px solid var(--divider);border-radius:20px;overflow:hidden;}
+  .lang-btn{padding:5px 12px;font-size:.72rem;background:transparent;border:none;cursor:pointer;color:var(--text-light);font-family:'Lato',sans-serif;}
+  .lang-btn.active,.lang-btn:hover{background:var(--gold);color:var(--white);}
+
+  header.hero{background:linear-gradient(165deg,var(--cream) 0%,var(--cream-deep) 60%,#EDE3D0 100%);text-align:center;padding:calc(var(--nav-h) + 70px) 24px 60px;}
+  .hero-eyebrow{font-size:.7rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+  .hero-title{font-family:'Cormorant Garamond','Noto Serif TC',serif;font-size:clamp(2rem,5vw,3rem);font-weight:400;letter-spacing:.05em;}
+  body.sc .hero-title{font-family:'Cormorant Garamond','Noto Serif SC',serif;}
+  .hero-sub{color:var(--text-light);margin-top:12px;font-size:.95rem;max-width:560px;margin-left:auto;margin-right:auto;}
+
+  /* 大綱：捲動時固定在頁首下方，可點選跳到各段 */
+  .toc{position:sticky;top:var(--nav-h);z-index:90;background:rgba(250,247,242,.97);backdrop-filter:blur(8px);border-top:1px solid var(--divider);border-bottom:1px solid var(--divider);box-shadow:0 4px 16px rgba(201,168,76,.08);}
+  .toc-inner{max-width:980px;margin:0 auto;display:flex;align-items:center;gap:6px;overflow-x:auto;padding:10px 24px;scrollbar-width:none;}
+  .toc-inner::-webkit-scrollbar{display:none;}
+  .toc-group{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-pale);white-space:nowrap;padding:0 4px 0 10px;}
+  .toc-group:first-child{padding-left:0;}
+  .toc a{flex:none;font-size:.78rem;color:var(--text-mid);text-decoration:none;padding:5px 12px;border-radius:16px;border:1px solid transparent;white-space:nowrap;transition:all .2s;}
+  .toc a:hover{border-color:var(--divider);}
+  .toc a.active{background:var(--gold);color:var(--white);}
+  .toc .sep{flex:none;width:1px;height:18px;background:var(--divider);margin:0 4px;}
+
+  section{max-width:820px;margin:0 auto;padding:56px 24px;}
+  [id]{scroll-margin-top:calc(var(--nav-h) + var(--toc-h) + 16px);}
+  .sec-eyebrow{font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+  .sec-head{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+  .sec-ic{font-size:1.6rem;}
+  .sec-title{font-family:'Cormorant Garamond','Noto Serif TC',serif;font-size:clamp(1.5rem,3.5vw,2rem);font-weight:500;color:var(--text-dark);}
+  body.sc .sec-title{font-family:'Cormorant Garamond','Noto Serif SC',serif;}
+  .intro{color:var(--text-mid);font-size:.95rem;margin-bottom:24px;}
+  .alt{background:linear-gradient(180deg,var(--cream) 0%,var(--gold-pale) 100%);max-width:none;}
+  .alt .inner{max-width:820px;margin:0 auto;}
+
+  .tbl-wrap{overflow-x:auto;}
+  .tbl{width:100%;border-collapse:collapse;background:var(--white);border-radius:12px;overflow:hidden;box-shadow:0 6px 22px rgba(201,168,76,.07);font-size:.88rem;}
+  .tbl td{padding:11px 14px;border-top:1px solid var(--divider);color:var(--text-mid);vertical-align:top;}
+  .tbl tr:first-child td{border-top:none;}
+  .tbl td:first-child{color:var(--text-dark);font-weight:500;white-space:nowrap;}
+  .tbl a{color:var(--gold-dark);text-decoration:none;border-bottom:1px dotted var(--gold);}
+  .tbl tr.hl td{background:#FFF8EC;}
+
+  /* 三語欄位只有繁中是 first-child，覆寫掉共用的加粗與不換行，三種語言才會一致 */
+  .budget td:first-child{white-space:normal;font-weight:inherit;color:var(--text-mid);}
+  .budget td:last-child{text-align:right;white-space:nowrap;font-family:'Lato',sans-serif;color:var(--text-dark);}
+  .budget tr.grp td{background:var(--gold-pale);color:var(--gold-dark);font-weight:600;font-size:.8rem;letter-spacing:.04em;}
+  .budget tr.sub td{font-weight:600;color:var(--text-dark);}
+  .budget tr.total td{background:#EDF0E6;color:var(--sage);font-weight:700;}
+  .budget .unit{font-size:.75rem;color:var(--text-light);font-weight:400;}
+  .who{display:inline-block;font-size:.68rem;padding:1px 8px;border-radius:10px;background:var(--gold-pale);color:var(--gold-dark);white-space:nowrap;}
+  .who.b{background:#EDF0E6;color:var(--sage);}
+  .who.all{background:#FBE9DF;color:var(--ember);}
+
+  .itin{display:grid;gap:16px;}
+  .day{background:var(--white);border:1px solid var(--divider);border-left:4px solid var(--gold);border-radius:12px;padding:20px 24px;box-shadow:0 6px 22px rgba(201,168,76,.06);}
+  .day.b{border-left-color:var(--sage);}
+  .day-h{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:10px;}
+  .day-n{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--ember);letter-spacing:.04em;white-space:nowrap;}
+  .day-t{font-weight:600;color:var(--text-dark);font-size:1.02rem;}
+  .day ul{list-style:none;}
+  .day li{position:relative;padding:5px 0 5px 18px;font-size:.9rem;color:var(--text-mid);}
+  .day li::before{content:"◆";position:absolute;left:0;color:var(--gold);font-size:.55rem;top:11px;}
+  .day li b{color:var(--text-dark);}
+  .day .when{display:inline-block;min-width:3.2em;color:var(--gold-dark);font-size:.78rem;letter-spacing:.04em;}
+  .day .note{margin-top:10px;font-size:.8rem;color:var(--text-light);}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;}
+  .split div{border:1px dashed var(--divider);border-radius:10px;padding:10px 14px;font-size:.85rem;color:var(--text-mid);}
+  .split b{color:var(--text-dark);}
+
+  .tips{list-style:none;background:var(--white);border:1px solid var(--divider);border-left:4px solid var(--gold);border-radius:12px;padding:18px 24px;}
+  .tips li{position:relative;padding:6px 0 6px 18px;font-size:.9rem;color:var(--text-mid);}
+  .tips li::before{content:"◆";position:absolute;left:0;color:var(--gold);font-size:.55rem;top:12px;}
+  .tips b{color:var(--text-dark);}
+
+  .cta{text-align:center;padding:10px 24px 70px;}
+  .cta a{display:none;background:var(--gold-dark);color:var(--cream);text-decoration:none;padding:13px 30px;border-radius:8px;letter-spacing:.05em;}
+  body.lang-tc .cta a[data-lang="tc"],body.lang-sc .cta a[data-lang="sc"],body.lang-en .cta a[data-lang="en"]{display:inline-block;}
+  .cta p{color:var(--text-light);font-size:.85rem;margin-bottom:16px;}
+
+  footer{background:var(--text-dark);color:var(--gold-pale);text-align:center;padding:40px 24px;}
+  footer .fn{font-family:'Cormorant Garamond',serif;font-size:1.6rem;letter-spacing:.06em;}
+  footer .fs2{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-light);margin-top:8px;opacity:.8;}
+
+  @media(max-width:680px){
+    #nav{padding:0 18px;} .nav-home{display:none;}
+    .toc-inner{padding:10px 16px;}
+    .day{padding:18px 18px;}
+    .split{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body class="lang-tc">
+
+<nav id="nav">
+  <a href="../" class="nav-logo">H &amp; S</a>
+  <div class="nav-right">
+    <a href="../" class="nav-home">⌂ Home</a>
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('tc')">繁</button>
+      <button class="lang-btn" onclick="setLang('sc')">简</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-eyebrow">Optional Tours · 2027.05</div>
+  <h1 class="hero-title" data-lang="tc">延伸旅遊 · 行程詳情</h1><h1 class="hero-title" data-lang="sc">延伸旅游 · 行程详情</h1><h1 class="hero-title" data-lang="en">Optional Tours in Detail</h1>
+  <p class="hero-sub" data-lang="tc">婚宴後的廣州兩日，加上張家界五天。可以只參加一段、兩段都參加，或自行安排；報名請回主頁 RSVP 勾選。</p>
+  <p class="hero-sub" data-lang="sc">婚宴后的广州两日，加上张家界五天。可以只参加一段、两段都参加，或自行安排；报名请回主页 RSVP 勾选。</p>
+  <p class="hero-sub" data-lang="en">Two days in Guangzhou after the wedding, plus five days in Zhangjiajie. Join one, both, or neither — sign up via the RSVP form on the main page.</p>
+</header>
+
+<!-- 大綱 -->
+<nav class="toc" aria-label="Outline">
+  <div class="toc-inner">
+    <a href="#overview"><span data-lang="tc" class="inline">總覽</span><span data-lang="sc" class="inline">总览</span><span data-lang="en" class="inline">Overview</span></a>
+    <a href="#budget"><span data-lang="tc" class="inline">預算參考</span><span data-lang="sc" class="inline">预算参考</span><span data-lang="en" class="inline">Budget</span></a>
+    <span class="sep"></span>
+    <span class="toc-group"><span data-lang="tc" class="inline">廣州</span><span data-lang="sc" class="inline">广州</span><span data-lang="en" class="inline">Guangzhou</span></span>
+    <a href="#d0516"><span data-lang="tc" class="inline">5/16 老城西關</span><span data-lang="sc" class="inline">5/16 老城西关</span><span data-lang="en" class="inline">May 16 Old Town</span></a>
+    <a href="#d0517"><span data-lang="tc" class="inline">5/17 江畔新城</span><span data-lang="sc" class="inline">5/17 江畔新城</span><span data-lang="en" class="inline">May 17 Riverside</span></a>
+    <a href="#d0518"><span data-lang="tc" class="inline">5/18 分流</span><span data-lang="sc" class="inline">5/18 分流</span><span data-lang="en" class="inline">May 18 Depart</span></a>
+    <span class="sep"></span>
+    <span class="toc-group"><span data-lang="tc" class="inline">張家界</span><span data-lang="sc" class="inline">张家界</span><span data-lang="en" class="inline">Zhangjiajie</span></span>
+    <a href="#z0518"><span data-lang="tc" class="inline">5/18 抵達</span><span data-lang="sc" class="inline">5/18 抵达</span><span data-lang="en" class="inline">May 18 Arrive</span></a>
+    <a href="#z0519"><span data-lang="tc" class="inline">5/19 天門山</span><span data-lang="sc" class="inline">5/19 天门山</span><span data-lang="en" class="inline">May 19 Tianmen</span></a>
+    <a href="#z0520"><span data-lang="tc" class="inline">5/20 袁家界</span><span data-lang="sc" class="inline">5/20 袁家界</span><span data-lang="en" class="inline">May 20 Avatar Mtns</span></a>
+    <a href="#z0521"><span data-lang="tc" class="inline">5/21 天子山</span><span data-lang="sc" class="inline">5/21 天子山</span><span data-lang="en" class="inline">May 21 Tianzi</span></a>
+    <a href="#z0522"><span data-lang="tc" class="inline">5/22 玻璃橋</span><span data-lang="sc" class="inline">5/22 玻璃桥</span><span data-lang="en" class="inline">May 22 Glass Bridge</span></a>
+    <a href="#z0523"><span data-lang="tc" class="inline">5/23 返台</span><span data-lang="sc" class="inline">5/23 返台</span><span data-lang="en" class="inline">May 23 Home</span></a>
+    <span class="sep"></span>
+    <a href="#tips"><span data-lang="tc" class="inline">行前叮嚀</span><span data-lang="sc" class="inline">行前叮咛</span><span data-lang="en" class="inline">Tips</span></a>
+  </div>
+</nav>
+
+<!-- 總覽 -->
+<section id="overview">
+  <p class="sec-eyebrow">Overview</p>
+  <div class="sec-head"><span class="sec-ic">🗓️</span><h2 class="sec-title" data-lang="tc">十天總覽</h2><h2 class="sec-title" data-lang="sc">十天总览</h2><h2 class="sec-title" data-lang="en">The Ten Days at a Glance</h2></div>
+  <p class="intro" data-lang="tc">點日期可以直接跳到當天的介紹。<span class="who all">全員</span> 所有賓客 · <span class="who">廣州遊</span> 選擇廣州行程 · <span class="who b">B 團</span> 續遊張家界</p>
+  <p class="intro" data-lang="sc">点日期可以直接跳到当天的介绍。<span class="who all">全员</span> 所有宾客 · <span class="who">广州游</span> 选择广州行程 · <span class="who b">B 团</span> 续游张家界</p>
+  <p class="intro" data-lang="en">Tap a date to jump to that day. <span class="who all">All</span> every guest · <span class="who">GZ tour</span> Guangzhou days · <span class="who b">Group B</span> Zhangjiajie extension</p>
+  <div class="tbl-wrap">
+  <table class="tbl">
+    <tr><td>5/14（五）</td><td data-lang="tc">抵達廣州、入住休息 <span class="who all">全員</span></td><td data-lang="sc">抵达广州、入住休息 <span class="who all">全员</span></td><td data-lang="en">Arrive in Guangzhou, check in <span class="who all">All</span></td></tr>
+    <tr class="hl"><td>5/15（六）</td><td data-lang="tc">💍 <b>婚宴晚宴</b> · 廣州聖豐索菲特大酒店 <span class="who all">全員</span></td><td data-lang="sc">💍 <b>婚宴晚宴</b> · 广州圣丰索菲特大酒店 <span class="who all">全员</span></td><td data-lang="en">💍 <b>Wedding dinner</b> · Sofitel Guangzhou Sunrich <span class="who all">All</span></td></tr>
+    <tr><td><a href="#d0516">5/16（日）</a></td><td data-lang="tc">早茶、陳家祠、永慶坊、沙面、珠江夜遊 <span class="who">廣州遊</span></td><td data-lang="sc">早茶、陈家祠、永庆坊、沙面、珠江夜游 <span class="who">广州游</span></td><td data-lang="en">Yum cha, Chen Clan Hall, Yongqingfang, Shamian, Pearl River cruise <span class="who">GZ tour</span></td></tr>
+    <tr><td><a href="#d0517">5/17（一）</a></td><td data-lang="tc">北京路、太古倉碼頭、花城廣場、廣州塔 <span class="who">廣州遊</span></td><td data-lang="sc">北京路、太古仓码头、花城广场、广州塔 <span class="who">广州游</span></td><td data-lang="en">Beijing Road, Taikoo Wharf, Huacheng Square, Canton Tower <span class="who">GZ tour</span></td></tr>
+    <tr><td><a href="#d0518">5/18（二）</a></td><td data-lang="tc">上午自由活動；傍晚 A 團回台、B 團飛張家界</td><td data-lang="sc">上午自由活动；傍晚 A 团回台、B 团飞张家界</td><td data-lang="en">Free morning; Group A flies home, Group B flies to Zhangjiajie</td></tr>
+    <tr><td><a href="#z0519">5/19–21</a></td><td data-lang="tc">天門山、金鞭溪、袁家界、天子山、十里畫廊 <span class="who b">B 團</span></td><td data-lang="sc">天门山、金鞭溪、袁家界、天子山、十里画廊 <span class="who b">B 团</span></td><td data-lang="en">Tianmen, Golden Whip Stream, Yuanjiajie, Tianzi, Ten-Mile Gallery <span class="who b">Group B</span></td></tr>
+    <tr><td><a href="#z0522">5/22（六）</a></td><td data-lang="tc">大峽谷玻璃橋或寶峰湖；晚班機回廣州住一晚 <span class="who b">B 團</span></td><td data-lang="sc">大峡谷玻璃桥或宝峰湖；晚班机回广州住一晚 <span class="who b">B 团</span></td><td data-lang="en">Glass Bridge or Baofeng Lake; night flight back to Guangzhou <span class="who b">Group B</span></td></tr>
+    <tr><td><a href="#z0523">5/23（日）</a></td><td data-lang="tc">廣州 → 回台 <span class="who b">B 團</span></td><td data-lang="sc">广州 → 回台 <span class="who b">B 团</span></td><td data-lang="en">Guangzhou → home <span class="who b">Group B</span></td></tr>
+  </table>
+  </div>
+</section>
+
+<!-- 預算參考 -->
+<section id="budget">
+  <p class="sec-eyebrow">Budget</p>
+  <div class="sec-head"><span class="sec-ic">💰</span><h2 class="sec-title" data-lang="tc">預算參考</h2><h2 class="sec-title" data-lang="sc">预算参考</h2><h2 class="sec-title" data-lang="en">Budget Guide</h2></div>
+  <p class="intro" data-lang="tc">每人估算，單位新台幣（NT$），以台灣出發計算。</p>
+  <p class="intro" data-lang="sc">每人估算，单位新台币（NT$），以台湾出发计算。</p>
+  <p class="intro" data-lang="en">Per person, in New Taiwan dollars (NT$), departing from Taiwan.</p>
+  <div class="tbl-wrap">
+  <table class="tbl budget">
+    <tr class="grp"><td data-lang="tc">參加婚宴 · 5/14–5/18</td><td data-lang="sc">参加婚宴 · 5/14–5/18</td><td data-lang="en">Wedding trip · May 14–18</td><td></td></tr>
+    <tr><td data-lang="tc">台北 ⇄ 廣州 來回機票</td><td data-lang="sc">台北 ⇄ 广州 往返机票</td><td data-lang="en">Taipei ⇄ Guangzhou return flight</td><td>12,500</td></tr>
+    <tr><td data-lang="tc">廣州飯店 4 晚 <span class="unit">（雙人房分攤）</span></td><td data-lang="sc">广州酒店 4 晚 <span class="unit">（双人房分摊）</span></td><td data-lang="en">Guangzhou hotel, 4 nights <span class="unit">(sharing a double)</span></td><td>10,000</td></tr>
+    <tr class="sub"><td data-lang="tc">小計</td><td data-lang="sc">小计</td><td data-lang="en">Subtotal</td><td>≈ 22,500</td></tr>
+    <tr class="grp"><td data-lang="tc">張家界延伸 · B 團加購</td><td data-lang="sc">张家界延伸 · B 团加购</td><td data-lang="en">Zhangjiajie add-on · Group B</td><td></td></tr>
+    <tr><td data-lang="tc">廣州 ⇄ 張家界 來回機票</td><td data-lang="sc">广州 ⇄ 张家界 往返机票</td><td data-lang="en">Guangzhou ⇄ Zhangjiajie return flight</td><td>11,000</td></tr>
+    <tr><td data-lang="tc">張家界行程＋飯店</td><td data-lang="sc">张家界行程＋酒店</td><td data-lang="en">Zhangjiajie tours + hotel</td><td>10,000</td></tr>
+    <tr class="sub"><td data-lang="tc">小計</td><td data-lang="sc">小计</td><td data-lang="en">Subtotal</td><td>≈ 21,000</td></tr>
+    <tr class="total"><td data-lang="tc">B 團全程合計</td><td data-lang="sc">B 团全程合计</td><td data-lang="en">Group B total</td><td>≈ 43,500</td></tr>
+  </table>
+  </div>
+  <p class="note" style="font-size:.82rem;color:var(--text-light);margin-top:14px" data-lang="tc">※ 以 2027 年 5 月估算，實際以訂位時的票價與房價為準。未含餐飲、廣州市區門票與交通、個人消費。</p>
+  <p class="note" style="font-size:.82rem;color:var(--text-light);margin-top:14px" data-lang="sc">※ 以 2027 年 5 月估算，实际以订位时的票价与房价为准。未含餐饮、广州市区门票与交通、个人消费。</p>
+  <p class="note" style="font-size:.82rem;color:var(--text-light);margin-top:14px" data-lang="en">※ Estimates for May 2027; actual fares and room rates apply at booking. Excludes meals, Guangzhou sightseeing tickets and local transport, and personal spending.</p>
+</section>
+
+<!-- 廣州 -->
+<section id="guangzhou" class="alt">
+  <div class="inner">
+    <p class="sec-eyebrow">Guangzhou · May 16–18</p>
+    <div class="sec-head"><span class="sec-ic">🌺</span><h2 class="sec-title" data-lang="tc">廣州深度遊</h2><h2 class="sec-title" data-lang="sc">广州深度游</h2><h2 class="sec-title" data-lang="en">Guangzhou Deep Dive</h2></div>
+    <p class="intro" data-lang="tc">廣州是 Sincer 的故鄉。兩天一老一新：第一天走老城西關，吃早茶、看嶺南祠堂與騎樓街；第二天沿著珠江走，看百年碼頭，晚上登廣州塔看兩岸夜景。</p>
+    <p class="intro" data-lang="sc">广州是 Sincer 的故乡。两天一老一新：第一天走老城西关，吃早茶、看岭南祠堂与骑楼街；第二天沿着珠江走，看百年码头，晚上登广州塔看两岸夜景。</p>
+    <p class="intro" data-lang="en">Guangzhou is Sincer's hometown. One day old, one day new: first the old Xiguan quarter — dim sum, Lingnan clan halls and arcaded streets; then along the Pearl River to a century-old wharf, ending atop Canton Tower at night.</p>
+    <div class="itin">
+
+      <div class="day" id="d0516">
+        <div class="day-h"><span class="day-n">5/16 (日)</span><span class="day-t" data-lang="tc">老城西關 · 珠江夜遊</span><span class="day-t" data-lang="sc">老城西关 · 珠江夜游</span><span class="day-t" data-lang="en">Old Xiguan · Pearl River by night</span></div>
+        <ul>
+          <li data-lang="tc"><span class="when">早上</span><b>早茶</b>：廣州人的一天從「一盅兩件」開始，蝦餃、燒賣、叉燒包，老字號如廣州酒家、陶陶居、點都德</li><li data-lang="sc"><span class="when">早上</span><b>早茶</b>：广州人的一天从「一盅两件」开始，虾饺、烧卖、叉烧包，老字号如广州酒家、陶陶居、点都德</li><li data-lang="en"><span class="when">AM</span><b>Yum cha</b>: the Cantonese day starts with tea and dim sum — har gow, siu mai, char siu bao at old-name teahouses</li>
+          <li data-lang="tc"><span class="when">上午</span><b>陳家祠</b>：嶺南祠堂建築代表作，屋脊陶塑、木雕、磚雕都很精緻；館內是廣東民間工藝博物館</li><li data-lang="sc"><span class="when">上午</span><b>陈家祠</b>：岭南祠堂建筑代表作，屋脊陶塑、木雕、砖雕都很精致；馆内是广东民间工艺博物馆</li><li data-lang="en"><span class="when">Late AM</span><b>Chen Clan Ancestral Hall</b>: the finest Lingnan clan hall — ornate ceramic ridges, wood and brick carving; now a folk-arts museum</li>
+          <li data-lang="tc"><span class="when">午後</span><b>永慶坊</b>：恩寧路騎樓街區，有李小龍祖居與<b>粵劇藝術博物館</b></li><li data-lang="sc"><span class="when">午后</span><b>永庆坊</b>：恩宁路骑楼街区，有李小龙祖居与<b>粤剧艺术博物馆</b></li><li data-lang="en"><span class="when">PM</span><b>Yongqingfang</b>: restored arcade streets on Enning Road, Bruce Lee's ancestral home and the <b>Cantonese Opera Art Museum</b></li>
+          <li data-lang="tc"><span class="when"></span><b>上下九步行街</b>：西關騎樓商圈，順路吃雙皮奶、薑撞奶等廣式甜品</li><li data-lang="sc"><span class="when"></span><b>上下九步行街</b>：西关骑楼商圈，顺路吃双皮奶、姜撞奶等广式甜品</li><li data-lang="en"><span class="when"></span><b>Shangxiajiu</b> pedestrian street — stop for double-skin milk and ginger milk curd</li>
+          <li data-lang="tc"><span class="when">傍晚</span><b>沙面島</b>：百年歐陸建築、榕樹林蔭，江邊散步拍照</li><li data-lang="sc"><span class="when">傍晚</span><b>沙面岛</b>：百年欧陆建筑、榕树林荫，江边散步拍照</li><li data-lang="en"><span class="when">Dusk</span><b>Shamian Island</b>: century-old European buildings under banyan shade, a riverside stroll</li>
+          <li data-lang="tc"><span class="when">晚上</span><b>珠江夜遊</b>：天字碼頭或大沙頭碼頭上船，約 60 分鐘，兩岸燈光與廣州塔一路相伴</li><li data-lang="sc"><span class="when">晚上</span><b>珠江夜游</b>：天字码头或大沙头码头上船，约 60 分钟，两岸灯光与广州塔一路相伴</li><li data-lang="en"><span class="when">Night</span><b>Pearl River cruise</b>: board at Tianzi or Dashatou pier, about 60 minutes past the lit-up skyline and Canton Tower</li>
+        </ul>
+        <p class="note" data-lang="tc">※ 粵劇藝術博物館週一休館，所以永慶坊排在週日；陳家祠週二休館，兩天都能去。</p><p class="note" data-lang="sc">※ 粤剧艺术博物馆周一闭馆，所以永庆坊排在周日；陈家祠周二闭馆，两天都能去。</p><p class="note" data-lang="en">※ The opera museum closes Mondays, so Yongqingfang is on Sunday. Chen Clan Hall closes Tuesdays.</p>
+      </div>
+
+      <div class="day" id="d0517">
+        <div class="day-h"><span class="day-n">5/17 (一)</span><span class="day-t" data-lang="tc">北京路 · 太古倉 · 廣州塔</span><span class="day-t" data-lang="sc">北京路 · 太古仓 · 广州塔</span><span class="day-t" data-lang="en">Beijing Road · Taikoo Wharf · Canton Tower</span></div>
+        <ul>
+          <li data-lang="tc"><span class="when">上午</span><b>北京路步行街</b>：地面玻璃下看得到千年古道遺址，周邊老店林立</li><li data-lang="sc"><span class="when">上午</span><b>北京路步行街</b>：地面玻璃下看得到千年古道遗址，周边老店林立</li><li data-lang="en"><span class="when">AM</span><b>Beijing Road</b>: see the thousand-year-old road layers under glass, lined with old shops</li>
+          <li data-lang="tc"><span class="when">午後</span><b>太古倉碼頭</b>：百年碼頭倉庫改建，江邊咖啡與餐廳，適合拍照、歇腳</li><li data-lang="sc"><span class="when">午后</span><b>太古仓码头</b>：百年码头仓库改建，江边咖啡与餐厅，适合拍照、歇脚</li><li data-lang="en"><span class="when">PM</span><b>Taikoo Wharf</b>: century-old warehouses turned riverside cafés — a good place to slow down</li>
+          <li data-lang="tc"><span class="when">傍晚</span><b>花城廣場 · 海心沙</b>：新城中軸線，對岸就是廣州塔</li><li data-lang="sc"><span class="when">傍晚</span><b>花城广场 · 海心沙</b>：新城中轴线，对岸就是广州塔</li><li data-lang="en"><span class="when">Dusk</span><b>Huacheng Square · Haixinsha</b>: the new city's central axis, facing Canton Tower</li>
+          <li data-lang="tc"><span class="when">晚上</span><b>廣州塔</b>：塔高 600 公尺，登上觀景台、搭頂層摩天輪看全城夜景</li><li data-lang="sc"><span class="when">晚上</span><b>广州塔</b>：塔高 600 米，登上观景台、搭顶层摩天轮看全城夜景</li><li data-lang="en"><span class="when">Night</span><b>Canton Tower</b> (600 m): observation deck and the rooftop Ferris wheel over the city lights</li>
+        </ul>
+        <p class="note" data-lang="tc">※ 週一廣東省博物館等多數博物館休館，這天安排戶外與街區行程。</p><p class="note" data-lang="sc">※ 周一广东省博物馆等多数博物馆闭馆，这天安排户外与街区行程。</p><p class="note" data-lang="en">※ Most museums close on Mondays, so this day stays outdoors.</p>
+      </div>
+
+      <div class="day" id="d0518">
+        <div class="day-h"><span class="day-n">5/18 (二)</span><span class="day-t" data-lang="tc">最後一頓早茶 · 機場分流</span><span class="day-t" data-lang="sc">最后一顿早茶 · 机场分流</span><span class="day-t" data-lang="en">One last dim sum · split at the airport</span></div>
+        <ul>
+          <li data-lang="tc"><span class="when">上午</span>自由活動：早茶、補買伴手禮</li><li data-lang="sc"><span class="when">上午</span>自由活动：早茶、补买伴手礼</li><li data-lang="en"><span class="when">AM</span>Free time: dim sum, last-minute gifts</li>
+          <li data-lang="tc"><span class="when">午後</span>退房，前往白雲機場（市區約 40 分鐘）</li><li data-lang="sc"><span class="when">午后</span>退房，前往白云机场（市区约 40 分钟）</li><li data-lang="en"><span class="when">PM</span>Check out, head to Baiyun Airport (about 40 min)</li>
+        </ul>
+        <div class="split">
+          <div data-lang="tc"><b>A 團 · 回台</b><br>華航 CI522　廣州 17:30 → 桃園 19:40</div><div data-lang="sc"><b>A 团 · 回台</b><br>华航 CI522　广州 17:30 → 桃园 19:40</div><div data-lang="en"><b>Group A · home</b><br>CI522　CAN 17:30 → TPE 19:40</div>
+          <div data-lang="tc"><b>B 團 · 飛張家界</b><br>南航 CZ3381　廣州 19:05 → 張家界 20:50</div><div data-lang="sc"><b>B 团 · 飞张家界</b><br>南航 CZ3381　广州 19:05 → 张家界 20:50</div><div data-lang="en"><b>Group B · to Zhangjiajie</b><br>CZ3381　CAN 19:05 → DYG 20:50</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 張家界 -->
+<section id="zhangjiajie">
+  <p class="sec-eyebrow">Zhangjiajie · May 18–23</p>
+  <div class="sec-head"><span class="sec-ic">🏔️</span><h2 class="sec-title" data-lang="tc">張家界奇境</h2><h2 class="sec-title" data-lang="sc">张家界奇境</h2><h2 class="sec-title" data-lang="en">Zhangjiajie Wonder</h2></div>
+  <p class="intro" data-lang="tc">張家界是世界自然遺產，石英砂岩峰林拔地而起，電影《阿凡達》懸浮山的畫面就取材於此。四天走完天門山與武陵源兩大核心，最後一晚回廣州，隔天回台。</p>
+  <p class="intro" data-lang="sc">张家界是世界自然遗产，石英砂岩峰林拔地而起，电影《阿凡达》悬浮山的画面就取材于此。四天走完天门山与武陵源两大核心，最后一晚回广州，隔天回台。</p>
+  <p class="intro" data-lang="en">A UNESCO World Heritage site where sandstone pillars rise straight out of the forest — the inspiration for Avatar's floating mountains. Four days cover Tianmen Mountain and Wulingyuan, then one night back in Guangzhou before flying home.</p>
+  <div class="itin">
+
+    <div class="day b" id="z0518">
+      <div class="day-h"><span class="day-n">5/18 (二)</span><span class="day-t" data-lang="tc">晚班機抵達 · 入住休息</span><span class="day-t" data-lang="sc">晚班机抵达 · 入住休息</span><span class="day-t" data-lang="en">Evening arrival & check-in</span></div>
+      <ul>
+        <li data-lang="tc"><b>CZ3381</b> 廣州 19:05 → 張家界荷花機場 20:50</li><li data-lang="sc"><b>CZ3381</b> 广州 19:05 → 张家界荷花机场 20:50</li><li data-lang="en"><b>CZ3381</b> Guangzhou 19:05 → Zhangjiajie Hehua 20:50</li>
+        <li data-lang="tc">專車接送入住飯店（武陵源／市區），早點休息</li><li data-lang="sc">专车接送入住酒店（武陵源／市区），早点休息</li><li data-lang="en">Transfer to the hotel (Wulingyuan / city) and rest up</li>
+      </ul>
+    </div>
+
+    <div class="day b" id="z0519">
+      <div class="day-h"><span class="day-n">5/19 (三)</span><span class="day-t" data-lang="tc">天門山一日</span><span class="day-t" data-lang="sc">天门山一日</span><span class="day-t" data-lang="en">Tianmen Mountain</span></div>
+      <ul>
+        <li data-lang="tc"><b>天門山大索道</b>（世界最長高山索道，7,455m）登頂</li><li data-lang="sc"><b>天门山大索道</b>（世界最长高山索道，7,455m）登顶</li><li data-lang="en"><b>Tianmen cable car</b> (world's longest, 7,455 m)</li>
+        <li data-lang="tc"><b>玻璃棧道</b>（鬼谷棧道）、懸崖景觀步道</li><li data-lang="sc"><b>玻璃栈道</b>（鬼谷栈道）、悬崖景观步道</li><li data-lang="en"><b>Glass skywalk</b> & cliff walkways</li>
+        <li data-lang="tc"><b>天門洞</b>＋ 999 級上天梯（可搭手扶梯）</li><li data-lang="sc"><b>天门洞</b>＋ 999 级上天梯（可搭手扶梯）</li><li data-lang="en"><b>Tianmen Cave</b> & 999 steps (escalators available)</li>
+        <li data-lang="tc">通天大道 99 彎盤山公路</li><li data-lang="sc">通天大道 99 弯盘山公路</li><li data-lang="en">99-bend Tongtian Avenue</li>
+        <li data-lang="tc">選配：晚間《天門狐仙》山水實景秀</li><li data-lang="sc">选配：晚间《天门狐仙》山水实景秀</li><li data-lang="en">Optional: "Tianmen Fox Fairy" evening show</li>
+      </ul>
+    </div>
+
+    <div class="day b" id="z0520">
+      <div class="day-h"><span class="day-n">5/20 (四)</span><span class="day-t" data-lang="tc">武陵源 · 金鞭溪 + 袁家界（阿凡達）</span><span class="day-t" data-lang="sc">武陵源 · 金鞭溪 + 袁家界（阿凡达）</span><span class="day-t" data-lang="en">Wulingyuan · Golden Whip Stream + Avatar Mtns</span></div>
+      <ul>
+        <li data-lang="tc"><b>金鞭溪</b>徒步（金鞭岩、劈山救母；平緩溪谷）</li><li data-lang="sc"><b>金鞭溪</b>徒步（金鞭岩、劈山救母；平缓溪谷）</li><li data-lang="en"><b>Golden Whip Stream</b> gentle valley walk</li>
+        <li data-lang="tc"><b>百龍天梯</b>（世界最高戶外電梯，326m）直上山頂</li><li data-lang="sc"><b>百龙天梯</b>（世界最高户外电梯，326m）直上山顶</li><li data-lang="en"><b>Bailong Elevator</b> (326 m, world's tallest)</li>
+        <li data-lang="tc"><b>袁家界</b>：阿凡達「哈利路亞山」乾坤柱、天下第一橋、迷魂台</li><li data-lang="sc"><b>袁家界</b>：阿凡达「哈利路亚山」乾坤柱、天下第一桥、迷魂台</li><li data-lang="en"><b>Yuanjiajie</b>: Avatar "Hallelujah" pillars, First Bridge</li>
+      </ul>
+    </div>
+
+    <div class="day b" id="z0521">
+      <div class="day-h"><span class="day-n">5/21 (五)</span><span class="day-t" data-lang="tc">武陵源 · 天子山 + 十里畫廊</span><span class="day-t" data-lang="sc">武陵源 · 天子山 + 十里画廊</span><span class="day-t" data-lang="en">Wulingyuan · Tianzi Mtn + Ten-Mile Gallery</span></div>
+      <ul>
+        <li data-lang="tc"><b>天子山</b>：賀龍公園、御筆峰、西海石林、雲霧仙境</li><li data-lang="sc"><b>天子山</b>：贺龙公园、御笔峰、西海石林、云雾仙境</li><li data-lang="en"><b>Tianzi Mtn</b>: He Long Park, Imperial Brush Peaks, sea of peaks</li>
+        <li data-lang="tc"><b>十里畫廊</b>觀光小火車（輕鬆）</li><li data-lang="sc"><b>十里画廊</b>观光小火车（轻松）</li><li data-lang="en"><b>Ten-Mile Gallery</b> scenic mini-train (easy)</li>
+        <li data-lang="tc">選配：楊家界烏龍寨、天波府（險峻，懼高可略）</li><li data-lang="sc">选配：杨家界乌龙寨、天波府（险峻，惧高可略）</li><li data-lang="en">Optional: Yangjiajie fortress trails (steep — skippable)</li>
+      </ul>
+    </div>
+
+    <div class="day b" id="z0522">
+      <div class="day-h"><span class="day-n">5/22 (六)</span><span class="day-t" data-lang="tc">大峽谷玻璃橋 / 寶峰湖 · 晚班機返廣州</span><span class="day-t" data-lang="sc">大峡谷玻璃桥 / 宝峰湖 · 晚班机返广州</span><span class="day-t" data-lang="en">Glass Bridge / Baofeng Lake · night flight back</span></div>
+      <ul>
+        <li data-lang="tc">上午：<b>張家界大峽谷玻璃橋</b>，或<b>寶峰湖</b>遊船／<b>黃龍洞</b>溶洞</li><li data-lang="sc">上午：<b>张家界大峡谷玻璃桥</b>，或<b>宝峰湖</b>游船／<b>黄龙洞</b>溶洞</li><li data-lang="en">AM: <b>Grand Canyon Glass Bridge</b>, or <b>Baofeng Lake</b> cruise / <b>Yellow Dragon Cave</b></li>
+        <li data-lang="tc">下午：市區採買土特產（莓茶、臘味）</li><li data-lang="sc">下午：市区采买土特产（莓茶、腊味）</li><li data-lang="en">PM: local specialty shopping</li>
+        <li data-lang="tc"><b>CZ3382</b> 張家界 21:40 → 廣州 23:25（廣州住一晚）</li><li data-lang="sc"><b>CZ3382</b> 张家界 21:40 → 广州 23:25（广州住一晚）</li><li data-lang="en"><b>CZ3382</b> Zhangjiajie 21:40 → Guangzhou 23:25 (one night in GZ)</li>
+      </ul>
+    </div>
+
+    <div class="day b" id="z0523">
+      <div class="day-h"><span class="day-n">5/23 (日)</span><span class="day-t" data-lang="tc">廣州 · 返台</span><span class="day-t" data-lang="sc">广州 · 返台</span><span class="day-t" data-lang="en">Guangzhou · Home</span></div>
+      <ul>
+        <li data-lang="tc"><b>CZ3097</b> 廣州 11:20 → 桃園 13:30</li><li data-lang="sc"><b>CZ3097</b> 广州 11:20 → 桃园 13:30</li><li data-lang="en"><b>CZ3097</b> Guangzhou 11:20 → Taipei 13:30</li>
+      </ul>
+    </div>
+
+  </div>
+  <p class="note" style="font-size:.82rem;color:var(--text-light);margin-top:14px" data-lang="tc">※ 武陵源門票 4 天有效。玻璃棧道等險段懼高者可略過。實際順序依天氣與現場調整。</p>
+  <p class="note" style="font-size:.82rem;color:var(--text-light);margin-top:14px" data-lang="sc">※ 武陵源门票 4 天有效。玻璃栈道等险段惧高者可略过。实际顺序依天气与现场调整。</p>
+  <p class="note" style="font-size:.82rem;color:var(--text-light);margin-top:14px" data-lang="en">※ The Wulingyuan ticket is valid for 4 days. Skip the glass walkways if heights aren't your thing. Order may change with the weather.</p>
+</section>
+
+<!-- 行前叮嚀 -->
+<section id="tips" class="alt">
+  <div class="inner">
+    <p class="sec-eyebrow">Good to Know</p>
+    <div class="sec-head"><span class="sec-ic">🎒</span><h2 class="sec-title" data-lang="tc">行前叮嚀</h2><h2 class="sec-title" data-lang="sc">行前叮咛</h2><h2 class="sec-title" data-lang="en">Before You Go</h2></div>
+    <ul class="tips">
+      <li data-lang="tc"><b>費用</b>：延伸旅遊為自費；Harry 協助規劃與代訂，報名後個別通知費用。</li><li data-lang="sc"><b>费用</b>：延伸旅游为自费；Harry 协助规划与代订，报名后个别通知费用。</li><li data-lang="en"><b>Costs</b>: tours are self-funded; Harry helps plan and book, with costs shared after sign-up.</li>
+      <li data-lang="tc"><b>天氣</b>：5 月廣州濕熱、常有陣雨，帶把傘；張家界山區早晚偏涼，帶件薄外套。</li><li data-lang="sc"><b>天气</b>：5 月广州湿热、常有阵雨，带把伞；张家界山区早晚偏凉，带件薄外套。</li><li data-lang="en"><b>Weather</b>: Guangzhou is hot, humid and showery in May — pack an umbrella. Zhangjiajie mornings are cool; bring a light jacket.</li>
+      <li data-lang="tc"><b>鞋子</b>：兩段行程每天都走不少路，請穿好走的鞋。</li><li data-lang="sc"><b>鞋子</b>：两段行程每天都走不少路，请穿好走的鞋。</li><li data-lang="en"><b>Shoes</b>: both tours involve a lot of walking — wear comfortable shoes.</li>
+      <li data-lang="tc"><b>支付</b>：大陸多用微信支付／支付寶，出發前先綁定，或備些人民幣現金。</li><li data-lang="sc"><b>支付</b>：大陆多用微信支付／支付宝，出发前先绑定，或备些人民币现金。</li><li data-lang="en"><b>Payment</b>: WeChat Pay / Alipay are everywhere — set one up before you go, or bring some RMB cash.</li>
+      <li data-lang="tc"><b>網路</b>：Google、LINE、IG 在大陸受限，建議開通國際漫遊；<b>微信</b>最通用。</li><li data-lang="sc"><b>网络</b>：Google、LINE、IG 在大陆受限，建议开通国际漫游；<b>微信</b>最通用。</li><li data-lang="en"><b>Internet</b>: Google, LINE and IG are restricted — use roaming. <b>WeChat</b> works best.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="cta">
+  <p data-lang="tc">想參加哪一段？回主頁在 RSVP 表單勾選即可。</p><p data-lang="sc">想参加哪一段？回主页在 RSVP 表单勾选即可。</p><p data-lang="en">Want to join? Tick your choice in the RSVP form on the main page.</p>
+  <a href="../#rsvp" data-lang="tc">← 回主頁填寫 RSVP</a><a href="../#rsvp" data-lang="sc">← 回主页填写 RSVP</a><a href="../#rsvp" data-lang="en">← Back to RSVP</a>
+</div>
+
+<footer>
+  <div class="fn">Harry &amp; Sincer</div>
+  <div class="fs2">2027 · Guangzhou · Optional Tours</div>
+</footer>
+
+<script>
+  function setLang(l){
+    document.body.classList.remove('lang-tc','lang-sc','lang-en','sc');
+    document.body.classList.add('lang-'+l);
+    if(l==='sc') document.body.classList.add('sc');
+    document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.remove('active');});
+    var i=l==='tc'?0:l==='sc'?1:2; document.querySelectorAll('.lang-btn')[i].classList.add('active');
+    document.documentElement.lang=l==='tc'?'zh-TW':l==='sc'?'zh-CN':'en';
+    try{ localStorage.setItem('hs_lang',l); }catch(e){}
+  }
+  try{ var saved=localStorage.getItem('hs_lang'); if(saved&&saved!=='tc') setLang(saved); }catch(e){}
+
+  // 大綱：標出目前讀到哪一段，並讓該項目保持在可視範圍
+  (function(){
+    var links=[].slice.call(document.querySelectorAll('.toc a[href^="#"]'));
+    var bar=document.querySelector('.toc-inner');
+    var targets=links.map(function(a){return document.querySelector(a.getAttribute('href'));});
+    function onScroll(){
+      var line=window.innerHeight*0.35, cur=0;
+      targets.forEach(function(t,i){ if(t && t.getBoundingClientRect().top<=line) cur=i; });
+      links.forEach(function(a,i){ a.classList.toggle('active',i===cur); });
+      var a=links[cur], left=a.offsetLeft-bar.clientWidth/2+a.clientWidth/2;
+      if(Math.abs(bar.scrollLeft-left)>4) bar.scrollTo({left:left,behavior:'smooth'});
+    }
+    var ticking=false;
+    window.addEventListener('scroll',function(){ if(!ticking){ ticking=true; requestAnimationFrame(function(){ onScroll(); ticking=false; }); } },{passive:true});
+    onScroll();
+  })();
+</script>
+</body>
+</html>
