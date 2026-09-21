@@ -1,6 +1,6 @@
 # Harry & Sincer · 婚禮網站
 
-2027.05.16（週日・午宴）廣州婚宴邀請頁。繁中／簡中／English 三語切換。
+2027.05.15（週六・晚宴）廣州婚宴邀請頁，地點為廣州聖豐索菲特大酒店（Sofitel Guangzhou Sunrich）。繁中／簡中／English 三語切換。
 
 線上網址：<https://sqsqsqlll.github.io/hswedding/>
 
@@ -99,4 +99,3 @@ python3 -m http.server 8000
 ## 待辦
 
 - [ ] 主頁 `#photos` 三個位置仍是 `📷 Photo 1/2/3` 佔位，待換成婚紗照
-- [ ] 婚宴場地未定案，`index.html` 的地點仍寫「廣州（詳細地址待定）」
