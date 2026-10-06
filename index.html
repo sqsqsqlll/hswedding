@@ -523,9 +523,20 @@
     const msg = BTN_MSG[payload.lang] || BTN_MSG.tc;
     btn.disabled=true; btn.innerHTML=msg.sending;
     try{
-      const resp = await fetch(RSVP_ENDPOINT,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});
-      const data = await resp.json().catch(function(){return {ok:resp.ok};});
-      if(!data.ok) throw new Error(data.error||'server');
+      // Apps Script 的 /exec 會 302 轉址到 googleusercontent 取結果，這一步約有
+      // 四分之一機率失敗（內容端點回 404，或繞回 /exec 變成 GET）。
+      // 後端已改為以電話 upsert，同一人重送只會覆蓋同一列，所以重試是安全的。
+      let data = null, lastErr = '';
+      for (let attempt = 1; attempt <= 3; attempt++){
+        try{
+          const resp = await fetch(RSVP_ENDPOINT,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});
+          const r = await resp.json().catch(function(){return {ok:false,error:'bad-json'};});
+          if(r && r.ok){ data = r; break; }
+          lastErr = (r && r.error) || 'server';
+        }catch(e){ lastErr = String(e); }
+        if(attempt < 3) await new Promise(function(r){ setTimeout(r, 900*attempt); });
+      }
+      if(!data) throw new Error(lastErr||'server');
       btn.innerHTML=msg.ok; btn.style.background='#9A7B2F'; form.reset(); applyI18n(payload.lang);
       if(payload.source==='台灣賓客'){
         try{ localStorage.setItem('hs_tw_guest','1'); }catch(e){}
