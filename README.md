@@ -13,6 +13,12 @@
 ├── index.html          主頁：故事線、婚宴資訊、延伸旅遊、RSVP 表單
 ├── taiwan/
 │   └── index.html      台灣賓客須知：台胞證、航班、張家界 B 團、注意事項
+├── travel/
+│   └── index.html      延伸旅遊每日行程
+├── photos/             婚紗照
+├── scripts/
+│   └── build-public.sh 組建 Cloudflare 要上傳的公開頁（含白名單檢查）
+├── wrangler.jsonc      Cloudflare Worker `hswedding` 設定
 ├── robots.txt          不希望被搜尋引擎收錄
 ├── .nojekyll           關閉 GitHub Pages 的 Jekyll 處理
 └── README.md
@@ -33,9 +39,23 @@ python3 -m http.server 8000   # → http://localhost:8000/site/family/
 | 平台 | 網址 | 更新方式 |
 | --- | --- | --- |
 | GitHub Pages | <https://sqsqsqlll.github.io/hswedding/> | 推上 `main` 約 1 分鐘自動上線（來源：`main` 分支根目錄） |
-| Cloudflare Worker `hswedding` | <https://hswedding.beyondtravelworld.com/> | 從本機另外部署，**不會**隨 push 自動更新 |
+| Cloudflare Worker `hswedding` | <https://hswedding.beyondtravelworld.com/> | 推上 `main` 後由 Cloudflare Workers Builds 自動部署（約 1 分鐘） |
 
-兩邊賓客頁內容一樣。同時掛兩個不是多餘的：`github.io` 在大陸常常連不上，
+兩邊賓客頁內容一樣。
+
+### Cloudflare 網域上的三個 Worker
+
+| Worker | 負責路徑 | 部署方式 |
+| --- | --- | --- |
+| `hswedding` | 自訂網域（其餘所有路徑） | Workers Builds 連 `main`：建置 `bash scripts/build-public.sh`，部署 `npx wrangler@4 deploy`（設定見根目錄 `wrangler.jsonc`） |
+| `hswedding-private` | `/family*`、`/us-2027-hs*` 路由 | 本機 `docs/deploy-private.sh`（內容來自本機 `site/`，不進 repo） |
+| `hs-rsvp` | `/api/rsvp*` 路由 | Cloudflare 後台編輯 |
+
+路由優先於自訂網域，所以三者可以共用同一個網域。
+
+- 新增公開檔案（例如換照片）時，要同步改 `scripts/build-public.sh` 裡的白名單，否則自動部署會失敗。
+- **不要**把 `site/` 的內部頁搬進 `hswedding`：這個 Worker 由公開 repo 自動部署。
+- 出問題時到 Cloudflare 後台 `hswedding` → Deployments 點上一版 Rollback。同時掛兩個不是多餘的：`github.io` 在大陸常常連不上，
 廣州親友走 Cloudflare 那個網域比較穩，而 RSVP 的端點本來就指著它。
 
 兩個頁面之間一律使用**相對路徑**（主頁 → `taiwan/`；台灣頁 → `../`），

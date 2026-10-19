@@ -29,3 +29,5 @@ __MACOSX/
 *.tmp
 *.log
 node_modules/
+.deploy-build/
+.wrangler/
