@@ -1,6 +1,8 @@
 # Harry & Sincer · 婚禮網站
 
-2027.05.15（週六・晚宴）廣州婚宴邀請頁，**場地確認中**。目前這版的目的是先收出席意願與人數，場地定案後再發正式喜帖。繁中／簡中／English 三語切換。
+2027.05.15（週六・晚宴）廣州婚宴邀請頁，**場地確認中**。目前這版的目的是先收出席意願與人數，場地定案後再發正式喜帖。
+
+主頁與值機表單的視覺來自 Claude Design 畫布「婚宴主視覺方案」的「邀請網頁 · 赤金登機」與「值機表單 · 送祝福」兩個畫板（繁中＋英文並排）；台灣賓客頁、行程頁仍是繁／簡／English 三語切換。
 
 線上網址：<https://sqsqsqlll.github.io/hswedding/>
 
@@ -10,7 +12,9 @@
 
 ```
 .
-├── index.html          主頁：故事線、婚宴資訊、延伸旅遊、RSVP 表單
+├── index.html          主頁：赤金登機邀請函（主視覺、航線圖、四時照片、登機證）
+├── checkin/
+│   └── index.html      值機櫃台：RSVP 表單（送到 /api/rsvp）
 ├── taiwan/
 │   └── index.html      台灣賓客須知：台胞證、航班、張家界 B 團、注意事項
 ├── travel/
@@ -59,6 +63,7 @@ python3 -m http.server 8000   # → http://localhost:8000/site/family/
 廣州親友走 Cloudflare 那個網域比較穩，而 RSVP 的端點本來就指著它。
 
 兩個頁面之間一律使用**相對路徑**（主頁 → `taiwan/`；台灣頁 → `../`），
+（主頁 → `checkin/`、`travel/`、`taiwan/`；子頁 → `../checkin/`）
 所以無論網站掛在 `sqsqsqlll.github.io/hswedding/` 這種子路徑底下，
 還是掛在自訂網域的根目錄，連結都不會壞。
 
@@ -75,7 +80,7 @@ python3 -m http.server 8000   # → http://localhost:8000/site/family/
 中間那層 Cloudflare 是必要的：大陸的防火牆會擋「使用者 → Google」的直連，
 但擋不掉「Cloudflare → Google」，所以廣州親友的回覆才進得了同一張表。
 
-端點寫在 `index.html` 的 `RSVP_ENDPOINT` 常數：
+端點寫在 `checkin/index.html` 的 `RSVP_ENDPOINT` 常數：
 
 ```js
 const RSVP_ENDPOINT = "https://hswedding.beyondtravelworld.com/api/rsvp";
@@ -118,4 +123,5 @@ python3 -m http.server 8000
 
 ## 待辦
 
-- [ ] 主頁 `#photos` 三個位置仍是 `📷 Photo 1/2/3` 佔位，待換成婚紗照
+- [ ] 場地與時間定案後，更新主頁登機證的「登機」「登機口」兩格（目前是「晚宴 · 待定」「廣州 · 確認中」）
+- [ ] 四時照片目前重複用三張婚紗照，之後換成春（櫻花／賽道）、夏、秋（熊野古道）、冬（雪地）各自的照片，並同步改 `scripts/build-public.sh` 白名單
