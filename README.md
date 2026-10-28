@@ -57,7 +57,9 @@ python3 -m http.server 8000   # → http://localhost:8000/site/family/
 
 - 新增公開檔案（例如換照片）時，要同步改 `scripts/build-public.sh` 裡的白名單，否則自動部署會失敗。
 - **不要**把 `site/` 的內部頁搬進 `hswedding`：這個 Worker 由公開 repo 自動部署。
-- 出問題時到 Cloudflare 後台 `hswedding` → Deployments 點上一版 Rollback。同時掛兩個不是多餘的：`github.io` 在大陸常常連不上，
+- 出問題時到 Cloudflare 後台 `hswedding` → Deployments 點上一版 Rollback。
+
+同時掛 GitHub Pages 與 Cloudflare 不是多餘的：`github.io` 在大陸常常連不上，
 廣州親友走 Cloudflare 那個網域比較穩，而 RSVP 的端點本來就指著它。
 
 兩個頁面之間一律使用**相對路徑**（主頁 → `taiwan/`；台灣頁 → `../`），
