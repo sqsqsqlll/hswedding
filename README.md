@@ -4,7 +4,8 @@
 
 線上網址：<https://sqsqsqlll.github.io/hswedding/>
 
-> 赤金登機版（Claude Design「婚宴主視覺方案」）在 [`red` 分支](https://github.com/sqsqsqlll/hswedding/tree/red)，與本分支分開維護。
+> 赤金登機版（Claude Design「婚宴主視覺方案」）在 [`red` 分支](https://github.com/sqsqsqlll/hswedding/tree/red)，與本分支分開維護；
+> GitHub Pages 上的網址是 <https://sqsqsqlll.github.io/hswedding/red/>。
 
 ---
 
@@ -40,7 +41,7 @@ python3 -m http.server 8000   # → http://localhost:8000/site/family/
 
 | 平台 | 網址 | 更新方式 |
 | --- | --- | --- |
-| GitHub Pages | <https://sqsqsqlll.github.io/hswedding/> | 推上 `main` 約 1 分鐘自動上線（來源：`main` 分支根目錄） |
+| GitHub Pages | <https://sqsqsqlll.github.io/hswedding/>（赤金登機版在 `/red/`） | 推上 `main` 或 `red` 後由 `.github/workflows/pages.yml` 自動發布（約 1–2 分鐘）。Pages 設定的 Source 必須是「GitHub Actions」 |
 | Cloudflare Worker `hswedding` | <https://hswedding.beyondtravelworld.com/> | 推上 `main` 後由 Cloudflare Workers Builds 自動部署（約 1 分鐘） |
 
 兩邊賓客頁內容一樣。

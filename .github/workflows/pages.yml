@@ -1,0 +1,55 @@
+# GitHub Pages：根目錄放 main（現行版），/red/ 放 red 分支（赤金登機版）。
+# 兩個分支各自維護、不互相合併；這裡只在發布時把兩邊的組建結果放在一起。
+# red 分支有推送時，會由 red 上的 trigger-pages.yml 觸發這支重新發布。
+name: GitHub Pages（main + /red/）
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 取出 red 分支
+        uses: actions/checkout@v4
+        with:
+          ref: red
+          path: red-src
+
+      - name: 組建（沿用兩邊各自的白名單檢查）
+        run: |
+          bash scripts/build-public.sh
+          bash red-src/scripts/build-public.sh
+          mkdir -p _site/red
+          cp -R .deploy-build/. _site/
+          cp -R red-src/.deploy-build/. _site/red/
+          touch _site/.nojekyll
+          find _site -type f | sort
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
