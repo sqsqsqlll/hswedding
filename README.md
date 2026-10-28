@@ -2,13 +2,12 @@
 
 2027.05.15（週六・晚宴）廣州婚宴邀請頁，**場地確認中**。目前這版的目的是先收出席意願與人數，場地定案後再發正式喜帖。
 
-目前有兩個首頁版本並行，其餘頁面共用：
+> **這是 `red` 分支：赤金登機版。** 現行版（三語、首頁內含 RSVP）在 [`main` 分支](https://github.com/sqsqsqlll/hswedding/tree/main)，兩邊分開維護。
 
-- **現行版** `index.html`（hswedding）：繁／簡／English 三語切換，首頁內含 RSVP 表單。
-- **赤金登機版** `index-red.html`（hsweddingred）：視覺來自 Claude Design 畫布「婚宴主視覺方案」的「邀請網頁 · 赤金登機」，繁中＋英文並排，RSVP 走 `checkin/`。
-- `checkin/` 值機櫃台表單（畫布「值機表單 · 送祝福」）兩個網域都有，台灣賓客頁與行程頁的 RSVP 連結都指向它。
+- 首頁 `index.html`：視覺來自 Claude Design 畫布「婚宴主視覺方案」的「邀請網頁 · 赤金登機」，繁中＋英文並排。
+- `checkin/`：值機櫃台 RSVP 表單（畫布「值機表單 · 送祝福」），台灣賓客頁與行程頁的 RSVP 連結都指向它。
 
-線上網址：<https://sqsqsqlll.github.io/hswedding/>
+線上網址：<https://hsweddingred.beyondtravelworld.com/>（Cloudflare Worker `hsweddingred`，待建立）
 
 ---
 
@@ -16,8 +15,7 @@
 
 ```
 .
-├── index.html          現行首頁（hswedding）：故事線、婚宴資訊、延伸旅遊、RSVP 表單
-├── index-red.html      赤金登機首頁（hsweddingred）：主視覺、航線圖、四時照片、登機證
+├── index.html          赤金登機首頁：主視覺、航線圖、四時照片、登機證
 ├── checkin/
 │   └── index.html      值機櫃台：RSVP 表單（送到 /api/rsvp）
 ├── taiwan/
@@ -27,7 +25,7 @@
 ├── photos/             婚紗照
 ├── scripts/
 │   └── build-public.sh 組建 Cloudflare 要上傳的公開頁（含白名單檢查）
-├── wrangler.jsonc      Cloudflare Worker `hswedding` 設定
+├── wrangler.jsonc      Cloudflare Worker `hsweddingred` 設定
 ├── robots.txt          不希望被搜尋引擎收錄
 ├── .nojekyll           關閉 GitHub Pages 的 Jekyll 處理
 └── README.md
@@ -47,27 +45,28 @@ python3 -m http.server 8000   # → http://localhost:8000/site/family/
 
 | 平台 | 網址 | 更新方式 |
 | --- | --- | --- |
-| GitHub Pages | <https://sqsqsqlll.github.io/hswedding/> | 推上 `main` 約 1 分鐘自動上線（來源：`main` 分支根目錄；赤金版可看 `index-red.html`） |
-| Cloudflare Worker `hswedding` | <https://hswedding.beyondtravelworld.com/> | 推上 `main` 後由 Cloudflare Workers Builds 自動部署（約 1 分鐘） |
-| Cloudflare Worker `hsweddingred` | <https://hsweddingred.beyondtravelworld.com/> | 同上，首頁換成赤金登機版 |
+| Cloudflare Worker `hsweddingred` | <https://hsweddingred.beyondtravelworld.com/> | 推上 `red` 後由 Cloudflare Workers Builds 自動部署（約 1 分鐘） |
 
-兩邊賓客頁內容一樣。
+GitHub Pages 每個 repo 只能發布一個分支，目前發布的是 `main`（現行版），所以這個分支不在 GitHub Pages 上。
 
-### Cloudflare 上的 Worker
+### 建立 `hsweddingred` Worker（只需做一次）
 
-| Worker | 負責路徑 | 部署方式 |
-| --- | --- | --- |
-| `hswedding` | 自訂網域（其餘所有路徑） | Workers Builds 連 `main`：建置 `bash scripts/build-public.sh`，部署 `npx wrangler@4 deploy`（設定見根目錄 `wrangler.jsonc`） |
-| `hsweddingred` | 自訂網域 `hsweddingred.beyondtravelworld.com` | Workers Builds 連 `main`：建置 `bash scripts/build-public.sh red`，部署 `npx wrangler@4 deploy -c wrangler.red.jsonc` |
-| `hswedding-private` | `/family*`、`/us-2027-hs*` 路由 | 本機 `docs/deploy-private.sh`（內容來自本機 `site/`，不進 repo） |
-| `hs-rsvp` | `/api/rsvp*` 路由 | Cloudflare 後台編輯 |
+Cloudflare 後台 → Workers & Pages → Create → Import a repository → `sqsqsqlll/hswedding`：
 
-路由優先於自訂網域，所以 `hswedding`、`hswedding-private`、`hs-rsvp` 可以共用同一個網域。`hsweddingred` 的 RSVP 也送到 `hswedding` 網域的 `/api/rsvp`（已允許跨網域）。
+| 項目 | 填寫 |
+| --- | --- |
+| Project name | `hsweddingred`（必須與 `wrangler.jsonc` 的 `name` 一致） |
+| Branch | `red` |
+| Build command | `bash scripts/build-public.sh` |
+| Deploy command | `npx wrangler@4 deploy` |
+| Root directory | `/` |
 
+`wrangler.jsonc` 已寫好自訂網域，第一次部署時會自動建立子網域的 DNS 與憑證。
+
+- 這個分支的 `wrangler.jsonc` 只指向 `hsweddingred`，**不會**動到現行版的 `hswedding`。
+- RSVP 送到 `hswedding.beyondtravelworld.com/api/rsvp`（`hs-rsvp` Worker，已允許跨網域），與現行版共用同一張試算表。
 - 新增公開檔案（例如換照片）時，要同步改 `scripts/build-public.sh` 裡的白名單，否則自動部署會失敗。
-- **不要**把 `site/` 的內部頁搬進 `hswedding`：這個 Worker 由公開 repo 自動部署。
-- 出問題時到 Cloudflare 後台 `hswedding` → Deployments 點上一版 Rollback。同時掛兩個不是多餘的：`github.io` 在大陸常常連不上，
-廣州親友走 Cloudflare 那個網域比較穩，而 RSVP 的端點本來就指著它。
+- 出問題時到 Cloudflare 後台 `hsweddingred` → Deployments 點上一版 Rollback。
 
 兩個頁面之間一律使用**相對路徑**（主頁 → `taiwan/`；台灣頁 → `../`），
 （主頁 → `checkin/`、`travel/`、`taiwan/`；子頁 → `../checkin/`）

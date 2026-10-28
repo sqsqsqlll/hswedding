@@ -2,24 +2,18 @@
 # 組建 Cloudflare Worker 要上傳的公開賓客頁
 # Cloudflare Workers Builds 的建置指令會跑這支；本機也可以跑來檢查。
 #
-# 用法：bash scripts/build-public.sh       → .deploy-build/（hswedding，現行首頁 index.html）
-#       bash scripts/build-public.sh red   → .deploy-red/  （hsweddingred，赤金登機首頁 index-red.html）
+# red 分支：首頁 index.html 就是赤金登機版，供 Worker hsweddingred 使用（wrangler.jsonc）。
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
-case "${1:-main}" in
-  main) BUILD="$ROOT/.deploy-build"; HOME_PAGE="index.html" ;;
-  red)  BUILD="$ROOT/.deploy-red";   HOME_PAGE="index-red.html" ;;
-  *)    echo "✗ 未知版本：$1（可用：main、red）"; exit 1 ;;
-esac
+BUILD="$ROOT/.deploy-build"
 
 # ── 1. 組建：只放白名單內的東西 ───────────────────────────────
 rm -rf "$BUILD"
 mkdir -p "$BUILD"
-cp "$HOME_PAGE" "$BUILD/index.html"
-cp robots.txt share.jpg "$BUILD/"
+cp index.html robots.txt share.jpg "$BUILD/"
 cp -R checkin photos taiwan travel "$BUILD/"
 
 # ── 2. 安全檢查：組建結果只能有這幾個檔案 ────────────────────
@@ -32,5 +26,5 @@ if [ "$ACTUAL" != "$EXPECTED" ]; then
   echo "$ACTUAL"
   exit 1
 fi
-echo "✓ 組建內容（首頁來自 $HOME_PAGE）："
+echo "✓ 組建內容："
 echo "$ACTUAL" | sed 's/^/    /'

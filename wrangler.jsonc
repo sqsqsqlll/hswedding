@@ -1,19 +1,18 @@
-// hswedding Worker（只有靜態資產）——由 Cloudflare Workers Builds 在 main 更新時自動部署。
+// hsweddingred Worker（只有靜態資產）——赤金登機版首頁，由 Cloudflare Workers Builds 在 red 分支更新時自動部署。
 // 建置指令：bash scripts/build-public.sh　部署指令：npx wrangler@4 deploy
+// 注意：這個分支只部署到 hsweddingred；hswedding（現行版）的設定在 main 分支。
 //
-// 只放公開賓客頁。family/、us-2027-hs/ 這類本機 site/ 頁面改由另一個 Worker
-// 「hswedding-private」以路由掛在同一網域（見 README），不要再塞回這裡，
-// 否則會被推上公開 repo。
+// red 分支的 index.html 就是赤金登機首頁；checkin/、taiwan/、travel/ 一併部署。
+// RSVP 仍送到 hswedding.beyondtravelworld.com/api/rsvp（hs-rsvp Worker，已允許跨網域）。
 {
-  "name": "hswedding",
+  "name": "hsweddingred",
   "compatibility_date": "2026-08-31",
 
   "assets": { "directory": "./.deploy-build" },
 
-  // 照後台現況明確寫出，避免部署時自訂網域被拿掉。
-  // /api/rsvp* 由 hs-rsvp Worker 的路由處理；/family*、/us-2027-hs* 由 hswedding-private 處理。這裡都不碰。
+  // 第一次部署時 Cloudflare 會自動建立這個子網域的 DNS 與憑證
   "routes": [
-    { "pattern": "hswedding.beyondtravelworld.com", "custom_domain": true }
+    { "pattern": "hsweddingred.beyondtravelworld.com", "custom_domain": true }
   ],
   "workers_dev": true,
   "preview_urls": true
