@@ -29,3 +29,6 @@ __MACOSX/
 *.tmp
 *.log
 node_modules/
+.deploy-build/
+.deploy-red/
+.wrangler/

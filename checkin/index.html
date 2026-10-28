@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>值機櫃台 ｜ Harry & 千條 2027.05.15 廣州婚宴</title>
+<meta name="description" content="GZ0515 線上值機：回覆出席、延伸旅遊與飲食需求。請於 2026/11/30 前完成。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="值機櫃台 ｜ Harry & 千條 2027.05.15 廣州婚宴">
+<meta property="og:description" content="GZ0515 線上值機：請於 11/30 前回覆出席。">
+<meta property="og:image" content="https://hswedding.beyondtravelworld.com/share.jpg">
+<meta property="og:url" content="https://hswedding.beyondtravelworld.com/checkin/">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<!-- 設計來源：Claude Design「婚宴主視覺方案」→ 值機表單 · 送祝福（CheckIn） -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- 非阻塞載入：Google Fonts 在中國大陸連不上 -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;900&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=DM+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;900&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=DM+Mono:wght@400;500&display=swap"></noscript>
+<style>
+  :root{--red:#9E2F27;--red-dark:#7E231D;--gold:#E8C77A;--cream:#FBEBC8;--paper:#FBF7EE;--ink:#2A1F1A;--brown:#7A5A45;--line:#D9C9A8;}
+  *,*::before,*::after{box-sizing:border-box;}
+  body{margin:0;background:var(--red);font-family:'Noto Serif TC',serif;color:var(--ink);-webkit-text-size-adjust:100%;}
+  .mono{font-family:'DM Mono',monospace;}
+  .it{font-family:'Cormorant Garamond',serif;font-style:italic;}
+  .wrap{max-width:760px;margin:0 auto;display:flex;flex-direction:column;}
+
+  .head{padding:40px 20px 24px;color:var(--cream);}
+  .head .wrap{gap:16px;}
+  .back{color:var(--gold);text-decoration:none;font-size:15px;letter-spacing:2px;align-self:flex-start;padding:6px 0;}
+  .back:hover{color:var(--cream);}
+  .kicker{font-size:13px;letter-spacing:5px;color:var(--gold);}
+  h1{margin:0;font-weight:900;font-size:clamp(44px,11vw,60px);letter-spacing:clamp(4px,1.6vw,10px);line-height:1.15;}
+  .head p{margin:0;font-size:19px;letter-spacing:3px;line-height:2;}
+  .head .it{font-size:20px;color:var(--gold);}
+
+  main{padding:24px 20px 80px;}
+  main .wrap{gap:20px;}
+  .announce{background:var(--ink);color:var(--cream);border-radius:18px;padding:24px 28px;display:flex;flex-direction:column;gap:10px;font-size:17px;letter-spacing:2px;line-height:1.95;}
+  .announce .mono{font-size:12px;letter-spacing:3px;color:var(--gold);}
+  .announce b{color:var(--gold);}
+
+  .card{background:var(--paper);border-radius:18px;padding:32px clamp(20px,5vw,30px);display:flex;flex-direction:column;gap:26px;border:0;margin:0;min-width:0;}
+  .card-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding-bottom:14px;border-bottom:2px solid var(--red);}
+  .card-h>span:first-child{display:flex;align-items:baseline;gap:14px;}
+  .card-h .no{font-size:15px;color:var(--red);}
+  .card-h h2{margin:0;font-weight:900;font-size:28px;letter-spacing:6px;color:var(--red);}
+  .card-h .it{font-size:19px;color:var(--brown);}
+
+  .field{display:flex;flex-direction:column;gap:12px;min-width:0;border:0;padding:0;margin:0;}
+  .lbl{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding:0;}
+  .lbl .mono{font-size:12px;letter-spacing:3px;color:var(--red);}
+  .lbl .t{font-weight:600;font-size:17px;letter-spacing:2px;color:var(--ink);}
+  .req{color:var(--red);margin-left:4px;}
+  .hint{font-size:14px;letter-spacing:1px;line-height:1.8;color:var(--brown);margin:0;}
+  .row2{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;}
+
+  .txt{width:100%;background:transparent;border:0;border-bottom:1.5px solid var(--line);padding:12px 2px;font-family:inherit;font-size:18px;color:var(--ink);border-radius:0;}
+  .txt:focus{outline:none;border-bottom-color:var(--red);}
+  .txt::placeholder{color:#9C8768;}
+  textarea.txt{resize:vertical;line-height:1.8;}
+
+  /* 單選卡：真正的 radio，視覺上隱藏，讓鍵盤與讀屏都能用 */
+  .opts{display:grid;gap:10px;}
+  .opts.s{grid-template-columns:repeat(auto-fit,minmax(180px,1fr));}
+  .opts.a{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}
+  .opts.t{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+  .opt{position:relative;display:block;cursor:pointer;}
+  .opt input{position:absolute;opacity:0;width:1px;height:1px;}
+  .opt .box{display:flex;align-items:center;gap:14px;min-height:52px;padding:14px 16px;border-radius:10px;border:1.5px solid var(--red);color:var(--red);transition:background .15s,color .15s;}
+  .opt .code{font-size:12px;letter-spacing:2px;min-width:44px;opacity:.85;}
+  .opt .main{display:flex;flex-direction:column;gap:3px;}
+  .opt .main b{font-weight:600;font-size:17px;letter-spacing:2px;}
+  .opt .main small{font-size:13px;letter-spacing:1px;color:var(--brown);}
+  .opt input:checked+.box{background:var(--red);color:var(--cream);}
+  .opt input:checked+.box small{color:var(--gold);}
+  .opt input:focus-visible+.box{outline:3px solid var(--gold);outline-offset:2px;}
+
+  /* 飲食：複選 */
+  .chks{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;}
+  .chk{position:relative;cursor:pointer;display:block;}
+  .chk input{position:absolute;opacity:0;width:1px;height:1px;}
+  .chk .box{display:flex;align-items:center;gap:10px;min-height:46px;padding:11px 14px;border-radius:10px;border:1.5px solid var(--line);background:var(--paper);font-size:16px;letter-spacing:2px;}
+  .chk .mk{width:18px;height:18px;flex:none;border-radius:4px;border:1.5px solid var(--red);color:var(--cream);font-size:13px;line-height:16px;text-align:center;}
+  .chk input:checked+.box{border-color:var(--red);}
+  .chk input:checked+.box .mk{background:var(--red);}
+  .chk input:checked+.box .mk::after{content:"✓";}
+  .chk input:focus-visible+.box{outline:3px solid var(--gold);outline-offset:2px;}
+
+  .step{display:flex;align-items:center;gap:18px;padding:6px 0;flex-wrap:wrap;}
+  .step button{width:44px;height:44px;border-radius:50%;font-size:22px;line-height:1;cursor:pointer;border:1.5px solid var(--red);font-family:inherit;}
+  .step .dec{background:transparent;color:var(--red);}
+  .step .inc{background:var(--red);color:var(--cream);}
+  .step button:disabled{opacity:.35;cursor:default;}
+  .step output{font-family:'DM Mono',monospace;font-size:28px;min-width:30px;text-align:center;}
+  .step span{font-size:15px;letter-spacing:2px;color:var(--brown);}
+
+  .submit{display:block;width:100%;cursor:pointer;text-align:center;background:var(--ink);color:var(--cream);border:0;border-radius:999px;padding:20px;font-family:inherit;font-weight:600;font-size:20px;letter-spacing:8px;}
+  .submit:hover{background:#000;}
+  .submit:disabled{opacity:.7;cursor:wait;}
+  .note{text-align:center;font-size:14px;letter-spacing:1px;line-height:1.8;color:var(--cream);margin:0;}
+  .note b{color:var(--gold);}
+  .err{display:none;background:var(--cream);color:var(--red-dark);border-radius:12px;padding:14px 18px;font-size:16px;letter-spacing:1px;line-height:1.8;}
+  .err.show{display:block;}
+
+  /* 值機成功 */
+  #done{display:none;flex-direction:column;gap:20px;}
+  #done.show{display:flex;}
+  .pass{background:var(--paper);border-radius:22px;overflow:hidden;}
+  .pass-h{background:var(--ink);color:var(--cream);padding:22px 30px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;}
+  .pass-h b{font-weight:900;font-size:26px;letter-spacing:6px;}
+  .pass-h .mono{font-size:14px;letter-spacing:3px;color:var(--gold);}
+  .pass-b{padding:34px 30px;display:flex;flex-direction:column;gap:14px;border-bottom:3px dashed var(--line);}
+  .pass-b div:first-child{font-weight:600;font-size:24px;letter-spacing:4px;line-height:1.9;}
+  .pass-b .it{font-size:20px;color:var(--brown);}
+  .pass-f{padding:22px 30px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13px;letter-spacing:2px;color:var(--brown);}
+  .tw{display:none;background:var(--gold);border-radius:18px;padding:24px;flex-direction:column;align-items:center;gap:14px;text-align:center;}
+  .tw.show{display:flex;}
+  .tw div{font-size:18px;letter-spacing:2px;}
+  .tw a,.home{background:var(--red);color:var(--cream);text-decoration:none;border-radius:999px;padding:13px 28px;font-weight:600;letter-spacing:4px;}
+  .links{display:flex;flex-wrap:wrap;justify-content:center;gap:16px 24px;align-items:center;}
+  .edit{background:none;border:0;cursor:pointer;color:var(--cream);font-family:inherit;font-size:16px;letter-spacing:3px;border-bottom:1px solid var(--gold);padding:6px 0 2px;}
+  .home{background:transparent;border:1.5px solid var(--gold);}
+</style>
+</head>
+<body>
+
+<header class="head">
+  <div class="wrap">
+    <a class="back" href="../">← 回到邀請函</a>
+    <div class="kicker mono">CHECK-IN · 過嚟食飯號 GZ0515 · RSVP</div>
+    <h1>值機櫃台</h1>
+    <p>歡迎！約 3 分鐘，回覆出席、留下祝福。</p>
+    <div class="it">Check in for GZ0515 — your RSVP and a few words for us.</div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <form id="form" class="wrap" style="gap:20px" novalidate>
+      <div class="announce">
+        <span class="mono">ANNOUNCEMENT · 機長廣播</span>
+        <div><b>這是初步人數調查。</b>場地確認中，我們需要先知道大概多少人會來，才能決定場地大小與桌數；正式喜帖確定後另行寄出，屆時也可以再修改。</div>
+        <div>請於 <b>2026 年 11 月 30 日</b>前完成值機。</div>
+      </div>
+
+      <fieldset class="card">
+        <div class="card-h"><span><span class="no mono">01</span><h2>旅客資料</h2></span><span class="it">passenger</span></div>
+        <fieldset class="field">
+          <legend class="lbl"><span class="mono">FROM</span><span class="t">您是哪一方的賓客？<span class="req">*</span></span></legend>
+          <div class="opts s">
+            <label class="opt"><input type="radio" name="source" value="台灣賓客" required><span class="box"><span class="code mono">TPE</span><span class="main"><b>台灣賓客</b></span></span></label>
+            <label class="opt"><input type="radio" name="source" value="中國大陸親友"><span class="box"><span class="code mono">CAN</span><span class="main"><b>中國大陸親友</b></span></span></label>
+            <label class="opt"><input type="radio" name="source" value="其他海外賓客"><span class="box"><span class="code mono">INTL</span><span class="main"><b>其他海外賓客</b></span></span></label>
+          </div>
+          <p class="hint">選「台灣賓客」者，送出後會提供台胞證、航班與注意事項專頁。</p>
+        </fieldset>
+        <div class="row2">
+          <label class="field" style="gap:8px"><span class="lbl"><span class="mono">NAME</span><span class="t">您的姓名<span class="req">*</span></span></span><input class="txt" type="text" name="name" required autocomplete="name" placeholder="請輸入姓名"></label>
+          <label class="field" style="gap:8px"><span class="lbl"><span class="mono">TEL</span><span class="t">電話 / 微信 / LINE ID / WhatsApp<span class="req">*</span></span></span><input class="txt" type="text" name="phone" required autocomplete="tel" inputmode="text" placeholder="+886 / +86 …"></label>
+        </div>
+        <label class="field" style="gap:8px"><span class="lbl"><span class="mono">MAIL</span><span class="t">Email</span></span><input class="txt" type="email" name="email" autocomplete="email" placeholder="your@email.com（選填）"></label>
+      </fieldset>
+
+      <fieldset class="card">
+        <div class="card-h"><span><span class="no mono">02</span><h2>登機確認</h2></span><span class="it">boarding</span></div>
+        <fieldset class="field">
+          <legend class="lbl"><span class="mono">RSVP</span><span class="t">是否出席婚宴？<span class="req">*</span></span></legend>
+          <div class="opts a">
+            <label class="opt"><input type="radio" name="attend" value="yes" required><span class="box"><span class="code mono">YES</span><span class="main"><b>我一定到！</b></span></span></label>
+            <label class="opt"><input type="radio" name="attend" value="maybe"><span class="box"><span class="code mono">TBD</span><span class="main"><b>目前尚未確定</b></span></span></label>
+            <label class="opt"><input type="radio" name="attend" value="no"><span class="box"><span class="code mono">WISH</span><span class="main"><b>無法出席，送上祝福</b></span></span></label>
+          </div>
+        </fieldset>
+        <div class="field" style="gap:6px">
+          <div class="lbl" id="pax-l"><span class="mono">PAX</span><span class="t">偕同出席人數（不含本人）</span></div>
+          <div class="step" data-step="companions" data-max="9">
+            <button type="button" class="dec" aria-label="減少同行人數">−</button>
+            <output aria-labelledby="pax-l" aria-live="polite">0</output>
+            <button type="button" class="inc" aria-label="增加同行人數">+</button>
+            <span>位同行</span>
+            <input type="hidden" name="companions" value="0">
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="card">
+        <div class="card-h"><span><span class="no mono">03</span><h2>延伸航線</h2></span><span class="it">optional tours</span></div>
+        <fieldset class="field">
+          <legend class="lbl"><span class="mono">TOUR</span><span class="t">延伸旅遊：想參加哪段行程？<span class="req">*</span></span></legend>
+          <div class="opts t">
+            <label class="opt"><input type="radio" name="tour" value="gz" required><span class="box"><span class="code mono">5/16</span><span class="main"><b>廣州深度遊（5/16–17）</b><small>早茶・西關・珠江夜遊</small></span></span></label>
+            <label class="opt"><input type="radio" name="tour" value="zjj"><span class="box"><span class="code mono">5/18</span><span class="main"><b>張家界（5/18–23）</b><small>天門山・百龍天梯・阿凡達懸浮山</small></span></span></label>
+            <label class="opt"><input type="radio" name="tour" value="both"><span class="box"><span class="code mono">ALL</span><span class="main"><b>兩段都參加</b></span></span></label>
+            <label class="opt"><input type="radio" name="tour" value="hotel-only"><span class="box"><span class="code mono">HTL</span><span class="main"><b>只需代訂住宿</b></span></span></label>
+            <label class="opt"><input type="radio" name="tour" value="no"><span class="box"><span class="code mono">SELF</span><span class="main"><b>不參加，自行安排</b></span></span></label>
+            <label class="opt"><input type="radio" name="tour" value="undecided"><span class="box"><span class="code mono">TBD</span><span class="main"><b>還不確定，之後再說</b></span></span></label>
+          </div>
+          <p class="hint">每日行程請看 <a href="../travel/">延伸旅遊行程頁</a>；費用自理，Harry 協助代訂。</p>
+        </fieldset>
+        <div class="field" style="gap:6px">
+          <div class="lbl" id="htl-l"><span class="mono">HTL</span><span class="t">需要代訂幾晚廣州住宿？</span></div>
+          <div class="step" data-step="nights" data-max="5">
+            <button type="button" class="dec" aria-label="減少住宿晚數">−</button>
+            <output aria-labelledby="htl-l" aria-live="polite">0</output>
+            <button type="button" class="inc" aria-label="增加住宿晚數">+</button>
+            <span>晚（0 = 不需要）</span>
+            <input type="hidden" name="nights" value="0">
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="card">
+        <div class="card-h"><span><span class="no mono">04</span><h2>機上餐食</h2></span><span class="it">in-flight meal</span></div>
+        <fieldset class="field">
+          <legend class="lbl"><span class="mono">MEAL</span><span class="t">飲食需求（可多選）</span></legend>
+          <div class="chks">
+            <label class="chk"><input type="checkbox" name="diet" value="veg"><span class="box"><span class="mk"></span>素食</span></label>
+            <label class="chk"><input type="checkbox" name="diet" value="vegan"><span class="box"><span class="mk"></span>全素</span></label>
+            <label class="chk"><input type="checkbox" name="diet" value="shellfish"><span class="box"><span class="mk"></span>海鮮過敏</span></label>
+            <label class="chk"><input type="checkbox" name="diet" value="peanut"><span class="box"><span class="mk"></span>花生過敏</span></label>
+            <label class="chk"><input type="checkbox" name="diet" value="pork"><span class="box"><span class="mk"></span>不吃豬肉</span></label>
+            <label class="chk"><input type="checkbox" name="diet" value="none"><span class="box"><span class="mk"></span>無特殊需求</span></label>
+          </div>
+        </fieldset>
+        <label class="field" style="gap:8px"><span class="lbl"><span class="mono">NOTE</span><span class="t">其他飲食備註</span></span><textarea class="txt" name="diet_other" rows="2" placeholder="如有其他過敏或需求，請說明"></textarea></label>
+      </fieldset>
+
+      <fieldset class="card">
+        <div class="card-h"><span><span class="no mono">05</span><h2>送上祝福</h2></span><span class="it">a message for us</span></div>
+        <label class="field" style="gap:8px"><span class="lbl"><span class="mono">WISH</span><span class="t">給 Harry &amp; 千條的祝福</span></span><textarea class="txt" name="message" rows="4" placeholder="寫下您的祝福"></textarea></label>
+      </fieldset>
+
+      <div id="err" class="err" role="alert"></div>
+      <button type="submit" class="submit">完成值機 · 提交回覆</button>
+      <p class="note">填錯了、或之後改變主意？<b>用同一組電話再填一次就好</b>，我們以最後一次為準，不會變成兩筆。</p>
+    </form>
+
+    <div id="done" aria-live="polite">
+      <div class="pass">
+        <div class="pass-h"><b>值機成功</b><span class="mono">GZ0515 · CHECKED IN</span></div>
+        <div class="pass-b">
+          <div>已收到！感謝您的回覆。<br>你的祝福已經登機。</div>
+          <div class="it">Received — thank you! Your wishes are on board.</div>
+        </div>
+        <div class="pass-f mono"><span>正式喜帖確定後另行寄出</span><span style="color:var(--red)">— Harry &amp; 千條</span></div>
+      </div>
+      <div id="tw" class="tw">
+        <div>台灣賓客請點下方查看：<b>台胞證、航班與注意事項</b></div>
+        <a href="../taiwan/">台灣賓客須知 →</a>
+      </div>
+      <div class="links">
+        <button type="button" class="edit" id="edit">修改我的回覆</button>
+        <a class="home" href="../">回到邀請函</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  const RSVP_ENDPOINT = "https://hswedding.beyondtravelworld.com/api/rsvp";
+  const form = document.getElementById('form'), err = document.getElementById('err');
+
+  // 人數／晚數加減
+  document.querySelectorAll('.step').forEach(function(st){
+    var max = +st.dataset.max, out = st.querySelector('output'), hid = st.querySelector('input'),
+        dec = st.querySelector('.dec'), inc = st.querySelector('.inc');
+    function set(v){ v = Math.max(0, Math.min(max, v)); hid.value = v; out.textContent = v; dec.disabled = v===0; inc.disabled = v===max; }
+    dec.addEventListener('click', function(){ set(+hid.value - 1); });
+    inc.addEventListener('click', function(){ set(+hid.value + 1); });
+    set(+hid.value);
+  });
+
+  // 飲食需求：「無特殊需求」與其他選項互斥
+  document.querySelectorAll('input[name="diet"]').forEach(function(cb){
+    cb.addEventListener('change', function(){
+      if(this.value==='none' && this.checked){
+        document.querySelectorAll('input[name="diet"]').forEach(function(o){ if(o.value!=='none') o.checked=false; });
+      }else if(this.checked){
+        var n=document.querySelector('input[name="diet"][value="none"]'); if(n) n.checked=false;
+      }
+    });
+  });
+
+  // 必填檢查：找出第一個沒填的欄位，捲過去並提示
+  const REQUIRED = [['source','請選擇您是哪一方的賓客'],['name','請填寫姓名'],['phone','請填寫電話或通訊軟體帳號'],['attend','請選擇是否出席'],['tour','請選擇延伸旅遊意願']];
+  function firstMissing(fd){
+    for (const [k,msg] of REQUIRED){ if(!(fd.get(k)||'').trim()) return [k,msg]; }
+    return null;
+  }
+  function showErr(msg, focusName){
+    err.textContent = msg; err.classList.add('show');
+    var el = focusName && form.querySelector('[name="'+focusName+'"]');
+    (el || err).scrollIntoView({behavior:'smooth', block:'center'});
+    if(el) setTimeout(function(){ el.focus({preventScroll:true}); }, 350);
+  }
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    err.classList.remove('show');
+    const fd = new FormData(form);
+    const miss = firstMissing(fd);
+    if(miss){ showErr(miss[1] + '。', miss[0]); return; }
+    const payload = {
+      submitted_at:new Date().toISOString(),
+      source:fd.get('source')||'',
+      name:(fd.get('name')||'').trim(), phone:(fd.get('phone')||'').trim(), email:(fd.get('email')||'').trim(),
+      attend:fd.get('attend')||'', companions:fd.get('companions')||'0',
+      tour:fd.get('tour')||'', nights:fd.get('nights')||'0',
+      diet:fd.getAll('diet').join('、'), diet_other:fd.get('diet_other')||'',
+      message:fd.get('message')||'',
+      lang:'tc'
+    };
+    const btn = form.querySelector('.submit'), orig = btn.textContent;
+    btn.disabled = true; btn.textContent = '值機中…';
+    try{
+      // Apps Script 的 /exec 會 302 轉址到 googleusercontent 取結果，這一步約有
+      // 四分之一機率失敗（內容端點回 404，或繞回 /exec 變成 GET）。
+      // 後端以電話 upsert，同一人重送只會覆蓋同一列，所以重試是安全的。
+      let ok = false, lastErr = '';
+      for (let attempt = 1; attempt <= 3; attempt++){
+        try{
+          const resp = await fetch(RSVP_ENDPOINT,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});
+          const r = await resp.json().catch(function(){return {ok:false,error:'bad-json'};});
+          if(r && r.ok){ ok = true; break; }
+          lastErr = (r && r.error) || 'server';
+        }catch(e2){ lastErr = String(e2); }
+        if(attempt < 3) await new Promise(function(r){ setTimeout(r, 900*attempt); });
+      }
+      if(!ok) throw new Error(lastErr||'server');
+      const isTw = payload.source==='台灣賓客';
+      if(isTw){ try{ localStorage.setItem('hs_tw_guest','1'); }catch(e3){} }
+      document.getElementById('tw').classList.toggle('show', isTw);
+      form.style.display = 'none';
+      document.getElementById('done').classList.add('show');
+      window.scrollTo({top:0, behavior:'smooth'});
+    }catch(e4){
+      showErr('傳送失敗，請稍後再試一次。若一直失敗，請直接用 LINE／微信告訴我們。');
+    }finally{
+      btn.disabled = false; btn.textContent = orig;
+    }
+  });
+
+  // 修改回覆：回到表單，保留剛才填的內容
+  document.getElementById('edit').addEventListener('click', function(){
+    document.getElementById('done').classList.remove('show');
+    form.style.display = '';
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+</script>
+</body>
+</html>
