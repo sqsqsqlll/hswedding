@@ -1,0 +1,18 @@
+# red 分支有推送時，請 main 分支上的 pages.yml 重新發布 GitHub Pages
+# （/red/ 的內容來自這個分支）。發布本身一律從 main 執行。
+name: 觸發 GitHub Pages 重新發布
+
+on:
+  push:
+    branches: [red]
+
+permissions:
+  actions: write
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - run: gh workflow run pages.yml --ref main --repo "$GITHUB_REPOSITORY"
+        env:
+          GH_TOKEN: ${{ github.token }}

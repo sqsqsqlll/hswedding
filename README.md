@@ -7,7 +7,7 @@
 - 首頁 `index.html`：視覺來自 Claude Design 畫布「婚宴主視覺方案」的「邀請網頁 · 赤金登機」，繁中＋英文並排。
 - `checkin/`：值機櫃台 RSVP 表單（畫布「值機表單 · 送祝福」），台灣賓客頁與行程頁的 RSVP 連結都指向它。
 
-線上網址：<https://hsweddingred.beyondtravelworld.com/>（Cloudflare Worker `hsweddingred`，待建立）
+線上網址：<https://sqsqsqlll.github.io/hswedding/red/>（Cloudflare：<https://hsweddingred.beyondtravelworld.com/>，Worker `hsweddingred` 待建立）
 
 ---
 
@@ -45,9 +45,10 @@ python3 -m http.server 8000   # → http://localhost:8000/site/family/
 
 | 平台 | 網址 | 更新方式 |
 | --- | --- | --- |
+| GitHub Pages | <https://sqsqsqlll.github.io/hswedding/red/> | 推上 `red` 後，`.github/workflows/trigger-pages.yml` 會請 `main` 上的 `pages.yml` 重新發布（約 1–2 分鐘） |
 | Cloudflare Worker `hsweddingred` | <https://hsweddingred.beyondtravelworld.com/> | 推上 `red` 後由 Cloudflare Workers Builds 自動部署（約 1 分鐘） |
 
-GitHub Pages 每個 repo 只能發布一個分支，目前發布的是 `main`（現行版），所以這個分支不在 GitHub Pages 上。
+GitHub Pages 的根目錄是 `main`（現行版），這個分支發布在 `/red/` 底下；頁面之間都用相對路徑，所以放在子路徑也不會壞。
 
 ### 建立 `hsweddingred` Worker（只需做一次）
 
