@@ -7,6 +7,12 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # repo 的 Pages 設定若仍是「Deploy from a branch」，GitHub 會另外跑一次只有 main 的發布，
+  # 可能蓋掉 /red/。等它跑完後再發布一次，確保最後上線的一定是 main + /red/。
+  # （Pages 設定改成「GitHub Actions」後，那個發布就不會再跑，這個觸發也就不會發生。）
+  workflow_run:
+    workflows: ["pages build and deployment"]
+    types: [completed]
 
 permissions:
   contents: read
