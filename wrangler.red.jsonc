@@ -1,0 +1,18 @@
+// hsweddingred Worker（只有靜態資產）——赤金登機版首頁，由 Cloudflare Workers Builds 在 main 更新時自動部署。
+// 建置指令：bash scripts/build-public.sh red　部署指令：npx wrangler@4 deploy -c wrangler.red.jsonc
+//
+// 內容與 hswedding 相同，只有首頁換成 index-red.html。
+// RSVP 仍送到 hswedding.beyondtravelworld.com/api/rsvp（hs-rsvp Worker，已允許跨網域）。
+{
+  "name": "hsweddingred",
+  "compatibility_date": "2026-08-31",
+
+  "assets": { "directory": "./.deploy-red" },
+
+  // 第一次部署時 Cloudflare 會自動建立這個子網域的 DNS 與憑證
+  "routes": [
+    { "pattern": "hsweddingred.beyondtravelworld.com", "custom_domain": true }
+  ],
+  "workers_dev": true,
+  "preview_urls": true
+}
