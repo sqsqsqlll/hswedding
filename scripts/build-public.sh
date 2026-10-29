@@ -18,7 +18,7 @@ cp -R checkin photos taiwan travel "$BUILD/"
 
 # ── 2. 安全檢查：組建結果只能有這幾個檔案 ────────────────────
 # 新增或換照片時，記得同步改這份清單。
-EXPECTED=$'checkin/index.html\nindex.html\nphotos/01.jpg\nphotos/02.jpg\nphotos/03.jpg\nrobots.txt\nshare.jpg\ntaiwan/index.html\ntravel/index.html'
+EXPECTED=$'checkin/index.html\nindex.html\nphotos/alley.jpg\nphotos/campus.jpg\nphotos/hero.jpg\nphotos/laugh.jpg\nphotos/window.jpg\nrobots.txt\nshare.jpg\ntaiwan/index.html\ntravel/index.html'
 find "$BUILD" -name '.DS_Store' -delete
 ACTUAL="$(cd "$BUILD" && find . -type f | sed 's|^\./||' | LC_ALL=C sort)"
 if [ "$ACTUAL" != "$EXPECTED" ]; then
