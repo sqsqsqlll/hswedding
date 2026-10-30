@@ -7,7 +7,7 @@
 - 首頁 `index.html`：視覺來自 Claude Design 畫布「婚宴主視覺方案」的「邀請網頁 · Portra 北歐極簡（樣稿）」。航線圖點城市打開相冊、三餐照片展開、登機前小問答都是頁內的小段 JavaScript。
 - `checkin/`：值機櫃台 RSVP 表單（畫布「值機櫃台 · Portra + 紅」）。欄位、欄位名稱與送出邏輯和 `red` 分支完全相同，只換了樣式。
 
-線上網址：<https://sqsqsqlll.github.io/hswedding/portra/>（由 `main` 分支的 Pages 發布流程一併發布；Cloudflare 尚未設定，`wrangler.jsonc` 沿用 red 分支的設定、未更動）
+線上網址：<https://sqsqsqlll.github.io/hswedding/portra/>（由 `main` 分支的 Pages 發布流程一併發布）。Cloudflare：<https://hsweddingportra.beyondtravelworld.com/>（Worker `hsweddingportra`，需在 Cloudflare 後台以 Workers Builds 連 `portra` 分支建立一次）
 
 ---
 
@@ -25,7 +25,7 @@
 ├── photos/             婚紗照
 ├── scripts/
 │   └── build-public.sh 組建 Cloudflare 要上傳的公開頁（含白名單檢查）
-├── wrangler.jsonc      Cloudflare Worker `hsweddingred` 設定
+├── wrangler.jsonc      Cloudflare Worker `hsweddingportra` 設定
 ├── robots.txt          不希望被搜尋引擎收錄
 ├── .nojekyll           關閉 GitHub Pages 的 Jekyll 處理
 └── README.md
