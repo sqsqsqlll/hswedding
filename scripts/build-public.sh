@@ -2,7 +2,7 @@
 # 組建 Cloudflare Worker 要上傳的公開賓客頁
 # Cloudflare Workers Builds 的建置指令會跑這支；本機也可以跑來檢查。
 #
-# red 分支：首頁 index.html 就是赤金登機版，供 Worker hsweddingred 使用（wrangler.jsonc）。
+# portra 分支：首頁 index.html 是 Portra 北歐極簡版，GitHub Pages 上的網址是 /portra/。
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -18,7 +18,7 @@ cp -R checkin photos taiwan travel "$BUILD/"
 
 # ── 2. 安全檢查：組建結果只能有這幾個檔案 ────────────────────
 # 新增或換照片時，記得同步改這份清單。
-EXPECTED=$'checkin/index.html\nindex.html\nphotos/alley.jpg\nphotos/campus.jpg\nphotos/hero.jpg\nphotos/laugh.jpg\nphotos/window.jpg\nrobots.txt\nshare.jpg\ntaiwan/index.html\ntravel/index.html'
+EXPECTED=$'checkin/index.html\nindex.html\nphotos/alley.jpg\nphotos/campus.jpg\nphotos/court.jpg\nphotos/gate.jpg\nphotos/hero.jpg\nphotos/shutter.jpg\nphotos/stairs.jpg\nphotos/street.jpg\nrobots.txt\nshare.jpg\ntaiwan/index.html\ntravel/index.html'
 find "$BUILD" -name '.DS_Store' -delete
 ACTUAL="$(cd "$BUILD" && find . -type f | sed 's|^\./||' | LC_ALL=C sort)"
 if [ "$ACTUAL" != "$EXPECTED" ]; then

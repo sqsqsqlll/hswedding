@@ -2,12 +2,12 @@
 
 2027.05.15（週六・晚宴）廣州婚宴邀請頁，**場地確認中**。目前這版的目的是先收出席意願與人數，場地定案後再發正式喜帖。
 
-> **這是 `red` 分支：赤金登機版。** 現行版（三語、首頁內含 RSVP）在 [`main` 分支](https://github.com/sqsqsqlll/hswedding/tree/main)，兩邊分開維護。
+> **這是 `portra` 分支：Portra 北歐極簡版。** 由 `red` 分支複製出來後改版；現行版在 [`main` 分支](https://github.com/sqsqsqlll/hswedding/tree/main)、赤金登機版在 [`red` 分支](https://github.com/sqsqsqlll/hswedding/tree/red)，三邊分開維護。
 
-- 首頁 `index.html`：視覺來自 Claude Design 畫布「婚宴主視覺方案」的「邀請網頁 · 赤金登機」，繁中＋英文並排。
-- `checkin/`：值機櫃台 RSVP 表單（畫布「值機表單 · 送祝福」），台灣賓客頁與行程頁的 RSVP 連結都指向它。
+- 首頁 `index.html`：視覺來自 Claude Design 畫布「婚宴主視覺方案」的「邀請網頁 · Portra 北歐極簡（樣稿）」。航線圖點城市打開相冊、三餐照片展開、登機前小問答都是頁內的小段 JavaScript。
+- `checkin/`：值機櫃台 RSVP 表單（畫布「值機櫃台 · Portra + 紅」）。欄位、欄位名稱與送出邏輯和 `red` 分支完全相同，只換了樣式。
 
-線上網址：<https://sqsqsqlll.github.io/hswedding/red/>（Cloudflare：<https://hsweddingred.beyondtravelworld.com/>，Worker `hsweddingred` 待建立）
+線上網址：<https://sqsqsqlll.github.io/hswedding/portra/>（由 `main` 分支的 Pages 發布流程一併發布；Cloudflare 尚未設定，`wrangler.jsonc` 沿用 red 分支的設定、未更動）
 
 ---
 
@@ -15,7 +15,7 @@
 
 ```
 .
-├── index.html          赤金登機首頁：主視覺、航線圖、四時照片、登機證
+├── index.html          Portra 首頁：開場、航線圖相冊、三餐四時、問答與登機證
 ├── checkin/
 │   └── index.html      值機櫃台：RSVP 表單（送到 /api/rsvp）
 ├── taiwan/
