@@ -17,8 +17,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- 非阻塞載入：Google Fonts 在中國大陸連不上 -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=DM+Mono:wght@400&family=Work+Sans:wght@300;400&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=DM+Mono:wght@400&family=Work+Sans:wght@300;400&display=swap"></noscript>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Noto+Serif+SC:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=DM+Mono:wght@400&family=Work+Sans:wght@300;400&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Noto+Serif+SC:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=DM+Mono:wght@400&family=Work+Sans:wght@300;400&display=swap"></noscript>
 <style>
   :root{--red:#9E2F27;--red-dark:#7E231D;--bg:#F7F3ED;--paper:#FDFBF7;--ink:#5A4336;--sub:#A07E65;--line:#E2D6C8;--cream:#FBF3E6;--gold:#F3D9A6;}
   *,*::before,*::after{box-sizing:border-box;}
@@ -139,9 +139,20 @@
     .head{padding:64px 24px 56px;} .steps .wrap{padding:16px 24px;} main{padding:40px 24px 88px;}
     .card{padding:48px 0;gap:24px;} .card-h h2{font-size:30px;}
   }
+
+/* ── 繁／简／EN 切換 ── */
+.lang-pill{position:absolute;top:16px;right:16px;z-index:20;display:flex;background:rgba(247,243,237,0.94);border:1px solid #E2D6C8;border-radius:999px;overflow:hidden;}
+.lang-pill button{all:unset;cursor:pointer;padding:6px 12px;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:1px;color:#A07E65;}
+.lang-pill button[aria-pressed="true"]{background:#6E2A26;color:#F7F3ED;}
+.lang-pill button:focus-visible{outline:2px solid #6E2A26;outline-offset:-2px;}
+html[lang="zh-Hans"] body,html[lang="zh-Hans"] [style*="Noto Serif TC"]{font-family:'Noto Serif SC','Noto Serif TC',serif !important;}
+html[lang="en"] [data-hide-en]{display:none !important;}
+html[lang="en"] [data-i18n]{letter-spacing:0.04em !important;}
+html[lang="en"] h1{white-space:normal !important;}
 </style>
 </head>
 <body>
+<div class="lang-pill" role="group" aria-label="語言 / 语言 / Language"><button type="button" data-setlang="tc" aria-pressed="true">繁</button><button type="button" data-setlang="sc" aria-pressed="false">简</button><button type="button" data-setlang="en" aria-pressed="false">EN</button></div>
 
 <header class="head">
   <div class="wrap">
@@ -262,7 +273,7 @@
           <div class="pass-h"><b>值機成功</b><span class="mono">GZ0515 · CHECKED IN</span></div>
           <div class="pass-b">
             <div>已收到！感謝您的回覆。<br>你的祝福已經登機。</div>
-            <div class="it">Received — thank you! Your wishes are on board.</div>
+            <div class="it" data-hide-en>Received — thank you! Your wishes are on board.</div>
           </div>
           <div class="pass-f mono"><span>正式喜帖確定後另行寄出</span><span style="color:var(--red)">— Harry &amp; 千條</span></div>
         </div>
@@ -281,6 +292,393 @@
   </div>
 </main>
 
+<script>
+// ── 繁／简／EN 切換 ──
+// 設計稿原文是繁中；以繁中為鍵查 D，切換時只改寫標了 data-i18n 的元素底下的文字節點與屬性，不動版面。
+// 語言存在 localStorage hs_lang，與 taiwan/、travel/ 共用。
+(function(){
+  var D = {
+  "台灣賓客須知 →": [
+  "台湾宾客须知 →",
+  "Guide for guests from Taiwan →"
+  ],
+  "值機櫃台 ｜ Harry & 千條 2027.05.15 廣州婚宴": [
+  "值机柜台 ｜ Harry & 千条 2027.05.15 广州婚宴",
+  "Check-in | Harry & Sincer · Guangzhou · 2027.05.15"
+  ],
+  "← 回到邀請函": [
+  "← 回到邀请函",
+  "← Back to the invitation"
+  ],
+  "值機櫃台": [
+  "值机柜台",
+  "Check-in"
+  ],
+  "請到領隊處集合，歡迎值機！": [
+  "请到领队处集合，欢迎值机！",
+  "Please gather at your tour leader — check-in is open!"
+  ],
+  "填寫步驟": [
+  "填写步骤",
+  "Steps"
+  ],
+  "旅客資料": [
+  "旅客资料",
+  "Passenger"
+  ],
+  "登機確認": [
+  "登机确认",
+  "Boarding"
+  ],
+  "延伸航線": [
+  "延伸航线",
+  "Extra routes"
+  ],
+  "機上餐食": [
+  "机上餐食",
+  "In-flight meal"
+  ],
+  "送上祝福": [
+  "送上祝福",
+  "Your wishes"
+  ],
+  "ANNOUNCEMENT · 機長廣播": [
+  "ANNOUNCEMENT · 机长广播",
+  "ANNOUNCEMENT · FROM THE CAPTAIN"
+  ],
+  "這是初步人數調查。": [
+  "这是初步人数调查。",
+  "This is an early head count."
+  ],
+  "場地確認中，我們需要先知道大概多少人會來，才能決定場地大小與桌數；正式喜帖確定後另行寄出，屆時也可以再修改。": [
+  "场地确认中，我们需要先知道大概多少人会来，才能决定场地大小与桌数；正式喜帖确定后另行寄出，届时也可以再修改。",
+  " The venue is still being confirmed, so we need a rough guest count to decide its size and the number of tables. The formal invitation will follow once it is settled, and you can update your reply then."
+  ],
+  "請於": [
+  "请于",
+  "Please check in by"
+  ],
+  "2026 年 11 月 30 日": [
+  "2026 年 11 月 30 日",
+  "30 November 2026"
+  ],
+  "前完成值機登記。": [
+  "前完成值机登记。",
+  "."
+  ],
+  "您是哪一方的賓客？": [
+  "您是哪一方的宾客？",
+  "Where are you joining us from?"
+  ],
+  "台灣賓客": [
+  "台湾宾客",
+  "Guest from Taiwan"
+  ],
+  "中國大陸親友": [
+  "中国大陆亲友",
+  "Family & friends in mainland China"
+  ],
+  "其他海外賓客": [
+  "其他海外宾客",
+  "Other overseas guest"
+  ],
+  "選「台灣賓客」者，送出後會提供台胞證、航班與注意事項專頁。": [
+  "选「台湾宾客」者，提交后会提供台胞证、航班与注意事项专页。",
+  "Guests from Taiwan will get a page on travel permits, flights and tips after submitting."
+  ],
+  "您的姓名": [
+  "您的姓名",
+  "Your name"
+  ],
+  "請輸入姓名": [
+  "请输入姓名",
+  "Your full name"
+  ],
+  "電話 / 微信 / LINE ID": [
+  "电话 / 微信 / LINE ID",
+  "Phone / WeChat / LINE ID"
+  ],
+  "your@email.com（選填）": [
+  "your@email.com（选填）",
+  "your@email.com (optional)"
+  ],
+  "是否出席2027.05.15婚宴？": [
+  "是否出席2027.05.15婚宴？",
+  "Will you attend the banquet on 2027.05.15?"
+  ],
+  "確認登機！": [
+  "确认登机！",
+  "Boarding confirmed!"
+  ],
+  "目前尚未確定": [
+  "目前尚未确定",
+  "Not sure yet"
+  ],
+  "改簽退票了 Q~Q": [
+  "改签退票了 Q~Q",
+  "Can't make it Q~Q"
+  ],
+  "偕同出席人數（不含本人）": [
+  "偕同出席人数（不含本人）",
+  "Guests coming with you (not counting yourself)"
+  ],
+  "減少同行人數": [
+  "减少同行人数",
+  "Fewer guests"
+  ],
+  "增加同行人數": [
+  "增加同行人数",
+  "More guests"
+  ],
+  "位同行": [
+  "位同行",
+  "coming with me"
+  ],
+  "延伸旅遊：想參加哪段行程？": [
+  "延伸旅游：想参加哪段行程？",
+  "Extended trips: which would you like to join?"
+  ],
+  "廣州深度遊（5/16–17）": [
+  "广州深度游（5/16–17）",
+  "Guangzhou deep-dive (5/16–17)"
+  ],
+  "早茶・西關・廣州塔・珠江夜遊": [
+  "早茶・西关・广州塔・珠江夜游",
+  "Dim sum · Xiguan · Canton Tower · Pearl River night cruise"
+  ],
+  "張家界（5/18–23）": [
+  "张家界（5/18–23）",
+  "Zhangjiajie (5/18–23)"
+  ],
+  "天門山・百龍天梯・阿凡達懸浮山": [
+  "天门山・百龙天梯・阿凡达悬浮山",
+  "Tianmen Mountain · Bailong Elevator · the “Avatar” peaks"
+  ],
+  "兩段都參加": [
+  "两段都参加",
+  "Both trips"
+  ],
+  "只需代訂住宿": [
+  "只需代订住宿",
+  "Just help me book a hotel"
+  ],
+  "不參加，自行安排": [
+  "不参加，自行安排",
+  "No thanks, I'll make my own plans"
+  ],
+  "還不確定，之後再說": [
+  "还不确定，之后再说",
+  "Not sure yet — will decide later"
+  ],
+  "每日行程請看": [
+  "每日行程请看",
+  "For the day-by-day plan, see the"
+  ],
+  "延伸旅遊行程頁": [
+  "延伸旅游行程页",
+  "extended trips page"
+  ],
+  "；費用自理，Harry 協助代訂。": [
+  "；费用自理，Harry 协助代订。",
+  ". Costs are your own; Harry can help with bookings."
+  ],
+  "需要代訂幾晚廣州住宿？": [
+  "需要代订几晚广州住宿？",
+  "How many nights in Guangzhou should we book for you?"
+  ],
+  "減少住宿晚數": [
+  "减少住宿晚数",
+  "Fewer nights"
+  ],
+  "增加住宿晚數": [
+  "增加住宿晚数",
+  "More nights"
+  ],
+  "晚（0 = 不需要）": [
+  "晚（0 = 不需要）",
+  "nights (0 = none needed)"
+  ],
+  "飲食需求（可多選）": [
+  "饮食需求（可多选）",
+  "Dietary needs (choose any)"
+  ],
+  "素食": [
+  "素食",
+  "Vegetarian"
+  ],
+  "全素": [
+  "全素",
+  "Vegan"
+  ],
+  "海鮮過敏": [
+  "海鲜过敏",
+  "Seafood allergy"
+  ],
+  "花生過敏": [
+  "花生过敏",
+  "Peanut allergy"
+  ],
+  "不吃豬肉": [
+  "不吃猪肉",
+  "No pork"
+  ],
+  "無特殊需求": [
+  "无特殊需求",
+  "No special needs"
+  ],
+  "其他飲食備註": [
+  "其他饮食备注",
+  "Other dietary notes"
+  ],
+  "如有其他過敏或需求，請說明": [
+  "如有其他过敏或需求，请说明",
+  "Any other allergies or needs"
+  ],
+  "給 Harry & 千條的祝福": [
+  "给 Harry & 千条的祝福",
+  "A message for Harry & Sincer"
+  ],
+  "寫下您的祝福": [
+  "写下您的祝福",
+  "Write your wishes here"
+  ],
+  "完成值機 · 提交回覆": [
+  "完成值机 · 提交回复",
+  "Check in · Send my reply"
+  ],
+  "填錯了、或之後改變主意？": [
+  "填错了、或之后改变主意？",
+  "Made a mistake or changed your mind? "
+  ],
+  "用同一組電話再填一次就好": [
+  "用同一组电话再填一次就好",
+  "Just fill it in again with the same phone number"
+  ],
+  "，我們以最後一次為準，不會變成兩筆。": [
+  "，我们以最后一次为准，不会变成两笔。",
+  " — we keep your latest reply, so it never counts twice."
+  ],
+  "值機成功": [
+  "值机成功",
+  "Checked in"
+  ],
+  "已收到！感謝您的回覆。": [
+  "已收到！感谢您的回复。",
+  "Received — thank you for your reply!"
+  ],
+  "你的祝福已經登機。": [
+  "你的祝福已经登机。",
+  "Your wishes are on board."
+  ],
+  "正式喜帖確定後另行寄出": [
+  "正式喜帖确定后另行寄出",
+  "Formal invitation to follow"
+  ],
+  "— Harry & 千條": [
+  "— Harry & 千条",
+  "— Harry & Sincer"
+  ],
+  "台灣賓客請點下方查看：": [
+  "台湾宾客请点下方查看：",
+  "Guests from Taiwan, see below: "
+  ],
+  "台胞證、航班與注意事項": [
+  "台胞证、航班与注意事项",
+  "travel permit, flights & tips"
+  ],
+  "修改我的回覆": [
+  "修改我的回复",
+  "Edit my reply"
+  ],
+  "回到邀請函": [
+  "回到邀请函",
+  "Back to the invitation"
+  ],
+  "請選擇您是哪一方的賓客": [
+  "请选择您是哪一方的宾客",
+  "Please tell us where you are joining from"
+  ],
+  "請填寫姓名": [
+  "请填写姓名",
+  "Please enter your name"
+  ],
+  "請填寫電話或通訊軟體帳號": [
+  "请填写电话或通讯软件账号",
+  "Please enter a phone number or messaging ID"
+  ],
+  "請選擇是否出席": [
+  "请选择是否出席",
+  "Please let us know if you'll attend"
+  ],
+  "請選擇延伸旅遊意願": [
+  "请选择延伸旅游意愿",
+  "Please choose an extended-trip option"
+  ],
+  "值機中…": [
+  "值机中…",
+  "Checking in…"
+  ],
+  "傳送失敗，請稍後再試一次。若一直失敗，請直接用 LINE／微信告訴我們。": [
+  "传送失败，请稍后再试一次。若一直失败，请直接用 LINE／微信告诉我们。",
+  "Sending failed — please try again shortly. If it keeps failing, just tell us on LINE or WeChat."
+  ]
+  };
+  var ATTRS = ['placeholder', 'aria-label'], IDX = { sc: 0, en: 1 }, HTML_LANG = { tc: 'zh-Hant', sc: 'zh-Hans', en: 'en' };
+  function norm(s){ return s.replace(/\s+/g, ' ').trim(); }
+  var REV = {};
+  Object.keys(D).forEach(function(k){ REV[k] = k; REV[norm(D[k][0])] = k; REV[norm(D[k][1])] = k; });
+  function tr(k, l){ return l === 'tc' ? k : D[k][IDX[l]]; }
+  var cur = 'tc';
+  window.T = function(s){ var k = REV[norm(s)]; return k ? tr(k, cur) : s; };
+  window.hsLang = function(){ return cur; };
+
+  // 先標記：繁中原文對得上的文字節點，記下它前後的空白
+  var tw = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT), n;
+  while ((n = tw.nextNode())) {
+    var p = n.parentNode;
+    if (!p || p.nodeName === 'SCRIPT' || p.nodeName === 'STYLE') continue;
+    if (D[norm(n.nodeValue)]) { p.setAttribute('data-i18n', ''); n._ws = [n.nodeValue.match(/^\s*/)[0], n.nodeValue.match(/\s*$/)[0]]; }
+  }
+  ATTRS.forEach(function(a){
+    document.querySelectorAll('[' + a + ']').forEach(function(el){ if (D[norm(el.getAttribute(a))]) el.setAttribute('data-i18n-attr', ''); });
+  });
+  var TITLE = REV[norm(document.title)];
+
+  function setLang(l){
+    if (!HTML_LANG[l]) l = 'tc';
+    cur = l;
+    document.documentElement.lang = HTML_LANG[l];
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      el.childNodes.forEach(function(t){
+        if (t.nodeType !== 3) return;
+        var k = REV[norm(t.nodeValue)]; if (!k) return;
+        var ws = t._ws || ['', ''];
+        t.nodeValue = ws[0] + tr(k, l) + ws[1];
+      });
+    });
+    document.querySelectorAll('[data-i18n-attr]').forEach(function(el){
+      ATTRS.forEach(function(a){ var v = el.getAttribute(a), k = v && REV[norm(v)]; if (k) el.setAttribute(a, tr(k, l)); });
+    });
+    if (TITLE) document.title = tr(TITLE, l);
+    document.querySelectorAll('[data-setlang]').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-setlang') === l ? 'true' : 'false'); });
+  }
+  document.querySelectorAll('[data-setlang]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var l = b.getAttribute('data-setlang'); setLang(l);
+      try{ localStorage.setItem('hs_lang', l); }catch(e){}
+    });
+  });
+
+  // 沒選過語言時，簡體系統（大陸、新加坡）預設简中，並記住，換到 taiwan/、travel/ 也會延續
+  var saved = null;
+  try{ saved = localStorage.getItem('hs_lang'); }catch(e){}
+  if (!saved) {
+    var nl = (navigator.languages && navigator.languages[0]) || navigator.language || '';
+    if (/^zh-(cn|sg|hans)/i.test(nl)) { saved = 'sc'; try{ localStorage.setItem('hs_lang', 'sc'); }catch(e){} }
+  }
+  if (saved && saved !== 'tc') setLang(saved);
+})();
+</script>
 <script>
   const RSVP_ENDPOINT = "https://hswedding.beyondtravelworld.com/api/rsvp";
   const form = document.getElementById('form'), err = document.getElementById('err');
@@ -324,7 +722,7 @@
     err.classList.remove('show');
     const fd = new FormData(form);
     const miss = firstMissing(fd);
-    if(miss){ showErr(miss[1] + '。', miss[0]); return; }
+    if(miss){ showErr(T(miss[1]) + (hsLang() === 'en' ? '.' : '。'), miss[0]); return; }
     const payload = {
       submitted_at:new Date().toISOString(),
       source:fd.get('source')||'',
@@ -333,10 +731,10 @@
       tour:fd.get('tour')||'', nights:fd.get('nights')||'0',
       diet:fd.getAll('diet').join('、'), diet_other:fd.get('diet_other')||'',
       message:fd.get('message')||'',
-      lang:'tc'
+      lang:hsLang()
     };
     const btn = form.querySelector('.submit'), orig = btn.textContent;
-    btn.disabled = true; btn.textContent = '值機中…';
+    btn.disabled = true; btn.textContent = T('值機中…');
     try{
       // Apps Script 的 /exec 會 302 轉址到 googleusercontent 取結果，這一步約有
       // 四分之一機率失敗（內容端點回 404，或繞回 /exec 變成 GET）。
@@ -359,7 +757,7 @@
       document.getElementById('done').classList.add('show');
       window.scrollTo({top:0, behavior:'smooth'});
     }catch(e4){
-      showErr('傳送失敗，請稍後再試一次。若一直失敗，請直接用 LINE／微信告訴我們。');
+      showErr(T('傳送失敗，請稍後再試一次。若一直失敗，請直接用 LINE／微信告訴我們。'));
     }finally{
       btn.disabled = false; btn.textContent = orig;
     }

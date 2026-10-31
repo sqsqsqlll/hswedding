@@ -16,8 +16,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- 非阻塞載入：Google Fonts 在中國大陸連不上，若用一般 stylesheet 會卡住整頁文字渲染 -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&amp;family=Cormorant+Garamond:ital,wght@0,400;1,400&amp;family=DM+Mono:wght@400&amp;family=Work+Sans:wght@300;400&amp;display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&amp;family=Cormorant+Garamond:ital,wght@0,400;1,400&amp;family=DM+Mono:wght@400&amp;family=Work+Sans:wght@300;400&amp;display=swap"></noscript>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&amp;family=Noto+Serif+SC:wght@300;400;500&amp;family=Cormorant+Garamond:ital,wght@0,400;1,400&amp;family=DM+Mono:wght@400&amp;family=Work+Sans:wght@300;400&amp;display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&amp;family=Noto+Serif+SC:wght@300;400;500&amp;family=Cormorant+Garamond:ital,wght@0,400;1,400&amp;family=DM+Mono:wght@400&amp;family=Work+Sans:wght@300;400&amp;display=swap"></noscript>
 <style>
 *,*::before,*::after{box-sizing:border-box;}
 body{-webkit-text-size-adjust:100%;background:#F7F3ED;}
@@ -25,9 +25,20 @@ body{margin:0} a:hover{opacity:0.85} .seasons{display:grid;grid-template-columns
 sc-if{display:contents;}
 .map-hint{display:none;text-align:center;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:#A07E65;padding-top:10px;}
 @media (max-width:720px){ .map-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;} .map-inner{min-width:760px;} .map-hint{display:block;} }
+
+/* ── 繁／简／EN 切換 ── */
+.lang-pill{position:absolute;top:36px;right:16px;z-index:20;display:flex;background:rgba(247,243,237,0.94);border:1px solid #E2D6C8;border-radius:999px;overflow:hidden;}
+.lang-pill button{all:unset;cursor:pointer;padding:6px 12px;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:1px;color:#A07E65;}
+.lang-pill button[aria-pressed="true"]{background:#6E2A26;color:#F7F3ED;}
+.lang-pill button:focus-visible{outline:2px solid #6E2A26;outline-offset:-2px;}
+html[lang="zh-Hans"] body,html[lang="zh-Hans"] [style*="Noto Serif TC"]{font-family:'Noto Serif SC','Noto Serif TC',serif !important;}
+html[lang="en"] [data-hide-en]{display:none !important;}
+html[lang="en"] [data-i18n]{letter-spacing:0.04em !important;}
+html[lang="en"] h1{white-space:normal !important;}
 </style>
 </head>
 <body>
+<div class="lang-pill" role="group" aria-label="語言 / 语言 / Language"><button type="button" data-setlang="tc" aria-pressed="true">繁</button><button type="button" data-setlang="sc" aria-pressed="false">简</button><button type="button" data-setlang="en" aria-pressed="false">EN</button></div>
 <div id="app">
 <div style="width: 100%; background: #F7F3ED; font-family: 'Noto Serif TC', serif; color: #5A4336; border-top: 24px solid #9E2F27; border-bottom: 24px solid #9E2F27; box-sizing: border-box;"><section style="display: flex; flex-wrap: wrap; min-height: 900px; background: #F7F3ED;">
 <div class="hero-l" style="background: #F7F3ED; flex: 1 1 460px; min-width: 0; box-sizing: border-box; padding: 96px 64px 72px 80px; display: flex; flex-direction: column; justify-content: space-between; gap: 48px;">
@@ -38,7 +49,7 @@ sc-if{display:contents;}
 <div style="font-weight: 300; font-size: 26px; letter-spacing: 12px; color: #5A4336;">羊城同見喜</div>
 <p style="margin: 0; font-weight: 300; font-size: 16px; letter-spacing: 4px; line-height: 2.2; color: #5A4336;">Harry 與千條想請你來同聚。</p></div>
 <div style="display: flex; align-items: center; gap: 32px; flex-wrap: wrap;">
-<a href="checkin/" style="display: inline-flex; align-items: center; gap: 12px; background: #6E2A26; color: #F7F3ED; text-decoration: none; border-radius: 999px; padding: 15px 28px; font-weight: 400; font-size: 15px; letter-spacing: 4px;">11/30前 · 線上值機&nbsp; →</a>
+<a href="checkin/" style="display: inline-flex; align-items: center; gap: 12px; background: #6E2A26; color: #F7F3ED; text-decoration: none; border-radius: 999px; padding: 15px 28px; font-weight: 400; font-size: 15px; letter-spacing: 4px;">11/30前 · 線上值機<span aria-hidden="true">→</span></a>
 <span style="font-weight: 300; font-size: 15px; letter-spacing: 6px; color: #A07E65;">Harry &amp; 千條 敬邀</span></div>
 </div>
 <div class="hero-r" style="flex: 1.15 1 560px; min-width: 0; position: relative; min-height: 900px;">
@@ -50,7 +61,7 @@ sc-if{display:contents;}
 <div style="display: flex; flex-direction: column; gap: 16px;"><div style="font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 4px; color: #A07E65;">01 · THE MAP</div>
 <h2 style="margin: 0; font-weight: 300; font-size: 48px; letter-spacing: 10px; line-height: 1.3; color: #5A4336;">命運自有地圖</h2>
 <div style="font-weight: 300; font-size: 20px; letter-spacing: 10px; color: #A07E65;">而我們尋路至此</div></div>
-<div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20px; color: #A07E65;">fate keeps its own map — and we found our way here</div></div>
+<div data-hide-en style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20px; color: #A07E65;">fate keeps its own map — and we found our way here</div></div>
 <div class="map-scroll"><div class="map-inner" style="position: relative;"><svg role="img" aria-label="航線圖：開羅、東京、廣州，以及台中大甲" viewBox="0 150 1200 600" style="width: 100%; height: auto; display: block;"><foreignObject x="0" y="0" width="1200" height="800"><div style="width: 1200px; height: 800px; position: relative; overflow: hidden; background: #F7F3ED; font-family: 'Noto Serif TC', serif; color: #5A4336;">
 <svg aria-hidden="true" width="1200" height="800" viewBox="0 0 1200 800" style="position: absolute; left: 0; top: 0;">
 <line x1="80" y1="0" x2="80" y2="800" stroke="#ECE3D8" stroke-width="1"></line><line x1="160" y1="0" x2="160" y2="800" stroke="#ECE3D8" stroke-width="1"></line><line x1="240" y1="0" x2="240" y2="800" stroke="#ECE3D8" stroke-width="1"></line><line x1="320" y1="0" x2="320" y2="800" stroke="#ECE3D8" stroke-width="1"></line><line x1="400" y1="0" x2="400" y2="800" stroke="#ECE3D8" stroke-width="1"></line><line x1="480" y1="0" x2="480" y2="800" stroke="#ECE3D8" stroke-width="1"></line><line x1="560" y1="0" x2="560" y2="800" stroke="#ECE3D8" stroke-width="1"></line><line x1="640" y1="0" x2="640" y2="800" stroke="#ECE3D8" stroke-width="1"></line><line x1="720" y1="0" x2="720" y2="800" stroke="#ECE3D8" stroke-width="1"></line><line x1="800" y1="0" x2="800" y2="800" stroke="#ECE3D8" stroke-width="1"></line><line x1="880" y1="0" x2="880" y2="800" stroke="#ECE3D8" stroke-width="1"></line><line x1="960" y1="0" x2="960" y2="800" stroke="#ECE3D8" stroke-width="1"></line><line x1="1040" y1="0" x2="1040" y2="800" stroke="#ECE3D8" stroke-width="1"></line><line x1="1120" y1="0" x2="1120" y2="800" stroke="#ECE3D8" stroke-width="1"></line><line x1="0" y1="80" x2="1200" y2="80" stroke="#ECE3D8" stroke-width="1"></line><line x1="0" y1="160" x2="1200" y2="160" stroke="#ECE3D8" stroke-width="1"></line><line x1="0" y1="240" x2="1200" y2="240" stroke="#ECE3D8" stroke-width="1"></line><line x1="0" y1="320" x2="1200" y2="320" stroke="#ECE3D8" stroke-width="1"></line><line x1="0" y1="400" x2="1200" y2="400" stroke="#ECE3D8" stroke-width="1"></line><line x1="0" y1="480" x2="1200" y2="480" stroke="#ECE3D8" stroke-width="1"></line><line x1="0" y1="560" x2="1200" y2="560" stroke="#ECE3D8" stroke-width="1"></line><line x1="0" y1="640" x2="1200" y2="640" stroke="#ECE3D8" stroke-width="1"></line><line x1="0" y1="720" x2="1200" y2="720" stroke="#ECE3D8" stroke-width="1"></line>
@@ -95,13 +106,13 @@ sc-if{display:contents;}
 <div style="display: flex; gap: 12px; align-items: flex-end;"><div style="flex: 1.6 1 0; min-width: 0; aspect-ratio: 4 / 5; position: relative; overflow: hidden; background: #EDE3D6;"><div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #EDE3D6;"><img src="photos/gate.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 70%; filter: sepia(0.12) saturate(1.04) contrast(1.02) brightness(1.04);"><div style="position: absolute; inset: 0; background: rgba(214,186,159,0.22); mix-blend-mode: soft-light;"></div><svg aria-hidden="true" width="100%" height="100%" style="position: absolute; inset: 0; pointer-events: none; mix-blend-mode: overlay; opacity: 0.14;"><filter id="gacan0"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter><rect width="100%" height="100%" filter="url(#gacan0)"></rect></svg></div></div><div style="flex: 1 1 0; min-width: 0; aspect-ratio: 3 / 4; position: relative; overflow: hidden; background: #EDE3D6;"><div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #EDE3D6;"><img src="photos/court.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 45% center; filter: sepia(0.12) saturate(1.04) contrast(1.02) brightness(1.04);"><div style="position: absolute; inset: 0; background: rgba(214,186,159,0.22); mix-blend-mode: soft-light;"></div><svg aria-hidden="true" width="100%" height="100%" style="position: absolute; inset: 0; pointer-events: none; mix-blend-mode: overlay; opacity: 0.14;"><filter id="gacan1"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter><rect width="100%" height="100%" filter="url(#gacan1)"></rect></svg></div></div><div style="flex: 1 1 0; min-width: 0; aspect-ratio: 3 / 4; position: relative; overflow: hidden; background: #EDE3D6;"><div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #EDE3D6;"><img src="photos/alley.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; filter: sepia(0.12) saturate(1.04) contrast(1.02) brightness(1.04);"><div style="position: absolute; inset: 0; background: rgba(214,186,159,0.22); mix-blend-mode: soft-light;"></div><svg aria-hidden="true" width="100%" height="100%" style="position: absolute; inset: 0; pointer-events: none; mix-blend-mode: overlay; opacity: 0.14;"><filter id="gacan2"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter><rect width="100%" height="100%" filter="url(#gacan2)"></rect></svg></div></div><div style="flex: 1 1 0; min-width: 0; aspect-ratio: 3 / 4; position: relative; overflow: hidden; background: #EDE3D6;"><div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #EDE3D6;"><img src="photos/campus.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; filter: sepia(0.12) saturate(1.04) contrast(1.02) brightness(1.04);"><div style="position: absolute; inset: 0; background: rgba(214,186,159,0.22); mix-blend-mode: soft-light;"></div><svg aria-hidden="true" width="100%" height="100%" style="position: absolute; inset: 0; pointer-events: none; mix-blend-mode: overlay; opacity: 0.14;"><filter id="gacan3"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter><rect width="100%" height="100%" filter="url(#gacan3)"></rect></svg></div></div></div></div></sc-if>
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px 80px; padding-top: 32px; border-top: 1px solid #E2D6C8;">
 <div style="flex: 1 1 420px; display: flex; flex-direction: column;"><div style="font-weight: 300; font-size: 20px; letter-spacing: 5px; line-height: 2.3; color: #5A4336;">今日攜手，踏上全新冒險——</div><div style="font-weight: 300; font-size: 20px; letter-spacing: 5px; line-height: 2.3; color: #5A4336;">不怕迷路，不必完美，但求盡興；</div><div style="font-weight: 300; font-size: 20px; letter-spacing: 5px; line-height: 2.3; color: #5A4336;">風雨同舟，歲月無驚，山海慢慢。</div><div style="font-weight: 300; font-size: 20px; letter-spacing: 5px; line-height: 2.3; color: #5A4336;">以勇氣、篤定、責任，</div><div style="font-weight: 300; font-size: 20px; letter-spacing: 5px; line-height: 2.3; color: #5A4336;">兌換更廣闊的世界，與更大的自由。</div></div>
-<div style="flex: 0 1 320px; display: flex; flex-direction: column; gap: 14px; padding-top: 10px;"><div style="font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 4px; color: #6E2A26;">CAI → TYO → CAN</div><div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 19px; line-height: 1.7; color: #A07E65;">Hand in hand, a new adventure — unafraid of getting lost, no need to be perfect, only to enjoy it all.</div></div>
+<div style="flex: 0 1 320px; display: flex; flex-direction: column; gap: 14px; padding-top: 10px;"><div style="font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 4px; color: #6E2A26;">CAI → TYO → CAN</div><div data-hide-en style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 19px; line-height: 1.7; color: #A07E65;">Hand in hand, a new adventure — unafraid of getting lost, no need to be perfect, only to enjoy it all.</div></div>
 </div></div></section><section style="background: #F7F3ED;">
 <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #EDE3D6;"><img src="photos/shutter.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 55%; filter: sepia(0.12) saturate(1.04) contrast(1.02) brightness(1.04);"><div style="position: absolute; inset: 0; background: rgba(214,186,159,0.22); mix-blend-mode: soft-light;"></div><svg aria-hidden="true" width="100%" height="100%" style="position: absolute; inset: 0; pointer-events: none; mix-blend-mode: overlay; opacity: 0.14;"><filter id="gl"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter><rect width="100%" height="100%" filter="url(#gl)"></rect></svg></div>
 <div style="max-width: 1120px; margin: 0 auto; padding: 72px 24px 0; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px;">
 <div style="display: flex; flex-direction: column; gap: 16px;"><div style="font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 4px; color: #A07E65;">02 · BACK TO THE TABLE</div>
 <h2 style="margin: 0; font-weight: 300; font-size: 48px; letter-spacing: 10px; line-height: 1.4; color: #5A4336;">翻山越海，<br>回到三餐四時</h2></div>
-<div style="display: flex; flex-direction: column; gap: 10px; max-width: 360px;"><div style="font-weight: 300; font-size: 17px; letter-spacing: 4px; line-height: 2; color: #5A4336;">九千公里走過，最後落腳的，是尋常燈火，一日三餐。</div><div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px; color: #A07E65;">after all the mountains and seas, we came home to the everyday</div></div>
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 360px;"><div style="font-weight: 300; font-size: 17px; letter-spacing: 4px; line-height: 2; color: #5A4336;">九千公里走過，最後落腳的，是尋常燈火，一日三餐。</div><div data-hide-en style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px; color: #A07E65;">after all the mountains and seas, we came home to the everyday</div></div>
 </div></section><section style="background: #F7F3ED; padding: 120px 24px 160px;">
 <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px;">
 <div style="font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 4px; color: #A07E65;">四時 · FOUR SEASONS</div>
@@ -125,13 +136,13 @@ sc-if{display:contents;}
 <div style="position: relative; display: flex; justify-content: space-between; padding: 0 4%;"><div style="position: absolute; left: 4%; right: 4%; top: 4px; height: 1px; background: #E2D6C8;"></div><button type="button" data-click="meal_0" style="all: unset; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1;"><span style="width: 9px; height: 9px; border-radius: 50%; background: {{mt_0}}; transition: background 0.3s;"></span><span style="font-weight: 300; font-size: 14px; letter-spacing: 3px; color: #A07E65;">春</span></button><button type="button" data-click="meal_1" style="all: unset; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1;"><span style="width: 9px; height: 9px; border-radius: 50%; background: {{mt_1}}; transition: background 0.3s;"></span><span style="font-weight: 300; font-size: 14px; letter-spacing: 3px; color: #A07E65;">夏</span></button><button type="button" data-click="meal_2" style="all: unset; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1;"><span style="width: 9px; height: 9px; border-radius: 50%; background: {{mt_2}}; transition: background 0.3s;"></span><span style="font-weight: 300; font-size: 14px; letter-spacing: 3px; color: #A07E65;">秋</span></button><button type="button" data-click="meal_3" style="all: unset; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1;"><span style="width: 9px; height: 9px; border-radius: 50%; background: {{mt_3}}; transition: background 0.3s;"></span><span style="font-weight: 300; font-size: 14px; letter-spacing: 3px; color: #A07E65;">冬</span></button></div>
 <sc-if data-if="mshow_0"><div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px 24px; flex-wrap: wrap;">
 <div style="display: flex; align-items: baseline; gap: 20px; flex-wrap: wrap;"><span style="font-weight: 300; font-size: 34px; line-height: 1; color: #6E2A26;">春</span><span style="font-weight: 300; font-size: 22px; letter-spacing: 5px; line-height: 1.8; color: #5A4336;">櫻花落得慢，賽車跑得快。</span></div>
-<span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px; color: #A07E65;">Petals fall slowly. Race cars don’t.</span></div></sc-if><sc-if data-if="mshow_1"><div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px 24px; flex-wrap: wrap;">
+<span data-hide-en style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px; color: #A07E65;">Petals fall slowly. Race cars don’t.</span></div></sc-if><sc-if data-if="mshow_1"><div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px 24px; flex-wrap: wrap;">
 <div style="display: flex; align-items: baseline; gap: 20px; flex-wrap: wrap;"><span style="font-weight: 300; font-size: 34px; line-height: 1; color: #6E2A26;">夏</span><span style="font-weight: 300; font-size: 22px; letter-spacing: 5px; line-height: 1.8; color: #5A4336;">北回歸線上，一邊烈日，一邊驟雨。</span></div>
-<span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px; color: #A07E65;">Blazing sun on one side, sudden rain on the other.</span></div></sc-if><sc-if data-if="mshow_2"><div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px 24px; flex-wrap: wrap;">
+<span data-hide-en style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px; color: #A07E65;">Blazing sun on one side, sudden rain on the other.</span></div></sc-if><sc-if data-if="mshow_2"><div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px 24px; flex-wrap: wrap;">
 <div style="display: flex; align-items: baseline; gap: 20px; flex-wrap: wrap;"><span style="font-weight: 300; font-size: 34px; line-height: 1; color: #6E2A26;">秋</span><span style="font-weight: 300; font-size: 22px; letter-spacing: 5px; line-height: 1.8; color: #5A4336;">晨踏古道青苔，夜穿鋼鐵森林。</span></div>
-<span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px; color: #A07E65;">Mossy steps by morning, steel forest by night.</span></div></sc-if><sc-if data-if="mshow_3"><div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px 24px; flex-wrap: wrap;">
+<span data-hide-en style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px; color: #A07E65;">Mossy steps by morning, steel forest by night.</span></div></sc-if><sc-if data-if="mshow_3"><div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px 24px; flex-wrap: wrap;">
 <div style="display: flex; align-items: baseline; gap: 20px; flex-wrap: wrap;"><span style="font-weight: 300; font-size: 34px; line-height: 1; color: #6E2A26;">冬</span><span style="font-weight: 300; font-size: 22px; letter-spacing: 5px; line-height: 1.8; color: #5A4336;">雪落在野外，燈亮在桌前。從此，我們是家人。</span></div>
-<span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px; color: #A07E65;">Snow outside, a lamp within. From then on, family.</span></div></sc-if>
+<span data-hide-en style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px; color: #A07E65;">Snow outside, a lamp within. From then on, family.</span></div></sc-if>
 </div></section><section style="background: #EDE3D6; padding: 140px 24px 120px;">
 <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px;">
 <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px;"><div style="font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 4px; color: #A07E65;">03 · CHECK-IN</div>
@@ -223,6 +234,325 @@ function render(){
 }
 render();
 
+</script>
+<script>
+// ── 繁／简／EN 切換 ──
+// 設計稿原文是繁中；以繁中為鍵查 D，切換時只改寫標了 data-i18n 的元素底下的文字節點與屬性，不動版面。
+// 語言存在 localStorage hs_lang，與 taiwan/、travel/ 共用。
+(function(){
+  var D = {
+  "Harry & 千條 ｜ 2027.05.15 廣州婚宴邀請": [
+  "Harry & 千条 ｜ 2027.05.15 广州婚宴邀请",
+  "Harry & Sincer | Wedding Banquet · Guangzhou · 2027.05.15"
+  ],
+  "十萬八千里。": [
+  "十万八千里。",
+  "A world away."
+  ],
+  "羊城同見喜": [
+  "羊城同见喜",
+  "Joy in the City of Rams"
+  ],
+  "Harry 與千條想請你來同聚。": [
+  "Harry 与千条想请你来同聚。",
+  "Harry & Sincer would love you to join us."
+  ],
+  "11/30前 · 線上值機": [
+  "11/30前 · 线上值机",
+  "Check in by 11/30"
+  ],
+  "Harry & 千條 敬邀": [
+  "Harry & 千条 敬邀",
+  "With love, Harry & Sincer"
+  ],
+  "命運自有地圖": [
+  "命运自有地图",
+  "Fate keeps its own map"
+  ],
+  "而我們尋路至此": [
+  "而我们寻路至此",
+  "and we found our way here"
+  ],
+  "航線圖：開羅、東京、廣州，以及台中大甲": [
+  "航线图：开罗、东京、广州，以及台中大甲",
+  "Route map: Cairo, Tokyo, Guangzhou, and Dajia in Taichung"
+  ],
+  "CAI · 開羅": [
+  "CAI · 开罗",
+  "CAI · Cairo"
+  ],
+  "尼羅河畔 · 相逢": [
+  "尼罗河畔 · 相逢",
+  "By the Nile · where we met"
+  ],
+  "CAN · 廣州": [
+  "CAN · 广州",
+  "CAN · Guangzhou"
+  ],
+  "千條大本營": [
+  "千条大本营",
+  "Sincer's home base"
+  ],
+  "TXG · 台中": [
+  "TXG · 台中",
+  "TXG · Taichung"
+  ],
+  "即將解鎖": [
+  "即将解锁",
+  "Unlocking soon"
+  ],
+  "TYO · 東京": [
+  "TYO · 东京",
+  "TYO · Tokyo"
+  ],
+  "東京塔": [
+  "东京塔",
+  "Tokyo Tower"
+  ],
+  "Harry 的日常": [
+  "Harry 的日常",
+  "Harry's everyday"
+  ],
+  "≈ 9,000 KM · 一個筋斗": [
+  "≈ 9,000 KM · 一个筋斗",
+  "≈ 9,000 KM · one somersault"
+  ],
+  "打開開羅相冊": [
+  "打开开罗相册",
+  "Open the Cairo album"
+  ],
+  "打開東京相冊": [
+  "打开东京相册",
+  "Open the Tokyo album"
+  ],
+  "打開廣州相冊": [
+  "打开广州相册",
+  "Open the Guangzhou album"
+  ],
+  "← 左右滑動看完整航線，點城市打開相冊 →": [
+  "← 左右滑动看完整航线，点城市打开相册 →",
+  "← Swipe for the full route · tap a city to open its album →"
+  ],
+  "點地圖上的城市，共享在地記憶": [
+  "点地图上的城市，共享在地记忆",
+  "Tap a city on the map to share its memories"
+  ],
+  "開羅": [
+  "开罗",
+  "Cairo"
+  ],
+  "收起 ×": [
+  "收起 ×",
+  "Close ×"
+  ],
+  "2014 年，金字塔下，兩個志願者第一次見面。": [
+  "2014 年，金字塔下，两个志愿者第一次见面。",
+  "2014, beneath the pyramids: two volunteers meet for the first time."
+  ],
+  "東京": [
+  "东京",
+  "Tokyo"
+  ],
+  "領隊出發與回來的地方，也是我們常常會合的城市。": [
+  "领队出发与回来的地方，也是我们常常会合的城市。",
+  "Where Harry sets off and lands as a tour leader — and where we so often meet up."
+  ],
+  "廣州": [
+  "广州",
+  "Guangzhou"
+  ],
+  "來到廣州過老廣的日子，講實際也識嘆：一盅兩件，以後慢慢傾。": [
+  "来到广州过老广的日子，讲实际也识叹：一盅两件，以后慢慢倾。",
+  "Living the old-Canton way: practical, yet knowing how to savour life — one pot of tea, two dim sum, and all the time in the world to talk."
+  ],
+  "今日攜手，踏上全新冒險——": [
+  "今日携手，踏上全新冒险——",
+  "Today, hand in hand, we set off on a new adventure —"
+  ],
+  "不怕迷路，不必完美，但求盡興；": [
+  "不怕迷路，不必完美，但求尽兴；",
+  "unafraid of getting lost, no need to be perfect, only to enjoy it all;"
+  ],
+  "風雨同舟，歲月無驚，山海慢慢。": [
+  "风雨同舟，岁月无惊，山海慢慢。",
+  "together through every storm, unhurried through the years, mountains and seas at our own pace."
+  ],
+  "以勇氣、篤定、責任，": [
+  "以勇气、笃定、责任，",
+  "With courage, conviction and responsibility,"
+  ],
+  "兌換更廣闊的世界，與更大的自由。": [
+  "兑换更广阔的世界，与更大的自由。",
+  "we trade up for a wider world and a greater freedom."
+  ],
+  "翻山越海，": [
+  "翻山越海，",
+  "Over mountains and seas,"
+  ],
+  "回到三餐四時": [
+  "回到三餐四时",
+  "back to the everyday"
+  ],
+  "九千公里走過，最後落腳的，是尋常燈火，一日三餐。": [
+  "九千公里走过，最后落脚的，是寻常灯火，一日三餐。",
+  "Nine thousand kilometres later, where we land is an ordinary lamp-lit home and three meals a day."
+  ],
+  "四時 · FOUR SEASONS": [
+  "四时 · FOUR SEASONS",
+  "FOUR SEASONS"
+  ],
+  "春 櫻花落得慢，賽車跑得快。": [
+  "春 樱花落得慢，赛车跑得快。",
+  "Spring: petals fall slowly, race cars don’t."
+  ],
+  "夏 北回歸線上，一邊烈日，一邊驟雨。": [
+  "夏 北回归线上，一边烈日，一边骤雨。",
+  "Summer: blazing sun on one side, sudden rain on the other."
+  ],
+  "秋 晨踏古道青苔，夜穿鋼鐵森林。": [
+  "秋 晨踏古道青苔，夜穿钢铁森林。",
+  "Autumn: mossy steps by morning, steel forest by night."
+  ],
+  "冬 雪落在野外，燈亮在桌前。從此，我們是家人。": [
+  "冬 雪落在野外，灯亮在桌前。从此，我们是家人。",
+  "Winter: snow outside, a lamp within. From then on, family."
+  ],
+  "櫻花落得慢，賽車跑得快。": [
+  "樱花落得慢，赛车跑得快。",
+  "Petals fall slowly. Race cars don’t."
+  ],
+  "北回歸線上，一邊烈日，一邊驟雨。": [
+  "北回归线上，一边烈日，一边骤雨。",
+  "Blazing sun on one side, sudden rain on the other."
+  ],
+  "晨踏古道青苔，夜穿鋼鐵森林。": [
+  "晨踏古道青苔，夜穿钢铁森林。",
+  "Mossy steps by morning, steel forest by night."
+  ],
+  "雪落在野外，燈亮在桌前。從此，我們是家人。": [
+  "雪落在野外，灯亮在桌前。从此，我们是家人。",
+  "Snow outside, a lamp within. From then on, family."
+  ],
+  "我們在路上遇見彼此，": [
+  "我们在路上遇见彼此，",
+  "We found each other on the road,"
+  ],
+  "也一路有你們見證。": [
+  "也一路有你们见证。",
+  "and you've been with us every step of the way."
+  ],
+  "五月十五，請來聚氣同歡。": [
+  "五月十五，请来聚气同欢。",
+  "On the fifteenth of May, come celebrate with us."
+  ],
+  "BOARDING PASS · 登機證": [
+  "BOARDING PASS · 登机证",
+  "BOARDING PASS"
+  ],
+  "飲咗未啊？": [
+  "饮咗未啊？",
+  "Eaten yet?"
+  ],
+  "你的城市": [
+  "你的城市",
+  "Your city"
+  ],
+  "你": [
+  "你",
+  "You"
+  ],
+  "晚宴 · 待定": [
+  "晚宴 · 待定",
+  "Dinner TBC"
+  ],
+  "廣州 · 確認中": [
+  "广州 · 确认中",
+  "Venue TBC"
+  ],
+  "頭等貴賓": [
+  "头等贵宾",
+  "VIP"
+  ],
+  "STUB · 存根": [
+  "STUB · 存根",
+  "STUB"
+  ],
+  "辦理值機 · 回覆出席 →": [
+  "办理值机 · 回复出席 →",
+  "Check in · RSVP →"
+  ],
+  "約 3 分鐘 · 11/30 前回覆": [
+  "约 3 分钟 · 11/30 前回复",
+  "About 3 min · reply by 11/30"
+  ],
+  "延伸旅遊行程 · 廣州 / 張家界 →": [
+  "延伸旅游行程 · 广州 / 张家界 →",
+  "Extended trips · Guangzhou / Zhangjiajie →"
+  ],
+  "2027.05.15 · 廣州": [
+  "2027.05.15 · 广州",
+  "2027.05.15 · Guangzhou"
+  ],
+  "台灣賓客須知 →": [
+  "台湾宾客须知 →",
+  "Guide for guests from Taiwan →"
+  ]
+  };
+  var ATTRS = ['placeholder', 'aria-label'], IDX = { sc: 0, en: 1 }, HTML_LANG = { tc: 'zh-Hant', sc: 'zh-Hans', en: 'en' };
+  function norm(s){ return s.replace(/\s+/g, ' ').trim(); }
+  var REV = {};
+  Object.keys(D).forEach(function(k){ REV[k] = k; REV[norm(D[k][0])] = k; REV[norm(D[k][1])] = k; });
+  function tr(k, l){ return l === 'tc' ? k : D[k][IDX[l]]; }
+  var cur = 'tc';
+  window.T = function(s){ var k = REV[norm(s)]; return k ? tr(k, cur) : s; };
+  window.hsLang = function(){ return cur; };
+
+  // 先標記：繁中原文對得上的文字節點，記下它前後的空白
+  var tw = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT), n;
+  while ((n = tw.nextNode())) {
+    var p = n.parentNode;
+    if (!p || p.nodeName === 'SCRIPT' || p.nodeName === 'STYLE') continue;
+    if (D[norm(n.nodeValue)]) { p.setAttribute('data-i18n', ''); n._ws = [n.nodeValue.match(/^\s*/)[0], n.nodeValue.match(/\s*$/)[0]]; }
+  }
+  ATTRS.forEach(function(a){
+    document.querySelectorAll('[' + a + ']').forEach(function(el){ if (D[norm(el.getAttribute(a))]) el.setAttribute('data-i18n-attr', ''); });
+  });
+  var TITLE = REV[norm(document.title)];
+
+  function setLang(l){
+    if (!HTML_LANG[l]) l = 'tc';
+    cur = l;
+    document.documentElement.lang = HTML_LANG[l];
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      el.childNodes.forEach(function(t){
+        if (t.nodeType !== 3) return;
+        var k = REV[norm(t.nodeValue)]; if (!k) return;
+        var ws = t._ws || ['', ''];
+        t.nodeValue = ws[0] + tr(k, l) + ws[1];
+      });
+    });
+    document.querySelectorAll('[data-i18n-attr]').forEach(function(el){
+      ATTRS.forEach(function(a){ var v = el.getAttribute(a), k = v && REV[norm(v)]; if (k) el.setAttribute(a, tr(k, l)); });
+    });
+    if (TITLE) document.title = tr(TITLE, l);
+    document.querySelectorAll('[data-setlang]').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-setlang') === l ? 'true' : 'false'); });
+  }
+  document.querySelectorAll('[data-setlang]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var l = b.getAttribute('data-setlang'); setLang(l);
+      try{ localStorage.setItem('hs_lang', l); }catch(e){}
+    });
+  });
+
+  // 沒選過語言時，簡體系統（大陸、新加坡）預設简中，並記住，換到 taiwan/、travel/ 也會延續
+  var saved = null;
+  try{ saved = localStorage.getItem('hs_lang'); }catch(e){}
+  if (!saved) {
+    var nl = (navigator.languages && navigator.languages[0]) || navigator.language || '';
+    if (/^zh-(cn|sg|hans)/i.test(nl)) { saved = 'sc'; try{ localStorage.setItem('hs_lang', 'sc'); }catch(e){} }
+  }
+  if (saved && saved !== 'tc') setLang(saved);
+})();
 </script>
 </body>
 </html>
