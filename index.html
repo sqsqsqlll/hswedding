@@ -28,7 +28,14 @@ sc-if{display:contents;}
 .alb-panel .alb-row,.alb-panel .alb-row2{width:100% !important;}
 .pass-grid{display:flex !important;flex-wrap:wrap;justify-content:space-between;gap:18px 28px !important;}
 .map-hint{display:none;text-align:center;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:#A07E65;padding-top:10px;}
-@media (max-width:720px){ .map-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;} .map-inner{min-width:760px;} .map-hint{display:block;} }
+/* 手機：航線圖縮小到整頁寬度，不左右滑動；地圖內文字放大，縮小後仍看得見 */
+@media (max-width:720px){
+  .map-inner foreignObject div[style*="font-size: 16px"]{font-size:24px !important;letter-spacing:1px !important;white-space:nowrap;}
+  .map-inner foreignObject div[style*="font-size: 20px"]{font-size:26px !important;letter-spacing:2px !important;white-space:nowrap;}
+  .map-inner foreignObject div[style*="font-size: 15px"]{font-size:22px !important;letter-spacing:1px !important;}
+  .map-inner foreignObject div[style*="font-size: 14px"]{display:none;}  /* 「Harry 的日常」：手機上會壓到廣州，省略 */
+  .map-inner>button{width:40px !important;height:40px !important;margin:-20px 0 0 -20px !important;}
+}
 </style>
 </head>
 <body>
