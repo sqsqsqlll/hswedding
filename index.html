@@ -27,14 +27,17 @@ sc-if{display:contents;}
 .alb-panel{width:100%;max-width:760px;margin:0 auto;}
 .alb-panel .alb-row,.alb-panel .alb-row2{width:100% !important;}
 .pass-grid{display:flex !important;flex-wrap:wrap;justify-content:space-between;gap:18px 28px !important;}
+/* 航線圖：圖與城市按鈕放在同一個 1200×600 舞台，整體等比縮放，按鈕永遠扣在地圖的點上 */
+.map-inner{position:relative;width:100%;aspect-ratio:2/1;overflow:hidden;}
+.map-stage{position:absolute;left:0;top:0;width:1200px;height:600px;transform-origin:0 0;transform:scale(var(--k,1));}
+.map-stage>button{width:max(76px,calc(40px / var(--k,1))) !important;height:max(76px,calc(40px / var(--k,1))) !important;margin:0 !important;transform:translate(-50%,-50%) !important;}
 .map-hint{display:none;text-align:center;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:#A07E65;padding-top:10px;}
 /* 手機：航線圖縮小到整頁寬度，不左右滑動；地圖內文字放大，縮小後仍看得見 */
 @media (max-width:720px){
-  .map-inner foreignObject div[style*="font-size: 16px"]{font-size:24px !important;letter-spacing:1px !important;white-space:nowrap;}
-  .map-inner foreignObject div[style*="font-size: 20px"]{font-size:26px !important;letter-spacing:2px !important;white-space:nowrap;}
-  .map-inner foreignObject div[style*="font-size: 15px"]{font-size:22px !important;letter-spacing:1px !important;}
-  .map-inner foreignObject div[style*="font-size: 14px"]{display:none;}  /* 「Harry 的日常」：手機上會壓到廣州，省略 */
-  .map-inner>button{width:40px !important;height:40px !important;margin:-20px 0 0 -20px !important;}
+  .map-art div[style*="font-size: 16px"]{font-size:24px !important;letter-spacing:1px !important;white-space:nowrap;}
+  .map-art div[style*="font-size: 20px"]{font-size:26px !important;letter-spacing:2px !important;white-space:nowrap;}
+  .map-art div[style*="font-size: 15px"]{font-size:22px !important;letter-spacing:1px !important;}
+  .map-art div[style*="font-size: 14px"]{display:none;}  /* 「Harry 的日常」：手機上會壓到廣州，省略 */
 }
 </style>
 </head>
@@ -62,7 +65,7 @@ sc-if{display:contents;}
 <h2 style="margin: 0; font-weight: 300; font-size: 48px; letter-spacing: 10px; line-height: 1.3; color: #5A4336;">命運自有地圖</h2>
 <div style="font-weight: 300; font-size: 20px; letter-spacing: 10px; color: #A07E65;">而我們尋路至此</div></div>
 <div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20px; color: #A07E65;">fate keeps its own map — and we found our way here</div></div>
-<div class="map-scroll"><div class="map-inner" style="position: relative;"><svg role="img" aria-label="航線圖：開羅、東京、廣州，以及台中大甲" viewBox="0 150 1200 600" style="width: 100%; height: auto; display: block;"><foreignObject x="0" y="0" width="1200" height="800"><div style="width: 1200px; height: 800px; position: relative; overflow: hidden; background: #F7F3ED; font-family: 'Noto Serif TC', serif; color: #5A4336;">
+<div class="map-scroll"><div class="map-inner" style="position: relative;"><div class="map-stage"><div class="map-art" role="img" aria-label="航線圖：開羅、東京、廣州，以及台中大甲" style="width: 1200px; height: 800px; margin-top: -150px; position: relative; overflow: hidden; background: #F7F3ED; font-family: 'Noto Serif TC', serif; color: #5A4336;">
 <svg aria-hidden="true" width="1200" height="800" viewBox="0 0 1200 800" style="position: absolute; left: 0; top: 0;">
 <line x1="80" y1="0" x2="80" y2="800" stroke="#ECE3D8" stroke-width="1"></line><line x1="160" y1="0" x2="160" y2="800" stroke="#ECE3D8" stroke-width="1"></line><line x1="240" y1="0" x2="240" y2="800" stroke="#ECE3D8" stroke-width="1"></line><line x1="320" y1="0" x2="320" y2="800" stroke="#ECE3D8" stroke-width="1"></line><line x1="400" y1="0" x2="400" y2="800" stroke="#ECE3D8" stroke-width="1"></line><line x1="480" y1="0" x2="480" y2="800" stroke="#ECE3D8" stroke-width="1"></line><line x1="560" y1="0" x2="560" y2="800" stroke="#ECE3D8" stroke-width="1"></line><line x1="640" y1="0" x2="640" y2="800" stroke="#ECE3D8" stroke-width="1"></line><line x1="720" y1="0" x2="720" y2="800" stroke="#ECE3D8" stroke-width="1"></line><line x1="800" y1="0" x2="800" y2="800" stroke="#ECE3D8" stroke-width="1"></line><line x1="880" y1="0" x2="880" y2="800" stroke="#ECE3D8" stroke-width="1"></line><line x1="960" y1="0" x2="960" y2="800" stroke="#ECE3D8" stroke-width="1"></line><line x1="1040" y1="0" x2="1040" y2="800" stroke="#ECE3D8" stroke-width="1"></line><line x1="1120" y1="0" x2="1120" y2="800" stroke="#ECE3D8" stroke-width="1"></line><line x1="0" y1="80" x2="1200" y2="80" stroke="#ECE3D8" stroke-width="1"></line><line x1="0" y1="160" x2="1200" y2="160" stroke="#ECE3D8" stroke-width="1"></line><line x1="0" y1="240" x2="1200" y2="240" stroke="#ECE3D8" stroke-width="1"></line><line x1="0" y1="320" x2="1200" y2="320" stroke="#ECE3D8" stroke-width="1"></line><line x1="0" y1="400" x2="1200" y2="400" stroke="#ECE3D8" stroke-width="1"></line><line x1="0" y1="480" x2="1200" y2="480" stroke="#ECE3D8" stroke-width="1"></line><line x1="0" y1="560" x2="1200" y2="560" stroke="#ECE3D8" stroke-width="1"></line><line x1="0" y1="640" x2="1200" y2="640" stroke="#ECE3D8" stroke-width="1"></line><line x1="0" y1="720" x2="1200" y2="720" stroke="#ECE3D8" stroke-width="1"></line>
 <path d="M220 560 C 340 400 440 340 520 370 C 610 400 600 500 540 490 C 480 480 500 380 600 340 C 630 322 655 306 680 300 C 760 292 840 340 880 420" fill="none" stroke="#6E2A26" stroke-width="3" stroke-dasharray="2 12" stroke-linecap="round"></path>
@@ -87,7 +90,7 @@ sc-if{display:contents;}
 <div style="position: absolute; left: 704px; top: 312px; display: flex; flex-direction: column; gap: 4px;"><div style="font-family: 'DM Mono', monospace; font-size: 16px; letter-spacing: 3px; color: #6E2A26;">TYO · 東京</div><div style="font-size: 20px; letter-spacing: 4px;">東京塔</div><div style="font-size: 14px; letter-spacing: 2px; color: #A07E65;">Harry 的日常</div></div>
 <div style="position: absolute; left: 470px; top: 520px; font-family: 'DM Mono', monospace; font-size: 15px; letter-spacing: 3px; color: #A07E65;">≈ 9,000 KM · 一個筋斗</div>
 </div>
-</foreignObject></svg><button type="button" data-click="city_cai" aria-label="打開開羅相冊" aria-pressed="{{on_cai}}" style="all: unset; cursor: pointer; position: absolute; left: 18.33%; top: 68.33%; width: 76px; height: 76px; margin: -38px 0 0 -38px; border-radius: 50%; border: 1px solid {{ring_cai}}; background: {{fill_cai}}; transition: all 0.3s;"></button><button type="button" data-click="city_tyo" aria-label="打開東京相冊" aria-pressed="{{on_tyo}}" style="all: unset; cursor: pointer; position: absolute; left: 56.67%; top: 25.0%; width: 76px; height: 76px; margin: -38px 0 0 -38px; border-radius: 50%; border: 1px solid {{ring_tyo}}; background: {{fill_tyo}}; transition: all 0.3s;"></button><button type="button" data-click="city_can" aria-label="打開廣州相冊" aria-pressed="{{on_can}}" style="all: unset; cursor: pointer; position: absolute; left: 73.33%; top: 45.0%; width: 76px; height: 76px; margin: -38px 0 0 -38px; border-radius: 50%; border: 1px solid {{ring_can}}; background: {{fill_can}}; transition: all 0.3s;"></button></div></div><div class="map-hint" aria-hidden="true">← 左右滑動看完整航線，點城市打開相冊 →</div>
+<button type="button" data-click="city_cai" aria-label="打開開羅相冊" aria-pressed="{{on_cai}}" style="all: unset; cursor: pointer; position: absolute; left: 220px; top: 410px; width: 76px; height: 76px; margin: -38px 0 0 -38px; border-radius: 50%; border: 1px solid {{ring_cai}}; background: {{fill_cai}}; transition: all 0.3s;"></button><button type="button" data-click="city_tyo" aria-label="打開東京相冊" aria-pressed="{{on_tyo}}" style="all: unset; cursor: pointer; position: absolute; left: 680px; top: 150px; width: 76px; height: 76px; margin: -38px 0 0 -38px; border-radius: 50%; border: 1px solid {{ring_tyo}}; background: {{fill_tyo}}; transition: all 0.3s;"></button><button type="button" data-click="city_can" aria-label="打開廣州相冊" aria-pressed="{{on_can}}" style="all: unset; cursor: pointer; position: absolute; left: 880px; top: 270px; width: 76px; height: 76px; margin: -38px 0 0 -38px; border-radius: 50%; border: 1px solid {{ring_can}}; background: {{fill_can}}; transition: all 0.3s;"></button></div></div></div><div class="map-hint" aria-hidden="true">← 左右滑動看完整航線，點城市打開相冊 →</div>
 <sc-if data-if="nocity"><div style="display: flex; align-items: center; gap: 14px; justify-content: center; padding-top: 8px;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #6E2A26;"></span><span style="font-weight: 300; font-size: 15px; letter-spacing: 4px; color: #A07E65;">點地圖上的城市，共享在地記憶</span></div></sc-if><sc-if data-if="show_cai"><div class="alb-panel" style="display: flex; flex-direction: column; gap: 24px; padding-top: 8px;">
 <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap;">
 <div style="display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap;"><span style="font-family: 'DM Mono', monospace; font-size: 13px; letter-spacing: 4px; color: #6E2A26;">CAI</span><span style="font-weight: 300; font-size: 30px; letter-spacing: 8px; color: #5A4336;">開羅</span><span style="font-weight: 300; font-size: 15px; letter-spacing: 4px; color: #A07E65;">尼羅河畔 · 相逢</span></div>
@@ -233,7 +236,14 @@ function render(){
   for (const f of ifs) f.el.style.display = vals[f.key] ? 'contents' : 'none';
 }
 render();
-
+// 航線圖舞台縮放：容器寬 / 1200
+(function(){
+  const box = document.querySelector('.map-inner'), stage = box && box.querySelector('.map-stage');
+  if (!stage) return;
+  function fit(){ stage.style.setProperty('--k', box.clientWidth / 1200); }
+  fit();
+  if (window.ResizeObserver) new ResizeObserver(fit).observe(box); else window.addEventListener('resize', fit);
+})();
 </script>
 </body>
 </html>
