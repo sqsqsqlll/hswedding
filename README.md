@@ -1,12 +1,14 @@
 # Harry & Sincer · 婚禮網站
 
-2027.05.15（週六・晚宴）廣州婚宴邀請頁，**場地確認中**。目前這版的目的是先收出席意願與人數，場地定案後再發正式喜帖。繁中／簡中／English 三語切換。
+2027.05.15（週六・晚宴）廣州婚宴邀請頁，**場地確認中**。目前這版的目的是先收出席意願與人數，場地定案後再發正式喜帖。
+
+現行首頁是 **Portra 北歐極簡版**（2026-10-31 由 `portra` 分支併入 `main`），RSVP 在 `checkin/`（線上值機）。
 
 線上網址：<https://sqsqsqlll.github.io/hswedding/>
 
 > 赤金登機版（Claude Design「婚宴主視覺方案」）在 [`red` 分支](https://github.com/sqsqsqlll/hswedding/tree/red)，與本分支分開維護；
 > GitHub Pages 上的網址是 <https://sqsqsqlll.github.io/hswedding/red/>。
-> Portra 北歐極簡版在 [`portra` 分支](https://github.com/sqsqsqlll/hswedding/tree/portra)，網址是 <https://sqsqsqlll.github.io/hswedding/portra/>。
+> Portra 版已併入 `main`，之後**一律改 `main`**；`portra` 分支與 `/portra/` 網址暫時保留，不再更新。
 
 ---
 
@@ -14,7 +16,9 @@
 
 ```
 .
-├── index.html          主頁：故事線、婚宴資訊、延伸旅遊、RSVP 表單
+├── index.html          主頁：航線地圖、相冊、四時、登機證
+├── checkin/
+│   └── index.html      線上值機：RSVP 表單
 ├── taiwan/
 │   └── index.html      台灣賓客須知：台胞證、航班、張家界 B 團、注意事項
 ├── travel/
