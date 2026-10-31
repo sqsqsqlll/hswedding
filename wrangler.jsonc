@@ -8,6 +8,10 @@
   "name": "hswedding",
   "compatibility_date": "2026-08-31",
 
+  // 部署前一定先組建 .deploy-build/（含白名單檢查）。不靠 Cloudflare 後台的建置指令，
+  // 後台沒設或設錯時也能部署；後台若也設了，只是多跑一次，結果相同。
+  "build": { "command": "bash scripts/build-public.sh" },
+
   "assets": { "directory": "./.deploy-build" },
 
   // 照後台現況明確寫出，避免部署時自訂網域被拿掉。
